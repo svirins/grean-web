@@ -1,6 +1,5 @@
-import { ITag } from "@/app/lib/sanity";
+import { type ITag, type SanityAssetExtended } from "@/app/lib/sanity";
 import { CoverImage } from "@/app/ui/CoverImage";
-import { SanityAssetExtended } from "@/app/lib/sanity";
 import Link from "next/link";
 
 export function Card({

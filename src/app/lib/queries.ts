@@ -33,14 +33,14 @@ export const allPostsQuery = groq`
 
 // search posts by title
 export const searchPostsQuery = groq`
-*[_type == "post" && title match $queryString] | order(datePublished desc, _updatedAt desc) {
+*[_type == "post" && title match $queryString && !(_id in path("drafts.**"))] | order(datePublished desc, _updatedAt desc) [$fromPosition...$toPosition] {
   ${commonFields},
   ${postFields}
 }`;
 
 // filter posts by 'featured'
 export const featuredPostsQuery = groq`
-*[_type == "post" && displayAtFront] |  order(datePublished desc, _updatedAt desc) [0...${FEATURED_POSTS_LIMIT}] {
+*[_type == "post" && displayAtFront && !(_id in path("drafts.**"))] |  order(datePublished desc, _updatedAt desc) [0...${FEATURED_POSTS_LIMIT}] {
   ${commonFields},
   ${postFields}
 }`;
@@ -74,7 +74,7 @@ export const postsByTagQuery = groq`
 // PSYHELP QUERIES
 // get all psyHelp pages'
 export const allPsyHelpQuery = groq`
-*[_type == "psyHelp"] | order(order asc) {
+*[_type == "psyHelp" && !(_id in path("drafts.**"))] | order(order asc) {
   ${commonFields},
   description
 }`;
@@ -91,7 +91,7 @@ export const psyHelpBySlugQuery = groq`
 // THERAPY QUERIES
 // get all THERAPY pages'
 export const allTherapiesQuery = groq`
-*[_type == "therapy"] | order(order asc) {
+*[_type == "therapy" && !(_id in path("drafts.**"))] | order(order asc) {
   ${commonFields},
   description
 }`;
@@ -117,3 +117,5 @@ export const therapySlugsQuery = groq`
 
 export const psyHelpSlugsQuery = groq`
 *[_type == "psyHelp" && defined(slug.current)][].slug.current`;
+
+export const totalPostsNumberQuery = groq`count(*[_type == 'post' && !(_id in path("drafts.**"))])`;

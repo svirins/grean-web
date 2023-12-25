@@ -95,15 +95,22 @@ import {
   tagSlugsQuery,
   therapySlugsQuery,
   psyHelpSlugsQuery,
+  totalPostsNumberQuery,
 } from "./queries";
 
 export async function getAllPosts(): Promise<IPost[]> {
   const posts = await sanityClient.fetch(allPostsQuery);
   return posts;
 }
-export async function searchPosts(queryString: string): Promise<IPost[]> {
+export async function searchPosts(
+  queryString: string,
+  fromPosition: number,
+  toPosition: number,
+): Promise<IPost[]> {
   const posts = await sanityClient.fetch(searchPostsQuery, {
     queryString: queryString,
+    fromPosition: fromPosition,
+    toPosition: toPosition,
   });
   return posts;
 }

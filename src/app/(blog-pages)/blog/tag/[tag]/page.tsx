@@ -1,32 +1,23 @@
-import { searchPosts } from "@/app/lib/sanity";
-import { SearchBar } from "@/app/ui/SearchBar";
-
-type Props = {
-  params: object;
-  searchParams: { title?: string };
-};
-const isEmptyObject = (obj: object) => {
-  return JSON.stringify(obj) === "{}";
-};
+import { getPostsByTag, getTagSlugs } from "@/app/lib/sanity";
 import { Card } from "@/app/ui/Card";
+import { SearchBar } from "@/app/ui/SearchBar";
 import SectionHeader from "@/app/ui/SectionHeader";
 
-export default async function BlogPage(props: Props) {
-  const searchParams = props.searchParams;
-  const queryString = isEmptyObject(searchParams)
-    ? "*"
-    : `${searchParams.title}*`;
-  const data = await searchPosts(queryString, skip, limit);
+export default async function TagPage({
+  params,
+}: {
+  params: {
+    tag: string;
+    searchParams: URLSearchParams;
+  };
+}) {
+  const { posts: data, title, description } = await getPostsByTag(params.tag);
   return (
     <div
       id="page_container"
       className="mx-auto flex min-h-screen max-w-[1440px] flex-col gap-y-16 px-4 md:gap-y-20 md:px-10"
     >
-      <SectionHeader
-        title="Статьи"
-        subTitle="Вы можете ознакомиться с более чем 90 статьями и информационными
-          материалами."
-      />
+      <SectionHeader title={title} subTitle={description ?? "Описание тега"} />
       <SearchBar />
       <div className="mx-auto hidden grid-cols-1 gap-x-5 gap-y-10 md:grid lg:mx-0 lg:max-w-none lg:grid-cols-3">
         {data?.length ? (
@@ -47,4 +38,11 @@ export default async function BlogPage(props: Props) {
       </div>
     </div>
   );
+}
+
+export async function generateStaticParams() {
+  const paths = await getTagSlugs();
+  return paths.map((tag) => ({
+    tag,
+  }));
 }

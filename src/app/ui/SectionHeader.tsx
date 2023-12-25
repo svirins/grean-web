@@ -28,7 +28,7 @@ export default function SectionHeader(props: Props) {
       </div>
       {subTitle && (
         <div className="pt-8 md:pt-9">
-          <p className="max-w-4xl text-lg leading-6 md:text-2xl md:leading-[30px]">
+          <p className="max-w-4xl text-lg leading-6 first-letter:uppercase md:text-2xl md:leading-[30px]">
             {subTitle}
           </p>
         </div>
