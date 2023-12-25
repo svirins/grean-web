@@ -1,114 +1,200 @@
-import Link from "next/link";
+// import Link from "next/link";
 
-export function Footer() {
+// export function Footer() {
+//   return (
+//     <footer className="bg-gray-900 pb-16 pt-48">
+//       <div className="grid-rows-max-content xl:gap-x-6mx-auto relative mx-auto grid max-w-[1440px] grid-cols-4 gap-x-4 md:grid-cols-8 xl:grid-cols-12">
+//         <div
+//       </div>
+//     </footer>
+//   );
+// }
+
+function SubscribeSection() {
   return (
-    <footer className="bg-bk-purple">
-      <div className="mx-auto max-w-[1440px] overflow-hidden px-4 py-12 sm:px-6 lg:px-8">
-        <div className="flex flex-col items-center  lg:flex-row lg:justify-between">
-          <span className="mb-8 flex lg:mb-0">
-            <Link href="/">
-              <span className="text-2xl font-bold lg:ml-[140px]">
-                Dr. Grean
-              </span>
-            </Link>
-          </span>
+    <div>
+      <h4>Записатья на консультацию</h4>
+      <div className="mt-4 max-w-md">
+        <p>
+          Квалифицированный специалист поможет оставить в прошлом Ваши проблемы,
+          тревоги и страхи!
+        </p>
+      </div>
+    </div>
+  );
+}
+function ContactSection() {
+  return (
+    <div>
+      <h4>Контакты</h4>
+      <ul className="mt-4">
+        <FooterLink name="+375 29 667-23-80 " href="tel:+375296672380" />
+        <FooterLink name="Email " href="mailto:vgrean@mail.ru" />
+        <FooterLink name="Skype" href="skype:valeri20770?call" />
+      </ul>
+    </div>
+  );
+}
+function GeneralSection() {
+  return (
+    <div>
+      <h4>Информация</h4>
+      <ul className="mt-4">
+        <FooterLink name="Правила и условия" href="/terms-and-conditions" />
+        <FooterLink name="Договор оферты" href="/contract-offer" />
+        <FooterLink
+          name="Прейскурант и оплата услуг"
+          href="/prices-and-payment"
+        />
+        <FooterLink name="Вопросы и ответы" href="/q-and-a" />
+      </ul>
+    </div>
+  );
+}
 
-          {/* Socials */}
-          <span className="mb-8 flex gap-x-4 lg:mb-0">
-            <span>
-              <svg
-                width="24"
-                height="19"
-                viewBox="0 0 24 19"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                className="mr-2 inline-flex"
-              >
-                <path
-                  d="M9.07499 1.36023C9.07499 1.36023 6.01874 1.57023 4.01999 3.17523C4.01061 3.17898 3.99936 3.18461 3.98999 3.19023C3.64311 3.51086 3.38249 4.00773 3.05999 4.72023C2.73749 5.43273 2.39624 6.34961 2.08499 7.37523C1.46436 9.42836 0.959987 11.9484 0.959987 14.3202C0.958112 14.4046 0.978737 14.4871 1.01999 14.5602C1.72124 15.7921 3.01124 16.5365 4.21499 17.0052C5.41874 17.474 6.53061 17.6615 7.09499 17.6802C7.25436 17.6859 7.40624 17.6127 7.49999 17.4852L8.66999 15.8652C9.61311 16.0884 10.7194 16.2402 12 16.2402C13.2806 16.2402 14.3869 16.0884 15.33 15.8652L16.5 17.4852C16.5937 17.6127 16.7456 17.6859 16.905 17.6802C17.4694 17.6615 18.5812 17.474 19.785 17.0052C20.9887 16.5365 22.2787 15.7921 22.98 14.5602C23.0212 14.4871 23.0419 14.4046 23.04 14.3202C23.04 11.9484 22.5356 9.42836 21.915 7.37523C21.6037 6.34961 21.2625 5.43273 20.94 4.72023C20.6175 4.00773 20.3569 3.51086 20.01 3.19023C20.0006 3.18461 19.9894 3.17898 19.98 3.17523C17.9812 1.57023 14.925 1.36023 14.925 1.36023C14.8894 1.35648 14.8556 1.35648 14.82 1.36023C14.6531 1.38273 14.5125 1.49148 14.445 1.64523C14.445 1.64523 14.2819 2.00336 14.175 2.51523C13.2394 2.36523 12.4519 2.32023 12 2.32023C11.5481 2.32023 10.7606 2.36523 9.82499 2.51523C9.71811 2.00336 9.55499 1.64523 9.55499 1.64523C9.47249 1.45773 9.27936 1.34336 9.07499 1.36023ZM8.77499 2.39523C8.81061 2.49273 8.83499 2.58461 8.86499 2.69523C7.78311 2.94648 6.59811 3.35711 5.48999 4.04523C5.31561 4.11836 5.20124 4.28711 5.19561 4.47648C5.19186 4.66398 5.29874 4.83836 5.46749 4.92086C5.63811 5.00148 5.84061 4.97711 5.98499 4.85523C8.20874 3.47711 11.0381 3.28023 12 3.28023C12.9619 3.28023 15.7912 3.47711 18.015 4.85523C18.1594 4.97711 18.3619 5.00148 18.5325 4.92086C18.7012 4.83836 18.8081 4.66398 18.8044 4.47648C18.7987 4.28711 18.6844 4.11836 18.51 4.04523C17.4019 3.35711 16.2169 2.94648 15.135 2.69523C15.165 2.58461 15.1894 2.49273 15.225 2.39523C15.7725 2.46273 17.9006 2.74961 19.35 3.89523C19.4437 3.98148 19.77 4.46148 20.07 5.12523C20.37 5.78898 20.685 6.65336 20.985 7.64523C21.57 9.58023 22.0425 11.9671 22.065 14.1552C21.5194 15.0384 20.4956 15.6946 19.44 16.1052C18.48 16.4784 17.5837 16.6452 17.115 16.6902L16.305 15.5952C16.7175 15.4621 17.0887 15.3177 17.415 15.1752C18.6262 14.6427 19.275 14.0802 19.275 14.0802C19.4737 13.9021 19.4906 13.5965 19.3125 13.3977C19.1344 13.199 18.8287 13.1821 18.63 13.3602C18.63 13.3602 18.1275 13.8196 17.025 14.3052C16.62 14.4834 16.1287 14.6596 15.57 14.8152C15.4406 14.8002 15.3112 14.8377 15.21 14.9202C14.3156 15.1377 13.2525 15.2802 12 15.2802C10.7381 15.2802 9.67311 15.1246 8.77499 14.9052C8.67374 14.8377 8.54999 14.8096 8.42999 14.8302C7.86936 14.6746 7.38186 14.4834 6.97499 14.3052C5.87249 13.8196 5.36999 13.3602 5.36999 13.3602C5.26124 13.259 5.11124 13.2159 4.96499 13.2402C4.77936 13.2684 4.62561 13.4015 4.57499 13.5834C4.52249 13.7634 4.58249 13.9584 4.72499 14.0802C4.72499 14.0802 5.37374 14.6427 6.58499 15.1752C6.91124 15.3177 7.28249 15.4621 7.69499 15.5952L6.88499 16.6902C6.41624 16.6452 5.51999 16.4784 4.55999 16.1052C3.50436 15.6946 2.48061 15.0384 1.93499 14.1552C1.95749 11.9671 2.42999 9.58023 3.01499 7.64523C3.31499 6.65336 3.62999 5.78898 3.92999 5.12523C4.22999 4.46148 4.55624 3.98148 4.64999 3.89523C6.09936 2.74961 8.22749 2.46273 8.77499 2.39523ZM8.87999 8.08023C7.65561 8.08023 6.71999 9.19211 6.71999 10.4802C6.71999 11.7684 7.65561 12.8802 8.87999 12.8802C10.1044 12.8802 11.04 11.7684 11.04 10.4802C11.04 9.19211 10.1044 8.08023 8.87999 8.08023ZM15.12 8.08023C13.8956 8.08023 12.96 9.19211 12.96 10.4802C12.96 11.7684 13.8956 12.8802 15.12 12.8802C16.3444 12.8802 17.28 11.7684 17.28 10.4802C17.28 9.19211 16.3444 8.08023 15.12 8.08023ZM8.87999 9.04023C9.51186 9.04023 10.08 9.64773 10.08 10.4802C10.08 11.3127 9.51186 11.9202 8.87999 11.9202C8.24811 11.9202 7.67999 11.3127 7.67999 10.4802C7.67999 9.64773 8.24811 9.04023 8.87999 9.04023ZM15.12 9.04023C15.7519 9.04023 16.32 9.64773 16.32 10.4802C16.32 11.3127 15.7519 11.9202 15.12 11.9202C14.4881 11.9202 13.92 11.3127 13.92 10.4802C13.92 9.64773 14.4881 9.04023 15.12 9.04023Z"
-                  fill="black"
-                  stroke="black"
-                />
-              </svg>
-              <a
-                className="text-base font-normal text-black"
-                href="https://discord.com/"
-              >
-                Discord
-              </a>
-            </span>
-            <span>
-              <svg
-                width="13"
-                height="22"
-                viewBox="0 0 13 22"
-                className="mr-2 inline-flex"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M12 1H9C7.67392 1 6.40215 1.52678 5.46447 2.46447C4.52678 3.40215 4 4.67392 4 6V9H1V13H4V21H8V13H11L12 9H8V6C8 5.73478 8.10536 5.48043 8.29289 5.29289C8.48043 5.10536 8.73478 5 9 5H12V1Z"
-                  stroke="black"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-              <a
-                className="text-base font-normal text-black"
-                href="https://www.facebook.com"
-              >
-                Facebook
-              </a>
-            </span>
-            <span>
-              <svg
-                width="22"
-                height="22"
-                viewBox="0 0 22 22"
-                fill="none"
-                className="mr-2 inline-flex"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M11 15C13.2091 15 15 13.2091 15 11C15 8.79086 13.2091 7 11 7C8.79086 7 7 8.79086 7 11C7 13.2091 8.79086 15 11 15Z"
-                  stroke="black"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-                <path
-                  d="M15 6.99987V11.9999C15 12.7955 15.3161 13.5586 15.8787 14.1212C16.4413 14.6838 17.2044 14.9999 18 14.9999C18.7957 14.9999 19.5587 14.6838 20.1213 14.1212C20.6839 13.5586 21 12.7955 21 11.9999V10.9999C20.9999 8.7429 20.2362 6.55235 18.8333 4.7844C17.4303 3.01645 15.4706 1.77509 13.2726 1.26217C11.0747 0.749237 8.76794 0.994909 6.72735 1.95923C4.68676 2.92356 3.0324 4.54982 2.03326 6.57359C1.03412 8.59736 0.748968 10.8996 1.22417 13.106C1.69937 15.3124 2.90698 17.2931 4.65063 18.7261C6.39429 20.1592 8.57143 20.9602 10.8281 20.999C13.0847 21.0378 15.2881 20.3121 17.08 18.9399"
-                  stroke="black"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
+function SitemapSection() {
+  return (
+    <div>
+      <h6>Sitemap</h6>
+      <ul className="mt-4">
+        <FooterLink name="Главная" href="/" />
+        <FooterLink name="Помощь" href="/psyhelp" />
+        <FooterLink name="Направления" href="/therapy" />
+        <FooterLink name="Обо мне" href="/about" />
+        <FooterLink name="Статьи" href="/blog" />
+        <FooterLink name="Sitemap.xml" reload href="/sitemap.xml" />
+      </ul>
+    </div>
+  );
+}
 
-              <a
-                className="text-base font-normal text-black"
-                href="mailto:vgrean@gmail.com"
-              >
-                Email
-              </a>
-            </span>
-          </span>
-          {/* Privacy & Copyright */}
-          <span className="mb-12 flex gap-x-4 lg:mb-0">
-            <a
-              href="https://www.iubenda.com"
-              className="iubenda-embed no-brand iubenda-nostyle iubenda-noiframe text-base font-normal text-black"
-              title="Privacy Policy"
-            >
-              Privacy Policy
-            </a>
-            <span className="text-base font-normal text-black lg:mr-[96px]">
-              &copy;{` Breakout ${new Date().getFullYear()}`}
-            </span>
-          </span>
+function AboutSection() {
+  return (
+    <div>
+      <h4 as="div">Kent C. Dodds</h4>
+
+      <p className="text-secondary mt-6 max-w-md text-2xl">
+        Full time educator making our world better
+      </p>
+
+      <div className="text-secondary mt-6 flex items-center justify-between gap-4 xl:flex-col xl:items-start">
+        <div className="flex gap-4">
+          <IconLink href={externalLinks.github}>
+            <GithubIcon size={32} />
+          </IconLink>
+          <IconLink href={externalLinks.youtube}>
+            <YoutubeIcon size={32} />
+          </IconLink>
+          <IconLink href={externalLinks.twitter}>
+            <TwitterIcon size={32} />
+          </IconLink>
+          <IconLink href={externalLinks.rss}>
+            <RssIcon size={32} />
+          </IconLink>
+        </div>
+
+        <div className="text-secondary relative flex w-24 items-center xl:mt-20 xl:w-32">
+          {/* absolute position so that it doesn't change line-height of social icons */}
+          <Signature className="absolute block w-full" />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function FooterLink({
+  name,
+  href,
+  reload,
+}: {
+  name: string;
+  href: string;
+  reload?: boolean;
+}) {
+  return (
+    <li className="py-1">
+      <AnchorOrLink
+        prefetch={href.startsWith("http") ? undefined : "intent"}
+        href={href}
+        className="text-secondary underlined hover:text-team-current focus:text-team-current inline-block whitespace-nowrap text-lg focus:outline-none"
+        reload={reload}
+      >
+        {name}
+      </AnchorOrLink>
+    </li>
+  );
+}
+
+function Footer({ image }: { image: ImageBuilder }) {
+  const { userInfo } = useRootData();
+  const subscribedToNewsletter =
+    Boolean(userInfo) ||
+    userInfo?.convertKit?.tags.some(
+      ({ name }) => name === "Subscribed: general newsletter",
+    );
+  const featuredImg = (
+    <div className="aspect-[4/3]">
+      <img
+        loading="lazy"
+        className="w-full rounded-sm object-contain"
+        {...getImgProps(image, {
+          widths: [300, 600, 850, 1600, 2550],
+          sizes: [
+            "(max-width: 639px) 80vw",
+            "(min-width: 640px) and (max-width: 1499px) 50vw",
+            "(min-width: 1500px) and (max-width: 1620px) 25vw",
+            "410px",
+          ],
+          transformations: {
+            resize: {
+              aspectRatio: "4:3",
+              type: "fit",
+            },
+          },
+        })}
+      />
+    </div>
+  );
+  return (
+    <footer className="border-t border-gray-200 pb-16 pt-48 dark:border-gray-600">
+      <div className="mx-10vw relative">
+        <div className="grid-rows-max-content relative mx-auto grid max-w-7xl grid-cols-4 gap-x-4 md:grid-cols-8 xl:grid-cols-12 xl:gap-x-6">
+          <div className="col-span-full md:col-span-3 xl:row-span-2">
+            <AboutSection />
+          </div>
+
+          <div className="col-span-full mt-20 md:col-span-5 md:col-start-1 xl:hidden">
+            {subscribedToNewsletter ? featuredImg : <NewsletterSection />}
+          </div>
+
+          <div className="col-span-2 mt-20 md:col-start-5 md:row-start-1 md:mt-0">
+            <ContactSection />
+          </div>
+
+          <div className="col-span-2 mt-20 md:col-start-7 md:row-start-1 md:mt-0 xl:col-start-5 xl:row-start-2 xl:mt-16">
+            <GeneralSection />
+          </div>
+
+          <div className="col-span-full mt-20 md:col-span-2 md:col-start-7 xl:col-start-5 xl:row-span-2 xl:row-start-1 xl:ml-56 xl:mt-0">
+            <SitemapSection />
+          </div>
+
+          {/*
+          Note that the <NewsletterSection /> is rendered twice. The position of this cell changes based on breakpoint.
+          When we would move the cell around with css only, the tabIndex won't match the visual order.
+         */}
+          <div className="col-span-4 col-start-9 row-span-2 row-start-1 mt-0 hidden xl:block">
+            <SubscribeSection />
+          </div>
+
+          <div className="col-span-full mt-24 text-lg text-gray-500 md:mt-44 dark:text-slate-500">
+            <span>Все права защищены</span>{" "}
+            <span className="block md:inline">{`© Валерий Гринь${new Date().getFullYear()}`}</span>
+          </div>
         </div>
       </div>
     </footer>
   );
 }
+
+export { Footer };

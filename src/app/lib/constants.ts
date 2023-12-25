@@ -5,27 +5,6 @@ export const NAV_LINKS = [
   { href: "/blog", text: " Статьи" },
 ];
 
-export const FOOTER_NAV_LINKS = [
-  { href: "/terms-and-conditions", text: "Правила и условия" },
-  { href: "/contract-offer", text: "Договор оферты" },
-  { href: "/prices-and-payment", text: "Прейскурант и оплата услуг" },
-  { href: "/q-and-a", text: "Вопросы и ответы" },
-];
-
-export const CONTACTS = [
-  {
-    link: "tel:+375296672380",
-    icon: "",
-  },
-  {
-    link: "skype:valeri20770?call",
-    icon: "",
-  },
-  {
-    link: "mailto:vgrean@mail.ru",
-    icon: "",
-  },
-];
 
 export const SOCIALS = [
   {
@@ -42,6 +21,6 @@ export const SOCIALS = [
   },
 ];
 
-export const POSTS_LIMIT = 50;
+export const POSTS_LIMIT = 200;
 export const FEATURED_POSTS_LIMIT = 3;
-export const PAGINATION_FRAME_SIZE = 6;
+export const INFINITE_SCROLL_FRAME_SIZE = 3;

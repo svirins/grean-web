@@ -1,5 +1,8 @@
-import { searchPosts } from "@/app/lib/sanity";
 import { SearchBar } from "@/app/ui/SearchBar";
+import { LoadMore } from "@/app/ui/LoadMore";
+import SectionHeader from "@/app/ui/SectionHeader";
+import { InfinitePostGrid } from "@/app/ui/InfinitePostGrid";
+import { searchPosts } from "@/app/lib/actions";
 
 type Props = {
   params: object;
@@ -8,15 +11,13 @@ type Props = {
 const isEmptyObject = (obj: object) => {
   return JSON.stringify(obj) === "{}";
 };
-import { Card } from "@/app/ui/Card";
-import SectionHeader from "@/app/ui/SectionHeader";
 
 export default async function BlogPage(props: Props) {
   const searchParams = props.searchParams;
   const queryString = isEmptyObject(searchParams)
     ? "*"
     : `${searchParams.title}*`;
-  const data = await searchPosts(queryString, skip, limit);
+  const data = await searchPosts(queryString, 1);
   return (
     <div
       id="page_container"
@@ -30,21 +31,12 @@ export default async function BlogPage(props: Props) {
       <SearchBar />
       <div className="mx-auto hidden grid-cols-1 gap-x-5 gap-y-10 md:grid lg:mx-0 lg:max-w-none lg:grid-cols-3">
         {data?.length ? (
-          data?.map((post) => (
-            <Card
-              key={post._id}
-              title={post.title}
-              coverImage={post.coverImage}
-              datePublished={post.datePublished}
-              description={post.description}
-              link={`/blog/${post.slug}`}
-              tags={post.tags}
-            />
-          ))
+          <InfinitePostGrid posts={data} />
         ) : (
           <p>По вашему запросу ничего не найдено</p>
         )}
       </div>
+      <LoadMore queryString={queryString} />
     </div>
   );
 }
