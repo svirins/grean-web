@@ -1,0 +1,145 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  font-family: "Inter", sans !important;
+}
+
+::selection {
+  background-color: #47a3f3;
+  color: #fefefe;
+}
+
+.scrollable {
+  scroll-margin-top: 1.125rem !important;
+}
+
+.prose {
+  @apply text-lg leading-relaxed;
+}
+
+.prose p,
+.prose ul,
+.prose ol,
+.prose blockquote {
+  @apply my-6;
+}
+
+.prose ul {
+  @apply ml-0 list-none md:ml-4 md:list-disc;
+}
+
+.prose ol {
+  @apply ml-0 list-none md:ml-4 md:list-decimal;
+}
+
+.prose h2 {
+  @apply mb-4 mt-12 text-3xl leading-snug;
+}
+
+.prose h3 {
+  @apply mb-4 mt-8 text-2xl leading-snug;
+}
+
+.prose a {
+  @apply text-blue-500 underline transition-colors duration-200;
+}
+.prose a:hover {
+  @apply text-blue-800;
+}
+
+.anchor {
+  @apply invisible absolute no-underline;
+  margin-left: -1em;
+  padding-right: 0.5em;
+  width: 80%;
+  max-width: 700px;
+  cursor: pointer;
+}
+
+.anchor:hover {
+  @apply visible;
+}
+
+.prose .anchor:after {
+  @apply text-gray-700;
+  content: "#";
+}
+
+.prose *:hover > .anchor {
+  @apply visible;
+}
+
+.prose img {
+  @apply m-0;
+}
+
+.prose > :first-child {
+  margin-top: 1.25em !important;
+  margin-bottom: 1.25em !important;
+}
+/* custom styles (just mocks) for internal portable text components
+*/
+.horizontal-divider {
+  @apply mx-auto w-full max-w-2xl border-[0.5px] border-gray-700;
+}
+
+.highlight-line {
+  @apply border-b-2 border-blue-500 bg-blue-300 px-[4px] py-[2px];
+}
+
+.screen-reader {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* New desgin starts from here */
+.title-hero {
+  @apply text-[64px] font-semibold leading-[80px]  lg:text-[96px] lg:leading-[115px];
+}
+
+.title-h1 {
+  @apply font-sans text-[64px] font-semibold leading-[72px]  lg:text-[40px] lg:leading-[50px];
+}
+
+.title-h2 {
+  @apply font-sans text-[40px] font-semibold leading-[50px]  lg:text-[24px] lg:leading-[30px];
+}
+
+.title-h3 {
+  @apply font-sans text-[24px] font-normal leading-[32px]  lg:text-[16px] lg:font-semibold lg:leading-[24px];
+}
+
+.title-h4 {
+  @apply font-sans text-[18px] font-semibold leading-[24px]  lg:text-[16px] lg:font-normal lg:leading-[26px];
+}
+
+/* bold and light modifiers are applied in-place */
+.text {
+  @apply font-sans leading-7 text-bk-black;
+}
+
+.none {
+  display: none !important;
+}
+
+@keyframes indeterminateAnimation {
+  0% {
+    transform: translateX(0) scaleX(0);
+  }
+  40% {
+    transform: translateX(0) scaleX(0.4);
+  }
+  100% {
+    transform: translateX(100%) scaleX(0.5);
+  }
+}
