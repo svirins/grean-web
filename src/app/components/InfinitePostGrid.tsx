@@ -1,5 +1,5 @@
 import { type IPost } from "@/app/lib/sanity";
-import { Card } from "@/app/ui/Card";
+import { Card } from "@/app/components/Card";
 
 export function InfinitePostGrid({ posts }: { posts: IPost[] }) {
   return posts?.map((post) => (

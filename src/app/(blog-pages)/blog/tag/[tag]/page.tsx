@@ -1,7 +1,7 @@
 import { getPostsByTag, getTagSlugs } from "@/app/lib/sanity";
-import { Card } from "@/app/ui/Card";
-import { SearchBar } from "@/app/ui/SearchBar";
-import SectionHeader from "@/app/ui/SectionHeader";
+import { Card } from "@/app/components/Card";
+import { SearchBar } from "@/app/components/SearchBar";
+import { HeaderSection } from "@/app/components/sections/HeaderSection";
 
 export default async function TagPage({
   params,
@@ -17,7 +17,7 @@ export default async function TagPage({
       id="page_container"
       className="mx-auto flex min-h-screen max-w-[1440px] flex-col gap-y-16 px-4 md:gap-y-20 md:px-10"
     >
-      <SectionHeader title={title} subTitle={description ?? "Описание тега"} />
+      <HeaderSection title={title} subTitle={description ?? "Описание тега"} />
       <SearchBar />
       <div className="mx-auto hidden grid-cols-1 gap-x-5 gap-y-10 md:grid lg:mx-0 lg:max-w-none lg:grid-cols-3">
         {data?.length ? (

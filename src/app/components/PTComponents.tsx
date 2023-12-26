@@ -1,9 +1,7 @@
-
 import Link from "next/link";
-import { SanityImage } from "@/app/ui/SanityImage";
-import {type SanityAssetExtended} from '@/app/lib/sanity';
+import { SanityImage } from "@/app/components/SanityImage";
+import { type SanityAssetExtended } from "@/app/lib/sanity";
 import { type PortableTextReactComponents } from "@portabletext/react";
-
 
 export const PTComponents: Partial<PortableTextReactComponents> = {
   types: {

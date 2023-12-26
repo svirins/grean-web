@@ -1,4 +1,4 @@
-import classnames from "classnames";
+import clsx from "clsx";
 
 const arrowRotationMap = {
   up: "rotate-180",
@@ -19,11 +19,7 @@ export function ArrowIcon({
 }) {
   return (
     <svg
-      className={classnames(
-        className,
-        "transform",
-        arrowRotationMap[direction],
-      )}
+      className={clsx(className, "transform", arrowRotationMap[direction])}
       width={size}
       height={size}
       viewBox="0 0 32 32"

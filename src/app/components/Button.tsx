@@ -1,4 +1,4 @@
-import classNames from "classnames";
+import clsx from "clsx";
 
 type Variant = "outlined" | "link" | "contained" | "none";
 
@@ -20,7 +20,7 @@ export function Button(props: Props): React.ReactElement {
   return (
     <button
       type="button"
-      className={classNames(
+      className={clsx(
         "flex items-center justify-center gap-2",
         classes[variant],
         className,

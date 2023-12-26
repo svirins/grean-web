@@ -1,4 +1,4 @@
-import { FEATURED_POSTS_LIMIT, POSTS_LIMIT } from "@/app/lib/constants";
+import { FEATURED_POSTS_LIMIT } from "@/app/lib/constants";
 import groq from "groq";
 
 const postFields = groq`
@@ -34,6 +34,7 @@ export const allPostsQuery = groq`
 // search posts by title
 export const searchPostsQuery = groq`
 *[_type == "post" && title match $queryString && !(_id in path("drafts.**"))] | order(datePublished desc, _updatedAt desc) [$fromPosition...$toPosition] {
+  "readingTime": round(length(pt::text(body)) / 5 / 180 ),
   ${commonFields},
   ${postFields}
 }`;
@@ -42,7 +43,9 @@ export const searchPostsQuery = groq`
 export const featuredPostsQuery = groq`
 *[_type == "post" && displayAtFront && !(_id in path("drafts.**"))] |  order(datePublished desc, _updatedAt desc) [0...${FEATURED_POSTS_LIMIT}] {
   ${commonFields},
-  ${postFields}
+  ${postFields},
+  "readingTime": round(length(pt::text(body)) / 5 / 180 )
+
 }`;
 
 // get post (with related posts) by 'slug'
@@ -67,7 +70,8 @@ export const postsByTagQuery = groq`
   description,
   "posts":  *[_type == 'post' && references(^._id)] {
     ${commonFields},
-    ${postFields}
+    ${postFields},
+    "readingTime": round(length(pt::text(body)) / 5 / 180 )
     } | order(_updatedAt desc)
 }[0]`;
 

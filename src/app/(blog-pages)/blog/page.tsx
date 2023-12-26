@@ -1,7 +1,7 @@
-import { SearchBar } from "@/app/ui/SearchBar";
-import { LoadMore } from "@/app/ui/LoadMore";
-import SectionHeader from "@/app/ui/SectionHeader";
-import { InfinitePostGrid } from "@/app/ui/InfinitePostGrid";
+import { SearchBar } from "@/app/components/SearchBar";
+import { LoadMore } from "@/app/components/LoadMore";
+import { HeaderSection } from "@/app/components/sections/HeaderSection";
+import { InfinitePostGrid } from "@/app/components/InfinitePostGrid";
 import { searchPosts } from "@/app/lib/actions";
 
 type Props = {
@@ -23,7 +23,7 @@ export default async function BlogPage(props: Props) {
       id="page_container"
       className="mx-auto flex min-h-screen max-w-[1440px] flex-col gap-y-16 px-4 md:gap-y-20 md:px-10"
     >
-      <SectionHeader
+      <HeaderSection
         title="Статьи"
         subTitle="Вы можете ознакомиться с более чем 90 статьями и информационными
           материалами."

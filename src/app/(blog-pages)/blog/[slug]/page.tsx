@@ -1,7 +1,7 @@
 import { getPostBySlug, getPostSlugs } from "@/app/lib/sanity";
-import { Card } from "@/app/ui/Card";
-import { CoverImage } from "@/app/ui/CoverImage";
-import { PTComponents } from "@/app/ui/PTComponents";
+import { Card } from "@/app/components/Card";
+import { CoverImage } from "@/app/components/CoverImage";
+import { PTComponents } from "@/app/components/PTComponents";
 import { PortableText } from "@portabletext/react";
 import Link from "next/link";
 import { notFound } from "next/navigation";

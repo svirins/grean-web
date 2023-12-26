@@ -36,7 +36,8 @@
     "**/*.tsx",
     "**/*.cjs",
     "**/*.js",
-    ".next/types/**/*.ts"
-, "src/app/ui/PTComponents.tsx"  ],
+    ".next/types/**/*.ts",
+    "src/app/components/PTComponents.tsx"
+  ],
   "exclude": ["node_modules"]
 }

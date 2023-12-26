@@ -1,5 +1,5 @@
 import { type ITag, type SanityAssetExtended } from "@/app/lib/sanity";
-import { CoverImage } from "@/app/ui/CoverImage";
+import { CoverImage } from "@/app/components/CoverImage";
 import Link from "next/link";
 
 export function Card({

@@ -1,4 +1,4 @@
-import classnames from "classnames";
+import clsx from "clsx";
 import * as React from "react";
 
 type TitleProps = {
@@ -39,7 +39,7 @@ function Title({
   const Tag = as ?? size;
   return (
     <Tag
-      className={classnames(fontSize[size], titleColors[variant], className)}
+      className={clsx(fontSize[size], titleColors[variant], className)}
       {...rest}
     />
   );
@@ -87,7 +87,7 @@ function Paragraph({
   ...rest
 }: ParagraphProps) {
   return React.createElement(as, {
-    className: classnames("max-w-full text-lg", textColorClassName, className, {
+    className: clsx("max-w-full text-lg", textColorClassName, className, {
       "prose prose-light dark:prose-dark": prose,
     }),
     ...rest,

@@ -1,15 +1,17 @@
 "use client";
-import classNames from "classnames";
-import { Button } from "@/app/ui/Button";
+import clsx from "clsx";
+import { Button } from "@/app/components/Button";
 
 import styles from "@/styles/Consultation.module.css";
 
 export function Consultation() {
-  const submitAction = () => {()=>console.log('submitted!')};
+  const submitAction = () => {
+    () => console.log("submitted!");
+  };
   return (
     <section
       id="joinUsBanner"
-      className={classNames(
+      className={clsx(
         "relative flex h-[610px] items-center justify-center md:h-[510px]",
         styles.banner,
       )}

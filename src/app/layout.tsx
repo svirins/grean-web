@@ -1,12 +1,15 @@
 import "@/styles/globals.css";
+import "@/styles/app.css";
+import "@/styles/vendors.css";
 
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { Footer } from "@/app/ui/Footer";
-import { Header } from "@/app/ui/Header";
+import { Footer } from "@/app/components/sections/Footer";
+import { NavBar } from "@/app/components/sections/NavBar";
 
-import { Inter } from "next/font/google";
+import { Montserrat } from "next/font/google";
+import { Spacer } from "@/app/components/Spacer";
 
-const inter = Inter({
+const montserrat = Montserrat({
   subsets: ["latin", "cyrillic-ext"],
   variable: "--font-sans",
 });
@@ -26,15 +29,14 @@ export default function RootLayout({
     <html
       lang="ru"
       suppressHydrationWarning={true}
-      className="scroll-smooth bg-bk-white text-bk-black"
+      className="light scroll-smooth"
       translate="no"
     >
-      <body className={`font-sans ${inter.variable} antialiased`}>
-        <div className="relative mx-auto min-h-screen overflow-x-hidden">
-          <Header />
-          <main id="skip" className="mb-20">
-            {children}
-          </main>
+      <body className={`font-sans ${montserrat.variable} antialiased`}>
+        <div className="bg-white transition duration-500 dark:bg-gray-900">
+          <NavBar />
+          <main id="skip">{children}</main>
+          <Spacer size="base" />
           <Footer />
         </div>
         <SpeedInsights />

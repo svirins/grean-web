@@ -2,9 +2,9 @@
 
 import { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
-import { Spinner } from "@/app/ui/Spinner";
+import { Spinner } from "@/app/components/Spinner";
 import { type IPost } from "@/app/lib/sanity";
-import { InfinitePostGrid } from "@/app/ui/InfinitePostGrid";
+import { InfinitePostGrid } from "@/app/components/InfinitePostGrid";
 import { produce } from "immer";
 import { searchPosts } from "@/app/lib/actions";
 

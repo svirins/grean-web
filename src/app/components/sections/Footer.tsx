@@ -10,9 +10,8 @@
 //   );
 // }
 
-
-import { YoutubeIcon } from "@/app/ui/Icons";
-import { H4, H6, Paragraph } from "@/app/ui/Typography";
+import { YoutubeIcon } from "@/app/components/Icons";
+import { H4, H6, Paragraph } from "@/app/components/Typography";
 import Link from "next/link";
 
 function SubscribeSection() {
@@ -125,14 +124,14 @@ function FooterLink({
       {type === "internal" ? (
         <Link
           href={href}
-          className="text-secondary underlined hover:text-team-current focus:text-team-current inline-block whitespace-nowrap text-lg focus:outline-none"
+          className="text-secondary underlined inline-block whitespace-nowrap text-lg hover:text-team-current focus:text-team-current focus:outline-none"
         >
           {name}
         </Link>
       ) : (
         <a
           href={href}
-          className="text-secondary underlined hover:text-team-current focus:text-team-current inline-block whitespace-nowrap text-lg focus:outline-none"
+          className="text-secondary underlined inline-block whitespace-nowrap text-lg hover:text-team-current focus:text-team-current focus:outline-none"
         >
           {name}
         </a>
@@ -144,8 +143,8 @@ function FooterLink({
 export default function Footer() {
   return (
     <footer className="border-t border-gray-200 pb-16 pt-48 dark:border-gray-600">
-      <div className="mx-10vw relative">
-        <div className="grid-rows-max-content relative mx-auto grid  max-w-[1440px]  grid-cols-4 gap-x-4 md:grid-cols-8 xl:grid-cols-12 xl:gap-x-6">
+      <div className="relative mx-10vw">
+        <div className="relative mx-auto grid max-w-[1440px]  grid-cols-4  grid-rows-max-content gap-x-4 md:grid-cols-8 xl:grid-cols-12 xl:gap-x-6">
           <div className="col-span-full md:col-span-3 xl:row-span-2">
             <AboutSection />
           </div>
@@ -171,7 +170,7 @@ export default function Footer() {
 
           <div className="col-span-full mt-24 text-lg text-gray-500 md:mt-44 dark:text-slate-500">
             <span>Все права защищены</span>{" "}
-            <span className="block md:inline">{`© Валерий Гринь${new Date().getFullYear()}`}</span>
+            <span className="block md:inline">{`© Валерий Гринь ${new Date().getFullYear()}`}</span>
           </div>
         </div>
       </div>

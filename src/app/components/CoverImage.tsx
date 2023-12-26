@@ -1,5 +1,5 @@
 import {
-  SanityAssetExtended,
+  type SanityAssetExtended,
   createRemoteImageAttributes,
 } from "@/app/lib/sanity";
 import Image from "next/image";
@@ -17,7 +17,7 @@ export function CoverImage(props: CoverImageProps) {
   const condidionalImage = link ? (
     <Link href={`/blog/${link}`}>
       <Image
-        className="aspect-[16/9] w-full rounded-2xl bg-gray-50 object-cover sm:aspect-[2/1] lg:aspect-[3/2]"
+        className="focus-ring aspect-[16/9] w-full rounded-lg  object-cover object-center transition"
         sizes="100vw"
         width={width}
         height={height}
@@ -30,7 +30,7 @@ export function CoverImage(props: CoverImageProps) {
     </Link>
   ) : (
     <Image
-      className="aspect-[16/9] w-full rounded-2xl bg-gray-50 object-cover sm:aspect-[2/1] lg:aspect-[3/2]"
+      className="focus-ring aspect-[16/9] w-full rounded-lg object-cover object-center transition"
       sizes="100vw"
       width={width}
       height={height}
