@@ -1,6 +1,6 @@
 import { HelpSection } from "@/app/components/sections/HelpSection";
 import { TherapySection } from "@/app/components/sections/TherapySection";
-import { Consultation } from "@/app/components/Consultation";
+import { SubscribeSection } from "@/app/components/sections/SubscribeSection";
 import { HeroSection } from "@/app/components/sections/HeroSection";
 import { FeaturedPostSection } from "@/app/components/sections/FeaturedPostSection";
 
@@ -19,7 +19,7 @@ export default function HomePage() {
         title="Направления психотерапии"
         description="Методики, которые я использую в практике:"
       />
-      <Consultation />
+      <SubscribeSection />
       <FeaturedPostSection
         title="Избарнные статьи"
         description="Ознакомьтесь с более чем 90 статьями и материалами из."

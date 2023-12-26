@@ -1,4 +1,4 @@
-import { Consultation } from "@/app/components/Consultation";
+import { SubscribeSection } from "@/app/components/sections/SubscribeSection";
 import { TherapySection } from "@/app/components/sections/TherapySection";
 
 export default function Therapy() {
@@ -11,7 +11,7 @@ export default function Therapy() {
         title="Направления психотерапии"
         description="Методики, которые я использую в практике:"
       />
-      <Consultation />
+      <SubscribeSection />
     </div>
   );
 }

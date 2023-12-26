@@ -1,5 +1,5 @@
-import { Consultation } from "@/app/components/Consultation";
 import { HelpSection } from "@/app/components/sections/HelpSection";
+import { SubscribeSection } from "@/app/components/sections/SubscribeSection";
 
 export default function PsyhelpPage() {
   return (
@@ -11,7 +11,7 @@ export default function PsyhelpPage() {
         title="Помощь"
         description="Я работаю с следующими проблемами:"
       />
-      <Consultation />
+      <SubscribeSection />
     </div>
   );
 }

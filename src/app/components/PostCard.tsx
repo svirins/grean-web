@@ -34,7 +34,7 @@ export function PostCard({
         <div className="text-secondary mt-4 text-lg font-medium">
           {`${result} - ${readingTime} мин.`}
         </div>
-        <H5 as="h5" className="mb-8 mt-4">
+        <H5 as="h5" className="mb-8 mt-8">
           {title}
         </H5>
       </Link>
