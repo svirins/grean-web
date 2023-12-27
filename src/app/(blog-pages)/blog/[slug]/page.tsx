@@ -1,11 +1,14 @@
 import { getPostBySlug, getPostSlugs } from "@/app/lib/sanity";
-import { Card } from "@/app/components/Card";
 import { CoverImage } from "@/app/components/CoverImage";
 import { PTComponents } from "@/app/components/PTComponents";
 import { PortableText } from "@portabletext/react";
-import Link from "next/link";
 import { notFound } from "next/navigation";
-
+import { H2 } from "@/app/components/Typography";
+import { format, parse } from "date-fns";
+import { ru } from "date-fns/locale";
+import Link from "next/link";
+import Balancer from "react-wrap-balancer";
+import { RelatedPostSection } from "@/app/components/sections/RelatedPostSection";
 export default async function PostPage({
   params,
 }: {
@@ -18,38 +21,36 @@ export default async function PostPage({
   if (!params.slug) {
     notFound();
   }
+  const date = parse(data.datePublished, "yyyy-MM-dd", new Date());
+  const result = format(date, "PP", { locale: ru });
   return (
     <div
       id="page_container"
-      className="mx-auto flex min-h-screen max-w-7xl flex-col gap-y-16 px-4 md:gap-y-20 md:px-10"
+      className="mx-auto flex min-h-screen max-w-7xl flex-col gap-y-16 px-4 pt-24  md:gap-y-20 md:px-10"
     >
       <article>
-        <h1 className="mb-12 text-center text-6xl font-bold leading-tight tracking-tighter md:text-left md:text-7xl md:leading-none lg:text-8xl">
-          {data.title}
-        </h1>
-        <div className="sm:mx-0 mb-8 md:mb-16">
-          <CoverImage image={data.coverImage} priority={false} />
+        <H2>
+          <Balancer ratio={0.85}>{data.title}</Balancer>
+        </H2>
+        <div className="text-secondary mb-8 mt-8 text-lg font-medium">
+          {`${result} ~ ${data.readingTime} мин. чтения`}
         </div>
-        <div className="mx-auto max-w-4xl">
-          <div className="mt-8 flex items-center gap-x-4 text-xs">
-            <time dateTime={data.datePublished} className="text-gray-500">
-              {data.datePublished}
-            </time>
-            {`* ${data.readingTime} min read`}
-            {data.tags &&
-              data.tags.length > 0 &&
-              data.tags.map((tag) => (
-                <Link
-                  href={`/blog/tag/${tag.slug}`}
-                  key={tag.slug}
-                  className="bg-gray-50 relative z-10 rounded-full px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100"
-                >
-                  {`${tag.title}`}
-                </Link>
-              ))}
-          </div>
+        <div className="col-span-full -mr-4 mb-8 flex flex-wrap lg:col-span-10">
+          {data.tags &&
+            data.tags.length > 0 &&
+            data.tags.map((tag) => (
+              <Link
+                href={`/blog/tag/${tag.slug}`}
+                key={tag.slug}
+                className="text-primary bg-secondary focus-ring relative mb-4 mr-4 block h-auto w-auto cursor-pointer rounded-full px-6 py-3 opacity-100 transition"
+              >
+                {`${tag.title}`}
+              </Link>
+            ))}
         </div>
-        <div className="prose mx-auto max-w-2xl">
+        <CoverImage image={data.coverImage} priority={true} />
+
+        <div className="prose mx-auto mt-24 max-w-4xl  break-words  dark:prose-dark">
           <PortableText
             value={data.body}
             onMissingComponent={false}
@@ -57,20 +58,9 @@ export default async function PostPage({
           />
         </div>
       </article>
-      <hr className="border-accent-2 mb-24 mt-28" />
-      {data.relatedPosts &&
-        data.relatedPosts?.length > 0 &&
-        data.relatedPosts.map((post) => (
-          <Card
-            key={post._id}
-            title={post.title}
-            coverImage={post.coverImage}
-            datePublished={post.datePublished}
-            description={post.description}
-            link={`/blog/${post.slug}`}
-            tags={post.tags}
-          />
-        ))}
+      {data.relatedPosts && data.relatedPosts?.length > 0 && (
+        <RelatedPostSection title="Похожие посты" posts={data.relatedPosts} />
+      )}
     </div>
   );
 }

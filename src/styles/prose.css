@@ -1,0 +1,32 @@
+
+/*
+* This un-sets some styles in tailwind/typography for when I really don't want
+* list items to display like list items. (Like for the list of translations)
+*/
+.prose ul.list-none > li {
+  padding-left: unset;
+}
+.prose ul.list-none > li::before {
+  content: unset;
+}
+
+.dark .prose ol > li::before,
+.dark .prose ul > li::before {
+  color: var(--color-gray-300);
+}
+
+/* I think this is a bug in the tailwind/typography thing */
+.dark .dark\:prose-dark thead {
+  color: var(--color-slate-500);
+}
+
+.prose .callout {
+    border-bottom-right-radius: 0.5rem;
+    border-left: 4px solid;
+    border-top-right-radius: 0.5rem;
+    display: block;
+    margin-bottom: 2rem;
+    margin-top: 0;
+    padding: 0.5rem 1rem;
+    position: relative;
+}

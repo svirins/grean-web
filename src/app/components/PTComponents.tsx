@@ -8,6 +8,9 @@ export const PTComponents: Partial<PortableTextReactComponents> = {
     imageWithAlt: ({ value }: { value: SanityAssetExtended }) => {
       return <SanityImage image={value} />;
     },
+    callout: ({ value }) => {
+      return <p className="callout">{value.callout}</p>;
+    },
     break: ({ value }) =>
       value ? <hr className="horizontal-divider" /> : <></>,
   },

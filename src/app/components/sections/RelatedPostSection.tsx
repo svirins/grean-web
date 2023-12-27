@@ -1,33 +1,28 @@
-import { getFeaturedPosts } from "@/app/lib/sanity";
+import { type IPost } from "@/app/lib/sanity";
 import { PostCard } from "@/app/components/PostCard";
 import { HeaderSection } from "@/app/components/sections/HeaderSection";
 import { Spacer } from "@/app/components/Spacer";
 import { Grid } from "@/app/components/Grid";
 import clsx from "clsx";
 
-export async function FeaturedPostSection({
+export async function RelatedPostSection({
   title,
-  description,
+  posts,
 }: {
   title: string;
-  description: string;
+  description?: string;
+  posts: IPost[];
 }) {
-  const data = await getFeaturedPosts();
   return (
-    <section id="recentPosts">
-      <HeaderSection
-        title={title}
-        ctaUrl="/blog"
-        cta="Все статьи"
-        subTitle={description}
-      />
+    <section id="similarPosts">
+      <HeaderSection title={title} />
       <Spacer size="2xs" />
       <div className="relative">
         <Grid className="gap-y-16">
-          {data?.map((post, idx) => (
+          {posts?.map((post, idx) => (
             <div
-              key={post._id}
-              className={clsx("col-span-4", {
+              key={idx}
+              className={clsx("col-span-12 md:col-span-6", {
                 "hidden lg:block": idx >= 2,
               })}
             >

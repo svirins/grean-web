@@ -2,7 +2,7 @@ export const NAV_LINKS = [
   { href: "/psyhelp", text: "Помощь" },
   { href: "/therapy", text: "Направления" },
   { href: "/about", text: "Обо мне" },
-  { href: "/blog", text: " Статьи" },
+  { href: "/blog", text: "Блог" },
 ];
 
 

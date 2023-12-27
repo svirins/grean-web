@@ -20,11 +20,10 @@ export default function HomePage() {
         description="Методики, которые я использую в практике:"
       />
       <FeaturedPostSection
-        title="Избарнные статьи"
-        description="Ознакомьтесь с более чем 90 статьями и материалами из."
-        ctaUrl="/blog"
-        cta="Все статьи"
+        title="Избранные статьи"
+        description="Ознакомьтесь с более чем 90 статьями и материалами:"
       />
+      <SubscribeSection />
     </div>
   );
 }

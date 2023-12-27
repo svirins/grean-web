@@ -1,5 +1,6 @@
 import "@/styles/globals.css";
 import "@/styles/app.css";
+import "@/styles/prose.css";
 import "@/styles/vendors.css";
 
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -8,7 +9,6 @@ import { NavBar } from "@/app/components/sections/NavBar";
 
 import { Montserrat } from "next/font/google";
 import { Spacer } from "@/app/components/Spacer";
-import { SubscribeSection } from "@/app/components/sections/SubscribeSection";
 
 const montserrat = Montserrat({
   subsets: ["latin", "cyrillic-ext"],
@@ -37,7 +37,6 @@ export default function RootLayout({
         <div className="bg-white transition duration-500 dark:bg-gray-900">
           <NavBar />
           <main id="skip">{children}</main>
-          <SubscribeSection />
           <Spacer size="base" />
           <Footer />
         </div>

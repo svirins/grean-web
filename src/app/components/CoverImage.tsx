@@ -15,7 +15,7 @@ export function CoverImage(props: CoverImageProps) {
   const { image, priority = false, link } = props;
   const { width, height, img: src } = createRemoteImageAttributes(image);
   const condidionalImage = link ? (
-    <Link href={`/blog/${link}`}>
+    <Link href={link}>
       <Image
         className="focus-ring aspect-[16/9] w-full rounded-lg  object-cover object-center transition"
         sizes="100vw"
@@ -24,20 +24,20 @@ export function CoverImage(props: CoverImageProps) {
         alt={`Cover Image for ${image.alt}`}
         src={src}
         priority={priority}
-        // placeholder="blur"
+        placeholder="blur"
         blurDataURL={image.lqip}
       />
     </Link>
   ) : (
     <Image
-      className="focus-ring aspect-[16/9] w-full rounded-lg object-cover object-center transition"
+      className="aspect-[16/9] w-full rounded-lg object-cover object-center transition"
       sizes="100vw"
       width={width}
       height={height}
       alt={`Cover Image for ${image.alt}`}
       src={src}
       priority={priority}
-      // placeholder="blur"
+      placeholder="blur"
       blurDataURL={image.lqip}
     />
   );

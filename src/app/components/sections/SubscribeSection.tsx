@@ -1,23 +1,21 @@
 "use client";
-import { Button } from "@/app/components/Button";
+import { ButtonLink } from "@/app/components/ButtonLink";
+import { Grid } from "@/app/components/Grid";
+import { HeaderSection } from "@/app/components/sections/HeaderSection";
 
 export function SubscribeSection() {
   const submitAction = () => {
     () => console.log("submitted!");
   };
   return (
-    <section
-      id="suscribeSection"
-      className="banner relative flex h-[610px] items-center justify-center md:h-[510px]"
-    >
-      <div className="flex flex-col p-3 md:p-[80px]">
-        <h4 className="text-primary mb-16 text-center">
-          онлайн -форма прямо здесь | телефон +email +кнопка
-        </h4>
-        <Button className="mx-auto px-6 py-3" onClick={submitAction}>
-          Записаться
-        </Button>
-      </div>
+    <section id="suscribeSection" className="">
+      <Grid className="featured">
+        <HeaderSection
+          title="Записаться на консультацию"
+          subTitle="some description"
+        />
+        <ButtonLink to="" title="Записаться" variant="primary" />
+      </Grid>
     </section>
   );
 }

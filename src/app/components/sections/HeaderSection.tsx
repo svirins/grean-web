@@ -1,14 +1,13 @@
-import Link from "next/link";
-
 import { Grid } from "@/app/components/Grid";
 import { H2, H4 } from "@/app/components/Typography";
+import { ButtonLink } from "@/app/components/ButtonLink";
 
 interface HeaderSectionProps {
   ctaUrl?: string;
   cta?: string;
   as?: React.ElementType;
   title: string;
-  subTitle: string;
+  subTitle?: string;
   className?: string;
 }
 
@@ -20,15 +19,15 @@ export function HeaderSection({
 }: HeaderSectionProps) {
   return (
     <Grid>
-      <div className="col-span-full pt-6 lg:col-span-5 lg:col-start-1 lg:row-start-1 lg:flex lg:h-full lg:flex-col">
-        <div className="flex flex-auto flex-col">
+      <div className="col-span-full flex flex-col space-y-10 lg:flex-row lg:items-end lg:justify-between lg:space-y-0">
+        <div className="space-y-2 lg:space-y-0">
           <H2>{title}</H2>
           <H4 variant="secondary" as="p" className="mt-3">
             {subTitle}
           </H4>
         </div>
         {cta && ctaUrl ? (
-          <Link className="" href={ctaUrl}>{`${cta} ->`}</Link>
+          <ButtonLink to={ctaUrl} title={cta} variant="secondary" />
         ) : null}
       </div>
     </Grid>

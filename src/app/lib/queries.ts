@@ -58,7 +58,8 @@ export const postBySlugQuery = groq`
     "readingTime": round(length(pt::text(body)) / 5 / 180 ),
     "relatedPosts": relatedPosts[] -> {
       ${commonFields},
-      ${postFields}
+      ${postFields},
+      "readingTime": round(length(pt::text(body)) / 5 / 180 )
     }
   }
 }`;

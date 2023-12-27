@@ -31,8 +31,9 @@ export function PostCard({
         href={link}
       >
         <CoverImage image={coverImage} link={link} priority={false} />
-        <div className="text-secondary mt-4 text-lg font-medium">
-          {`${result} - ${readingTime} мин.`}
+        <div className="text-secondary mt-4 flow-root text-lg font-medium">
+          <div className="float-left">{result}</div>
+          <div className="float-right">{`${readingTime} мин. чтения`}</div>
         </div>
         <H5 as="h5" className="mb-8 mt-8">
           {title}
