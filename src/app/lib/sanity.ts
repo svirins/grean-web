@@ -65,6 +65,13 @@ export interface ITag {
   description?: string;
 }
 
+export interface IPage {
+  _id: string;
+  title: string;
+  slug: string;
+  body: PortableTextBlock[];
+}
+
 export interface IPsyHelp {
   _id: string;
   title: string;
@@ -97,6 +104,7 @@ import {
   therapySlugsQuery,
   psyHelpSlugsQuery,
   totalPostsNumberQuery,
+  pageBySlugQuery,
 } from "./queries";
 
 export async function getAllPosts(): Promise<IPost[]> {
@@ -156,6 +164,15 @@ export const getTherapyBySlug = async (slug: string): Promise<ITherapy> => {
   });
   return therapy;
 };
+
+export const getPageBySlug = async (slug: string): Promise<ITherapy> => {
+  const { page } = await sanityClient.fetch(pageBySlugQuery, {
+    slug: slug,
+  });
+  return page;
+};
+
+
 export const getPostSlugs = async (): Promise<string[]> => {
   const slugs = await sanityClient.fetch(postSlugsQuery);
   return slugs;

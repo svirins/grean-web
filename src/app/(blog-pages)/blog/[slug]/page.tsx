@@ -19,15 +19,18 @@ export default async function PostPage({
     notFound();
   }
   return (
-    <>
+    <div
+      id="page_container"
+      className="mx-auto flex min-h-screen max-w-7xl flex-col gap-y-16 px-4 md:gap-y-20 md:px-10"
+    >
       <article>
         <h1 className="mb-12 text-center text-6xl font-bold leading-tight tracking-tighter md:text-left md:text-7xl md:leading-none lg:text-8xl">
           {data.title}
         </h1>
-        <div className="mb-8 sm:mx-0 md:mb-16">
+        <div className="sm:mx-0 mb-8 md:mb-16">
           <CoverImage image={data.coverImage} priority={false} />
         </div>
-        <div className="mx-auto max-w-2xl">
+        <div className="mx-auto max-w-4xl">
           <div className="mt-8 flex items-center gap-x-4 text-xs">
             <time dateTime={data.datePublished} className="text-gray-500">
               {data.datePublished}
@@ -39,7 +42,7 @@ export default async function PostPage({
                 <Link
                   href={`/blog/tag/${tag.slug}`}
                   key={tag.slug}
-                  className="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100"
+                  className="bg-gray-50 relative z-10 rounded-full px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100"
                 >
                   {`${tag.title}`}
                 </Link>
@@ -54,7 +57,7 @@ export default async function PostPage({
           />
         </div>
       </article>
-      <hr className="mb-24 mt-28 border-accent-2" />
+      <hr className="border-accent-2 mb-24 mt-28" />
       {data.relatedPosts &&
         data.relatedPosts?.length > 0 &&
         data.relatedPosts.map((post) => (
@@ -68,7 +71,7 @@ export default async function PostPage({
             tags={post.tags}
           />
         ))}
-    </>
+    </div>
   );
 }
 

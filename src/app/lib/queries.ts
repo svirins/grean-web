@@ -109,6 +109,17 @@ export const therapyBySlugQuery = groq`
   }
 }`;
 
+
+// BASIC PAGE QUERY
+export const pageBySlugQuery = groq`
+{
+"page": *[_type == "page" && slug.current == $slug] | order(_updatedAt desc) [0] {
+    title,
+    body
+  }
+}`;
+
+
 // SLUGS QUERIES
 export const postSlugsQuery = groq`
 *[_type == "post" && defined(slug.current)][].slug.current`;

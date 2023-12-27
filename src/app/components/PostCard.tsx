@@ -1,7 +1,7 @@
 import { type ITag, type SanityAssetExtended } from "@/app/lib/sanity";
 import { CoverImage } from "@/app/components/CoverImage";
 import Link from "next/link";
-import { H3, H4, H5 } from "@/app/components/Typography";
+import { H5 } from "@/app/components/Typography";
 import { format, parse } from "date-fns";
 import { ru } from "date-fns/locale";
 
