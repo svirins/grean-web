@@ -5,7 +5,6 @@ export const NAV_LINKS = [
   { href: "/blog", text: "Блог" },
 ];
 
-
 export const SOCIALS = [
   {
     link: "https://www.facebook.com/doktorGrin/",

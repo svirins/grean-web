@@ -49,7 +49,7 @@ export function LoadMore({ queryString }: { queryString: string }) {
     <>
       <InfinitePostGrid posts={posts} />
       <div
-        className="col-span-1 flex items-center justify-center p-4 sm:col-span-2 md:col-span-3"
+        className="sm:col-span-2 col-span-1 flex items-center justify-center p-4 md:col-span-3"
         ref={ref}
       >
         <Spinner />

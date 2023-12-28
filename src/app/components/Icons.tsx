@@ -1,195 +1,5 @@
 import clsx from "clsx";
 
-const arrowRotationMap = {
-  up: "rotate-180",
-  right: "-rotate-90",
-  down: "rotate-0",
-  left: "rotate-90",
-  "top-right": "-rotate-135",
-};
-
-export function ArrowIcon({
-  direction,
-  size = 32,
-  className,
-}: {
-  direction: "up" | "right" | "down" | "left" | "top-right";
-  size?: number;
-  className?: string;
-}) {
-  return (
-    <svg
-      className={clsx(className, "transform", arrowRotationMap[direction])}
-      width={size}
-      height={size}
-      viewBox="0 0 32 32"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        fillRule="evenodd"
-        clipRule="evenodd"
-        d="M15.101 5.5V23.1094L9.40108 17.4095L8.14807 18.6619L15.9862 26.5L23.852 18.6342L22.5996 17.3817L16.8725 23.1094V5.5H15.101Z"
-        fill="currentColor"
-      />
-    </svg>
-  );
-}
-
-export function ChevronDownIcon({
-  className,
-  title,
-}: {
-  className?: string;
-  title?: string;
-}) {
-  return (
-    <svg
-      width="24"
-      height="24"
-      fill="none"
-      viewBox="0 0 24 24"
-      className={className}
-    >
-      {title ? <title>{title}</title> : null}
-      <path
-        stroke="currentColor"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth="1.5"
-        d="M15.25 10.75L12 14.25L8.75 10.75"
-      />
-    </svg>
-  );
-}
-
-export function ChevronLeftIcon() {
-  return (
-    <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
-      <path
-        stroke="currentColor"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth="1.5"
-        d="M13.25 8.75L9.75 12L13.25 15.25"
-      />
-    </svg>
-  );
-}
-
-export function ChevronRightIcon() {
-  return (
-    <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
-      <path
-        stroke="currentColor"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth="1.5"
-        d="M10.75 8.75L14.25 12L10.75 15.25"
-      />
-    </svg>
-  );
-}
-
-export function ChevronUpIcon({
-  className,
-  title,
-}: {
-  className?: string;
-  title?: string;
-}) {
-  return (
-    <svg
-      width="24"
-      height="24"
-      fill="none"
-      viewBox="0 0 24 24"
-      className={className}
-    >
-      {title ? <title>{title}</title> : null}
-      <path
-        stroke="currentColor"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth="1.5"
-        d="M15.25 14.25L12 10.75L8.75 14.25"
-      />
-    </svg>
-  );
-}
-
-export function EmojiHappyIcon({ size = 24 }: { size?: number } = {}) {
-  return (
-    <svg width={size} height={size} fill="none" viewBox="0 0 24 24">
-      <path
-        stroke="currentColor"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={1.5}
-        d="M8.75 4.75h6.5a4 4 0 014 4v6.5a4 4 0 01-4 4h-6.5a4 4 0 01-4-4v-6.5a4 4 0 014-4z"
-      />
-      <path
-        stroke="currentColor"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={1.5}
-        d="M7.75 12.75S9 15.25 12 15.25s4.25-2.5 4.25-2.5"
-      />
-      <circle cx={14} cy={10} r={1} fill="currentColor" />
-      <circle cx={10} cy={10} r={1} fill="currentColor" />
-    </svg>
-  );
-}
-
-export function HeartIcon({ size = 24 }: { size?: number } = {}) {
-  return (
-    <svg width={size} height={size} fill="none" viewBox="0 0 24 24">
-      <path
-        stroke="currentColor"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={1.5}
-        d="M11.995 7.233c-1.45-1.623-3.867-2.06-5.683-.573-1.816 1.486-2.072 3.971-.645 5.73l6.328 5.86 6.329-5.86c1.426-1.759 1.201-4.26-.646-5.73-1.848-1.471-4.233-1.05-5.683.573z"
-        clipRule="evenodd"
-      />
-    </svg>
-  );
-}
-
-export function InstagramIcon({
-  size = 24,
-  title = "Instagram",
-}: {
-  size?: number;
-  title?: string;
-}) {
-  return (
-    <svg width={size} height={size} fill="none" viewBox="0 0 24 24">
-      <title>{title}</title>
-      <path
-        d="M4.75 7.75a3 3 0 013-3h8.5a3 3 0 013 3v8.5a3 3 0 01-3 3h-8.5a3 3 0 01-3-3v-8.5z"
-        stroke="currentColor"
-        strokeWidth={1.5}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M16.5 8a.5.5 0 11-1 0 .5.5 0 011 0z"
-        stroke="currentColor"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M15.25 13a3.25 3.25 0 11-6.5 0 3.25 3.25 0 016.5 0z"
-        stroke="currentColor"
-        strokeWidth={1.5}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
 export function MailIcon({ size = 24 }: { size?: number }) {
   return (
     <svg width={size} height={size} fill="none" viewBox="0 0 24 24">
@@ -353,24 +163,6 @@ export function SpinnerIcon({
   );
 }
 
-export function SquareIcon({ size = 24 }: { size?: number }) {
-  return (
-    <svg width={size} height={size} fill="currentColor" viewBox="0 0 24 24">
-      <rect
-        width="12.5"
-        height="12.5"
-        x="5.75"
-        y="5.75"
-        stroke="currentColor"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth="1.5"
-        rx="1"
-      />
-    </svg>
-  );
-}
-
 export function SunIcon() {
   return (
     <svg
@@ -437,57 +229,19 @@ export function SunIcon() {
   );
 }
 
-export function TriangleIcon({ size = 24 }: { size?: number }) {
-  return (
-    <svg width={size} height={size} fill="currentColor" viewBox="0 0 24 24">
-      <path
-        stroke="currentColor"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth="1.5"
-        d="M18.25 12L5.75 5.75V18.25L18.25 12Z"
-      />
-    </svg>
-  );
-}
-
-export function UsersIcon({ size = 24 }: { size?: number } = {}) {
+export function LaptopIcon({ size = 24 }: { size?: number } = {}) {
   return (
     <svg width={size} height={size} fill="none" viewBox="0 0 24 24">
       <path
+        d="M5.75 5.75a1 1 0 011-1h10.5a1 1 0 011 1v8.5H5.75v-8.5zM18.25 14.5l.746 3.544a1 1 0 01-.979 1.206H5.982a1 1 0 01-.978-1.206L5.75 14.5"
         stroke="currentColor"
+        strokeWidth={1.5}
         strokeLinecap="round"
         strokeLinejoin="round"
-        strokeWidth="1.5"
-        d="M5.78168 19.25H13.2183C13.7828 19.25 14.227 18.7817 14.1145 18.2285C13.804 16.7012 12.7897 14 9.5 14C6.21031 14 5.19605 16.7012 4.88549 18.2285C4.773 18.7817 5.21718 19.25 5.78168 19.25Z"
-      />
-      <path
-        stroke="currentColor"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth="1.5"
-        d="M15.75 14C17.8288 14 18.6802 16.1479 19.0239 17.696C19.2095 18.532 18.5333 19.25 17.6769 19.25H16.75"
-      />
-      <circle
-        cx="9.5"
-        cy="7.5"
-        r="2.75"
-        stroke="currentColor"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth="1.5"
-      />
-      <path
-        stroke="currentColor"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth="1.5"
-        d="M14.75 10.25C16.2688 10.25 17.25 9.01878 17.25 7.5C17.25 5.98122 16.2688 4.75 14.75 4.75"
       />
     </svg>
   );
 }
-
 export function YoutubeIcon({
   size = 24,
   title = "YouTube",
@@ -502,98 +256,6 @@ export function YoutubeIcon({
         fill="currentColor"
         d="M10,15L15.19,12L10,9V15M21.56,7.17C21.69,7.64 21.78,8.27 21.84,9.07C21.91,9.87 21.94,10.56 21.94,11.16L22,12C22,14.19 21.84,15.8 21.56,16.83C21.31,17.73 20.73,18.31 19.83,18.56C19.36,18.69 18.5,18.78 17.18,18.84C15.88,18.91 14.69,18.94 13.59,18.94L12,19C7.81,19 5.2,18.84 4.17,18.56C3.27,18.31 2.69,17.73 2.44,16.83C2.31,16.36 2.22,15.73 2.16,14.93C2.09,14.13 2.06,13.44 2.06,12.84L2,12C2,9.81 2.16,8.2 2.44,7.17C2.69,6.27 3.27,5.69 4.17,5.44C4.64,5.31 5.5,5.22 6.82,5.16C8.12,5.09 9.31,5.06 10.41,5.06L12,5C16.19,5 18.8,5.16 19.83,5.44C20.73,5.69 21.31,6.27 21.56,7.17Z"
       />
-    </svg>
-  );
-}
-
-export function RefreshIcon({
-  size = 24,
-  title = "Refresh",
-}: {
-  size?: number;
-  title?: string;
-}) {
-  return (
-    <svg width={size} height={size} fill="none" viewBox="0 0 24 24">
-      <title>{title}</title>
-      <path
-        stroke="currentColor"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={1.5}
-        d="M11.25 4.75 8.75 7l2.5 2.25M12.75 19.25l2.5-2.25-2.5-2.25"
-      />
-      <path
-        stroke="currentColor"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={1.5}
-        d="M9.75 7h3.5a6 6 0 0 1 6 6v.25M14.25 17h-3.5a6 6 0 0 1-6-6v-.25"
-      />
-    </svg>
-  );
-}
-
-export function AlarmIcon({
-  size = 24,
-  title = "Alarm",
-}: {
-  size?: number;
-  title?: string;
-}) {
-  return (
-    <svg width={size} height={size} fill="none" viewBox="0 0 24 24">
-      <title>{title}</title>
-      <svg
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M7 18L5.75 19.25"
-          stroke="currentColor"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M17 18L18.25 19.25"
-          stroke="currentColor"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M12 8.75V12L14.25 14.25"
-          stroke="currentColor"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M19.25 12C19.25 16.0041 16.0041 19.25 12 19.25C7.99594 19.25 4.75 16.0041 4.75 12C4.75 7.99594 7.99594 4.75 12 4.75C16.0041 4.75 19.25 7.99594 19.25 12Z"
-          stroke="currentColor"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M18.75 4.75L19.25 5.25"
-          stroke="currentColor"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M5.25 4.75L4.75 5.25"
-          stroke="currentColor"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>
     </svg>
   );
 }

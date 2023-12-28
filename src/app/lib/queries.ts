@@ -110,7 +110,6 @@ export const therapyBySlugQuery = groq`
   }
 }`;
 
-
 // BASIC PAGE QUERY
 export const pageBySlugQuery = groq`
 {
@@ -119,7 +118,6 @@ export const pageBySlugQuery = groq`
     body
   }
 }`;
-
 
 // SLUGS QUERIES
 export const postSlugsQuery = groq`

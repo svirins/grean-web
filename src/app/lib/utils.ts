@@ -12,4 +12,3 @@ export function isActive(href: string, currentPath: string): boolean {
   }
   return false;
 }
-

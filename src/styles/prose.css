@@ -1,4 +1,3 @@
-
 /*
 * This un-sets some styles in tailwind/typography for when I really don't want
 * list items to display like list items. (Like for the list of translations)
@@ -21,12 +20,12 @@
 }
 
 .prose .callout {
-    border-bottom-right-radius: 0.5rem;
-    border-left: 4px solid;
-    border-top-right-radius: 0.5rem;
-    display: block;
-    margin-bottom: 2rem;
-    margin-top: 0;
-    padding: 0.5rem 1rem;
-    position: relative;
+  border-bottom-right-radius: 0.5rem;
+  border-left: 4px solid;
+  border-top-right-radius: 0.5rem;
+  display: block;
+  margin-bottom: 2rem;
+  margin-top: 0;
+  padding: 0.5rem 1rem;
+  position: relative;
 }

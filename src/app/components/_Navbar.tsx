@@ -1,7 +1,3 @@
-"use client";
-
-import Link from "next/link";
-import { usePathname } from "next/navigation";
 import {
   Menu,
   MenuButton,
@@ -10,33 +6,55 @@ import {
   MenuPopover,
   useMenuButtonContext,
 } from "@reach/menu-button";
-import { LaptopIcon, MoonIcon, SunIcon } from "@/app/components/Icons";
-
-import { NAV_LINKS } from "@/app/lib/constants";
-import clsx from "clsx";
-import { isActive } from "@/app/lib/utils";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { clsx } from "clsx";
+import {
+  AnimatePresence,
+  motion,
+  useAnimation,
+  useReducedMotion,
+} from "framer-motion";
+import * as React from "react";
 import { useEffect } from "react";
+import { kodyProfiles } from "~/images.tsx";
+import { useTeam } from "~/utils/team-provider.tsx";
+import { useElementState } from "./hooks/use-element-state.tsx";
+import { LaptopIcon, MoonIcon, SunIcon } from "./icons.tsx";
+import { TeamCircle } from "./team-circle.tsx";
+import { useRequestInfo } from "~/utils/request-info.ts";
 
 const iconTransformOrigin = { transformOrigin: "50% 100px" };
+function DarkModeToggle({
+  variant = "icon",
+}: {
+  variant?: "icon" | "labelled";
+}) {
+  const requestInfo = useRequestInfo();
+  const fetcher = useFetcher({ key: THEME_FETCHER_KEY });
 
-function DarkModeToggle() {
-  const mode = "light";
-  const nextMode = "light";
-
-  // mode === "system" ? "light" : mode === "light" ? "dark" : "system";
+  const optimisticMode = useOptimisticThemeMode();
+  const mode = optimisticMode ?? requestInfo.userPrefs.theme ?? "system";
+  const nextMode =
+    mode === "system" ? "light" : mode === "light" ? "dark" : "system";
 
   const iconSpanClassName =
     "absolute inset-0 transform transition-transform duration-700 motion-reduce:duration-[0s]";
   return (
-    <>
+    <fetcher.Form method="POST" action="/action/set-theme">
       <input type="hidden" name="theme" value={nextMode} />
+
       <button
         type="submit"
-        className="border-secondary hover:border-primary focus:border-primary inline-flex h-14 w-14 items-center justify-center overflow-hidden rounded-full border-2 p-1 transition focus:outline-none"
+        className={clsx(
+          "border-secondary hover:border-primary focus:border-primary inline-flex h-14 items-center justify-center overflow-hidden rounded-full border-2 p-1 transition focus:outline-none",
+          {
+            "w-14": variant === "icon",
+            "px-8": variant === "labelled",
+          },
+        )}
       >
+        {/* note that the duration is longer then the one on body, controlling the bg-color */}
         <div className="relative h-8 w-8">
-          {/* <span
+          <span
             className={clsx(
               iconSpanClassName,
               mode === "dark" ? "rotate-0" : "rotate-90",
@@ -44,7 +62,7 @@ function DarkModeToggle() {
             style={iconTransformOrigin}
           >
             <MoonIcon />
-          </span> */}
+          </span>
           <span
             className={clsx(
               iconSpanClassName,
@@ -55,7 +73,7 @@ function DarkModeToggle() {
             <SunIcon />
           </span>
 
-          {/* <span
+          <span
             className={clsx(
               iconSpanClassName,
               mode === "system" ? "translate-y-0" : "translate-y-10",
@@ -63,9 +81,9 @@ function DarkModeToggle() {
             style={iconTransformOrigin}
           >
             <LaptopIcon size={32} />
-          </span> */}
+          </span>
         </div>
-        {/* <span className={clsx("ml-4", { "sr-only": variant === "icon" })}>
+        <span className={clsx("ml-4", { "sr-only": variant === "icon" })}>
           {`Switch to ${
             nextMode === "system"
               ? "system"
@@ -73,60 +91,11 @@ function DarkModeToggle() {
                 ? "light"
                 : "dark"
           } mode`}
-        </span> */}
+        </span>
       </button>
-    </>
+    </fetcher.Form>
   );
 }
-
-function MobileNavLink({ href, title }: { href: string; title: string }) {
-  return (
-    <li className="px-5 py-2">
-      <Link
-        href={href}
-        className="hover:bg-secondary focus:bg-secondary text-primary border-b border-gray-200 px-5vw py-9 hover:text-team-current dark:border-gray-600"
-      >
-        {title}
-      </Link>
-    </li>
-  );
-}
-
-function NavLink({ href, title }: { href: string; title: string }) {
-  const pathName = usePathname();
-  const isSelected = isActive(href, pathName);
-  return (
-    <li className="px-5 py-2">
-      <Link
-        href={href}
-        className={clsx(
-          "underlined block whitespace-nowrap text-lg font-medium hover:text-team-current focus:text-team-current focus:outline-none",
-          {
-            "active text-team-current": isSelected,
-            "text-secondary": !isSelected,
-          },
-        )}
-      >
-        {title}
-      </Link>
-    </li>
-  );
-}
-
-const topVariants = {
-  open: { rotate: 45, y: 7, originX: "16px", originY: "10px" },
-  closed: { rotate: 0, y: 0, originX: 0, originY: 0 },
-};
-
-const centerVariants = {
-  open: { opacity: 0 },
-  closed: { opacity: 1 },
-};
-
-const bottomVariants = {
-  open: { rotate: -45, y: -5, originX: "16px", originY: "22px" },
-  closed: { rotate: 0, y: 0, originX: 0, originY: 0 },
-};
 
 function MobileMenuList() {
   const { isExpanded } = useMenuButtonContext();
@@ -170,12 +139,15 @@ function MobileMenuList() {
             className="bg-primary flex h-full flex-col overflow-y-scroll border-t border-gray-200 pb-12 dark:border-gray-600"
           >
             <MenuItems className="border-none bg-transparent p-0">
-              {NAV_LINKS.map((link) => (
-                <MobileNavLink
-                  key={link.href}
-                  href={link.href}
-                  title={link.text}
-                />
+              {MOBILE_LINKS.map((link) => (
+                <MenuLink
+                  className="hover:bg-secondary focus:bg-secondary text-primary border-b border-gray-200 px-5vw py-9 hover:text-team-current dark:border-gray-600"
+                  key={link.to}
+                  as={Link}
+                  to={link.to}
+                >
+                  {link.name}
+                </MenuLink>
               ))}
               <div className="noscript-hidden py-9 text-center">
                 <DarkModeToggle variant="labelled" />
@@ -187,6 +159,21 @@ function MobileMenuList() {
     </AnimatePresence>
   );
 }
+
+const topVariants = {
+  open: { rotate: 45, y: 7, originX: "16px", originY: "10px" },
+  closed: { rotate: 0, y: 0, originX: 0, originY: 0 },
+};
+
+const centerVariants = {
+  open: { opacity: 0 },
+  closed: { opacity: 1 },
+};
+
+const bottomVariants = {
+  open: { rotate: -45, y: -5, originX: "16px", originY: "22px" },
+  closed: { rotate: 0, y: 0, originX: 0, originY: 0 },
+};
 
 function MobileMenu() {
   const shouldReduceMotion = useReducedMotion();
@@ -249,34 +236,11 @@ function MobileMenu() {
   );
 }
 
-export function NavBar() {
-  return (
-    <div className="px-5vw py-9 lg:py-12">
-      <nav className="text-primary mx-auto flex max-w-8xl items-center justify-between">
-        <div className="flex justify-between gap-4 align-middle">
-          <Link
-            href="/"
-            className="text-primary underlined block whitespace-nowrap text-2xl font-medium transition focus:outline-none"
-          >
-            <h1>Dr. Grean</h1>
-          </Link>
-        </div>
-
-        <ul className="hidden lg:flex">
-          {NAV_LINKS.map((item) => (
-            <NavLink key={item.text} href={item.href} title={item.text} />
-          ))}
-        </ul>
-
-        <div className="flex items-center justify-center">
-          <div className="block lg:hidden">
-            <MobileMenu />
-          </div>
-          <div className="noscript-hidden hidden lg:block">
-            <DarkModeToggle />
-          </div>
-        </div>
-      </nav>
-    </div>
-  );
-}
+// Timing durations used to control the speed of the team ring in the profile button.
+// Time is seconds per full rotation
+const durations = {
+  initial: 40,
+  hover: 3,
+  focus: 3,
+  active: 0.25,
+};

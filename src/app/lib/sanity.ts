@@ -172,7 +172,6 @@ export const getPageBySlug = async (slug: string): Promise<ITherapy> => {
   return page;
 };
 
-
 export const getPostSlugs = async (): Promise<string[]> => {
   const slugs = await sanityClient.fetch(postSlugsQuery);
   return slugs;
