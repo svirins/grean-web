@@ -10,21 +10,22 @@ import {
   MenuPopover,
   useMenuButtonContext,
 } from "@reach/menu-button";
-import { LaptopIcon, MoonIcon, SunIcon } from "@/app/components/Icons";
+import { MoonIcon, SunIcon } from "@/app/components/Icons";
 
 import { NAV_LINKS } from "@/app/lib/constants";
 import clsx from "clsx";
 import { isActive } from "@/app/lib/utils";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const iconTransformOrigin = { transformOrigin: "50% 100px" };
 
 function DarkModeToggle() {
-  const mode = "light";
-  const nextMode = "light";
+  const [mode, setMode] = useState(global.window?.__theme ?? "light");
 
-  // mode === "system" ? "light" : mode === "light" ? "dark" : "system";
+  const nextMode = mode === "light" ? "dark" : "light";
+
+  mode === "system" ? "light" : mode === "light" ? "dark" : "system";
 
   const iconSpanClassName =
     "absolute inset-0 transform transition-transform duration-700 motion-reduce:duration-[0s]";
@@ -36,7 +37,7 @@ function DarkModeToggle() {
         className="border-secondary hover:border-primary focus:border-primary inline-flex h-14 w-14 items-center justify-center overflow-hidden rounded-full border-2 p-1 transition focus:outline-none"
       >
         <div className="relative h-8 w-8">
-          {/* <span
+          <span
             className={clsx(
               iconSpanClassName,
               mode === "dark" ? "rotate-0" : "rotate-90",
@@ -44,7 +45,7 @@ function DarkModeToggle() {
             style={iconTransformOrigin}
           >
             <MoonIcon />
-          </span> */}
+          </span>
           <span
             className={clsx(
               iconSpanClassName,
@@ -54,16 +55,6 @@ function DarkModeToggle() {
           >
             <SunIcon />
           </span>
-
-          {/* <span
-            className={clsx(
-              iconSpanClassName,
-              mode === "system" ? "translate-y-0" : "translate-y-10",
-            )}
-            style={iconTransformOrigin}
-          >
-            <LaptopIcon size={32} />
-          </span> */}
         </div>
         {/* <span className={clsx("ml-4", { "sr-only": variant === "icon" })}>
           {`Switch to ${
@@ -76,19 +67,6 @@ function DarkModeToggle() {
         </span> */}
       </button>
     </>
-  );
-}
-
-function MobileNavLink({ href, title }: { href: string; title: string }) {
-  return (
-    <li className="px-5 py-2">
-      <Link
-        href={href}
-        className="hover:bg-secondary focus:bg-secondary text-primary border-b border-gray-200 px-5vw py-9 hover:text-team-current dark:border-gray-600"
-      >
-        {title}
-      </Link>
-    </li>
   );
 }
 
@@ -169,16 +147,19 @@ function MobileMenuList() {
             }}
             className="bg-primary flex h-full flex-col overflow-y-scroll border-t border-gray-200 pb-12 dark:border-gray-600"
           >
-            <MenuItems className="border-none bg-transparent p-0">
+            <MenuItems className="flex flex-col border-none bg-transparent p-0">
               {NAV_LINKS.map((link) => (
-                <MobileNavLink
+                <MenuLink
+                  className="hover:bg-secondary focus:bg-secondary text-primary flex border-b border-gray-200 px-5vw py-9 hover:text-team-current dark:border-gray-600"
                   key={link.href}
+                  as={Link}
                   href={link.href}
-                  title={link.text}
-                />
+                >
+                  {link.text}
+                </MenuLink>
               ))}
               <div className="noscript-hidden py-9 text-center">
-                <DarkModeToggle variant="labelled" />
+                <DarkModeToggle />
               </div>
             </MenuItems>
           </motion.div>
@@ -251,8 +232,8 @@ function MobileMenu() {
 
 export function NavBar() {
   return (
-    <div className="px-5vw py-9 lg:py-12">
-      <nav className="text-primary mx-auto flex max-w-8xl items-center justify-between">
+    <div className="mx-10vw px-5vw py-9 lg:py-12">
+      <nav className="text-primary mx-auto flex max-w-7xl items-center justify-between">
         <div className="flex justify-between gap-4 align-middle">
           <Link
             href="/"

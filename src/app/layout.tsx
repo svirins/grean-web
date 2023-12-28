@@ -10,6 +10,8 @@ import { NavBar } from "@/app/components/sections/NavBar";
 import { Montserrat } from "next/font/google";
 import { Spacer } from "@/app/components/Spacer";
 
+import { getTheme } from "@/app/lib/getTheme";
+
 const montserrat = Montserrat({
   subsets: ["latin", "cyrillic-ext"],
   variable: "--font-sans",
@@ -30,9 +32,12 @@ export default function RootLayout({
     <html
       lang="ru"
       suppressHydrationWarning={true}
-      className="light scroll-smooth"
+      className="scroll-smooth"
       translate="no"
     >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: getTheme }} />
+      </head>
       <body className={`font-sans ${montserrat.variable} antialiased`}>
         <div className="bg-white transition duration-500 dark:bg-gray-900">
           <NavBar />
