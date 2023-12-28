@@ -1,4 +1,4 @@
-import { YoutubeIcon } from "@/app/components/Icons";
+import { YTIcon, VKIcon, FBIcon } from "@/app/components/Icons";
 import { H4, H5, H6, Paragraph } from "@/app/components/Typography";
 import Link from "next/link";
 function ContactSection() {
@@ -9,7 +9,10 @@ function ContactSection() {
         <FooterLink name="+375 29 667-23-80 " href="tel:+375296672380" />
         <FooterLink name="vgrean@gmail.com" href="mailto:vgrean@mail.ru" />
         <FooterLink name="Skype: valeri20770" href="skype:valeri20770?call" />
-        <FooterLink name="г. Минск, ул. Сухая 7 каб. 6" href="" />
+        <FooterLink
+          name="г. Минск, ул. Сухая 7 каб. 6"
+          href="https://www.google.com/maps/place/Doktor+Valeriy+Grin'/@53.9037683,27.5402026,15z/data=!4m6!3m5!1s0x46dbcf55a2f66adf:0x3869e6d6b86f511e!8m2!3d53.9037683!4d27.5402026!16s%2Fg%2F11g0vyyppl?entry=ttu"
+        />
         <FooterLink name="15:00-20:00, ПН - ПТ" href="" />
       </ul>
     </div>
@@ -24,16 +27,22 @@ function SocialsSection() {
       <div className="text-secondary mt-6 flex items-center justify-between gap-4 xl:flex-col xl:items-start">
         <div className="flex gap-4">
           <a
-            href="https://www.facebook.com/doktorGrin/"
+            href="https://www.youtube.com/channel/UCg83jkm7aM3OKTAWMoSpf2A/"
             className="text-primary hover:text-team-current focus:text-team-current focus:outline-none"
           >
-            <YoutubeIcon size={36} />
+            <YTIcon size={48} />
           </a>
           <a
             href="https://www.facebook.com/doktorGrin/"
             className="text-primary hover:text-team-current focus:text-team-current focus:outline-none"
           >
-            <YoutubeIcon size={36} />
+            <FBIcon size={48} />
+          </a>
+          <a
+            href="https://vk.com/vgrean123"
+            className="text-primary hover:text-team-current focus:text-team-current focus:outline-none"
+          >
+            <VKIcon size={48} />
           </a>
         </div>
       </div>
@@ -130,12 +139,11 @@ export function Footer() {
             <SocialsSection />
           </div>
           <div className="col-span-full mt-24 text-lg text-gray-600 md:mt-44 dark:text-slate-500">
-            <span>{`Copyright © ${new Date().getFullYear()} `}</span>
-            <span className="block md:inline">
-              {" "}
+            <div>{`Copyright © ${new Date().getFullYear()} `}</div>
+            <div className="block md:inline">
               Консультант в области охраны психического здоровья ИП Гринь В.Г.
               УНП 192617833
-            </span>
+            </div>
           </div>
         </div>
       </div>

@@ -9,11 +9,11 @@ import { NavBar } from "@/app/components/sections/NavBar";
 
 import { Montserrat } from "next/font/google";
 import { Spacer } from "@/app/components/Spacer";
-
-import { getTheme } from "@/app/lib/getTheme";
+import { cookies } from "next/headers";
 
 const montserrat = Montserrat({
   subsets: ["latin", "cyrillic-ext"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-sans",
 });
 
@@ -28,17 +28,20 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const cookieStore = cookies();
+  const isThemeCookieSet = cookieStore.has("theme");
+  const defaultTheme = isThemeCookieSet ? cookieStore.get("theme")?.value : "";
   return (
     <html
       lang="ru"
       suppressHydrationWarning={true}
-      className="scroll-smooth"
+      className={`scroll-smooth ${defaultTheme}`}
       translate="no"
     >
-      <head>
-        <script dangerouslySetInnerHTML={{ __html: getTheme }} />
-      </head>
-      <body className={`font-sans ${montserrat.variable} antialiased`}>
+      <body
+        // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+        className={`font-sans ${montserrat.variable}  antialiased`}
+      >
         <div className="bg-white transition duration-500 dark:bg-gray-900">
           <NavBar />
           <main id="skip">{children}</main>

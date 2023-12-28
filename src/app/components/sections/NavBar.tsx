@@ -17,30 +17,46 @@ import clsx from "clsx";
 import { isActive } from "@/app/lib/utils";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { useEffect, useState } from "react";
+import { setCookie, getCookie } from "cookies-next";
 
 const iconTransformOrigin = { transformOrigin: "50% 100px" };
 
 function DarkModeToggle() {
-  const [mode, setMode] = useState(global.window?.__theme ?? "light");
-
-  const nextMode = mode === "light" ? "dark" : "light";
-
-  mode === "system" ? "light" : mode === "light" ? "dark" : "system";
+  const [theme, setTheme] = useState(getCookie("theme"));
+  useEffect(() => {
+    if (theme) {
+      setCookie(
+        "theme",
+        theme,
+        // window.matchMedia("(prefers-color-scheme: dark)").matches
+        //   ? "dark"
+        //   : "light",
+      );
+      document.querySelector("html")?.setAttribute("class", theme);
+    } else {
+      setTheme(
+        window.matchMedia("(prefers-color-scheme: dark)").matches
+          ? "dark"
+          : "light",
+      );
+    }
+  }, [theme]);
 
   const iconSpanClassName =
     "absolute inset-0 transform transition-transform duration-700 motion-reduce:duration-[0s]";
   return (
     <>
-      <input type="hidden" name="theme" value={nextMode} />
       <button
-        type="submit"
+        aria-label="Toggle Dark Mode"
+        type="button"
         className="border-secondary hover:border-primary focus:border-primary inline-flex h-14 w-14 items-center justify-center overflow-hidden rounded-full border-2 p-1 transition focus:outline-none"
+        onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
       >
         <div className="relative h-8 w-8">
           <span
             className={clsx(
               iconSpanClassName,
-              mode === "dark" ? "rotate-0" : "rotate-90",
+              theme === "dark" ? "rotate-0" : "rotate-90",
             )}
             style={iconTransformOrigin}
           >
@@ -49,22 +65,13 @@ function DarkModeToggle() {
           <span
             className={clsx(
               iconSpanClassName,
-              mode === "light" ? "rotate-0" : "-rotate-90",
+              theme === "light" ? "rotate-0" : "-rotate-90",
             )}
             style={iconTransformOrigin}
           >
             <SunIcon />
           </span>
         </div>
-        {/* <span className={clsx("ml-4", { "sr-only": variant === "icon" })}>
-          {`Switch to ${
-            nextMode === "system"
-              ? "system"
-              : nextMode === "light"
-                ? "light"
-                : "dark"
-          } mode`}
-        </span> */}
       </button>
     </>
   );
@@ -232,14 +239,14 @@ function MobileMenu() {
 
 export function NavBar() {
   return (
-    <div className="mx-10vw px-5vw py-9 lg:py-12">
-      <nav className="text-primary mx-auto flex max-w-7xl items-center justify-between">
+    <div className="mx-auto max-w-7xl px-4 py-9 md:px-10 lg:py-12">
+      <nav className="text-primary flex  items-center justify-between">
         <div className="flex justify-between gap-4 align-middle">
           <Link
             href="/"
             className="text-primary underlined block whitespace-nowrap text-2xl font-medium transition focus:outline-none"
           >
-            <h1>Dr. Grean</h1>
+            <h2>Валерий Гринь</h2>
           </Link>
         </div>
 

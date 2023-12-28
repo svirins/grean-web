@@ -1,6 +1,6 @@
 {
   "name": "drgrean",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "type": "module",
   "scripts": {
@@ -22,6 +22,7 @@
     "@tailwindcss/typography": "^0.5.10",
     "@vercel/speed-insights": "^1.0.2",
     "clsx": "^2.0.0",
+    "cookies-next": "^4.1.0",
     "date-fns": "^3.0.6",
     "framer-motion": "^10.16.16",
     "immer": "^10.0.3",
@@ -52,8 +53,5 @@
     "prisma": "5.0.0",
     "sharp": "^0.33.1",
     "typescript": "^5.1.6"
-  },
-  "ct3aMetadata": {
-    "initVersion": "7.25.0"
   }
 }

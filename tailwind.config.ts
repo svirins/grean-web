@@ -86,6 +86,12 @@ export default {
         "6xl": "3.75rem", // 60px
         "7xl": "4.375rem", // 70px
       },
+      fontWeight: {
+        base: "400",
+        medium: "500",
+        semibold: "600",
+        bold: "700",
+      },
       gridTemplateRows: {
         "max-content": "max-content",
       },
