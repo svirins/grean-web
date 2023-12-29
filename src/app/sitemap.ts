@@ -40,7 +40,7 @@ export default async function sitemap() {
     { url: "/", priority: 1 },
     { url: "/psyhelp", priority: 1 },
     { url: "/therapy", priority: 1 },
-    { url: "/about", priority: 1 },
+    { url: "/about-me", priority: 1 },
     { url: "/blog", priority: 1 },
     { url: "/q-and-a", priority: 0.8 },
     { url: "/terms-and-conditions", priority: 0.8 },

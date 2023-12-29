@@ -1,24 +1,19 @@
 import { SearchBar } from "@/app/components/SearchBar";
-import { LoadMore } from "@/app/components/LoadMore";
 import { HeaderSection } from "@/app/components/sections/HeaderSection";
-import { searchPosts } from "@/app/lib/actions";
+// import { searchPosts } from "@/app/lib/actions";
 import { Grid } from "@/app/components/Grid";
 import { PostCard } from "@/app/components/PostCard";
+import { getPaginatedPosts } from "@/app/lib/sanity";
 
 type Props = {
   params: object;
-  searchParams: { title?: string };
-};
-const isEmptyObject = (obj: object) => {
-  return JSON.stringify(obj) === "{}";
+  searchParams: { page?: string };
 };
 
 export default async function BlogPage(props: Props) {
-  const searchParams = props.searchParams;
-  const queryString = isEmptyObject(searchParams)
-    ? "*"
-    : `${searchParams.title}*`;
-  const data = await searchPosts(queryString, 1);
+  const searchParams = Number(props.searchParams) ?? 1;
+  // TODO: !! Return to server actions instead
+  const data = await getPaginatedPosts(0, 9);
   return (
     <div
       id="page_container"
@@ -50,7 +45,6 @@ export default async function BlogPage(props: Props) {
           )}
         </Grid>
       </div>
-      <LoadMore queryString={queryString} />
     </div>
   );
 }

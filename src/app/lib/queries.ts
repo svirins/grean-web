@@ -36,7 +36,7 @@ export const allPostsQuery = groq`
 
 // search posts by title
 export const searchPostsQuery = groq`
-*[_type == "post" && title match $queryString && !(_id in path("drafts.**"))] | order(datePublished desc, _updatedAt desc) [$fromPosition...$toPosition] {
+*[_type == "post" &&  !(_id in path("drafts.**"))] | order(datePublished desc, _updatedAt desc) [$fromPosition...$toPosition] {
   "readingTime": round(length(pt::text(body)) / 5 / 180 ),
   ${commonFields},
   ${postFields}

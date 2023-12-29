@@ -1,24 +1,33 @@
 import { PTComponents } from "@/app/components/PTComponents";
 import { H4 } from "@/app/components/Typography";
 import { HeroSection } from "@/app/components/sections/HeroSection";
-import { getPageBySlug } from "@/app/lib/sanity";
 import { PortableText } from "@portabletext/react";
 
-export default async function AboutPage() {
-  const data = await getPageBySlug("about");
+export default function AboutPage() {
   return (
     <div
       id="page_container"
       className="mx-auto flex min-h-screen max-w-7xl flex-col gap-y-16 px-4 pt-[4rem] md:gap-y-20 md:px-10"
     >
       {/* <HeroSection /> */}
-      <div className="prose mx-auto mt-24 max-w-4xl  break-words  dark:prose-dark">
-        <PortableText
-          value={data.body}
-          onMissingComponent={false}
-          components={PTComponents}
-        />
-        {/* <H4>Этапы профессиональной деятельности</H4>
+      {/* <div className="prose mx-auto mt-24 max-w-4xl  break-words  dark:prose-dark">
+        Консультант-врач-психотерапевт высшей категории, кандидат наук с
+        20-летним опытом работы с пограничными состояниями психики – неврозами,
+        депрессиями, психосоматическими расстройствами, зависимостями
+        (алкогольной и игровой). Образование - интернатура по психиатрии,
+        клиническая ординатура по психотерапии, кандидат наук. Специализация -
+        аналитическая , когнитивно-поведенческая, системная семейная терапия.
+        Работа в отделениях пограничных состояний, медицинских
+        специализированных центрах, государственной реабилитационной программе.
+        Работаю в направлениях: Когнитивно-поведенческая терапия
+        Психоаналитическая терапия, юнгианский анализ Системная семейная
+        терапия; Помогаю при трудностях в отношениях, в том числе в семье с
+        конфликтным поведением, при переживании чувства одиночества,
+        неуверенности в себе, утрате смысла жизни, личностных и экзистенциальных
+        кризисах с необходимостью в самопознании, постановке целей и выявлении
+        ресурсов, повышении психологической устойчивости, адаптации в окружающем
+        мире и достижении контакта с самим собой.
+        <H4>Этапы профессиональной деятельности</H4>
         <table>
           <thead></thead>
           <tbody>
@@ -93,8 +102,8 @@ export default async function AboutPage() {
             </tr>
           </tbody>
         </table>
-        <H4>Дипломы и сертификаты</H4> */}
-      </div>
+        <H4>Дипломы и сертификаты</H4>
+      </div> */}
     </div>
   );
 }

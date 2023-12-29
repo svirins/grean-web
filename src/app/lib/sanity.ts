@@ -112,16 +112,12 @@ export async function getAllPosts(): Promise<IPost[]> {
   const posts = await sanityClient.fetch(allPostsQuery);
   return posts;
 }
-export async function searchPosts(
-  queryString: string,
-  page: number,
+export async function getPaginatedPosts(
+  // queryString: string,
+  fromPosition: number,
+  toPosition: number,
 ): Promise<IPost[]> {
-  // TODO implement 'fromPosition' and 'toPosition'
-  const fromPosition = INFINITE_SCROLL_FRAME_SIZE * (page - 1);
-  const toPosition = INFINITE_SCROLL_FRAME_SIZE * page - 1;
-
   const posts = await sanityClient.fetch(searchPostsQuery, {
-    queryString: queryString,
     fromPosition: fromPosition,
     toPosition: toPosition,
   });

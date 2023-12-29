@@ -72,7 +72,7 @@ function SitemapSection() {
         <FooterLink name="Главная" href="/" />
         <FooterLink name="Помощь" href="/psyhelp" />
         <FooterLink name="Направления" href="/therapy" />
-        <FooterLink name="Обо мне" href="/about" />
+        <FooterLink name="Обо мне" href="/about-me" />
         <FooterLink name="Блог" href="/blog" />
         <FooterLink name="Sitemap.xml" href="/sitemap.xml" />
       </ul>
