@@ -13,7 +13,7 @@ function ContactSection() {
           name="г. Минск, ул. Сухая 7 каб. 6"
           href="https://www.google.com/maps/place/Doktor+Valeriy+Grin'/@53.9037683,27.5402026,15z/data=!4m6!3m5!1s0x46dbcf55a2f66adf:0x3869e6d6b86f511e!8m2!3d53.9037683!4d27.5402026!16s%2Fg%2F11g0vyyppl?entry=ttu"
         />
-        <FooterLink name="15:00-20:00, ПН - ПТ" href="" />
+        <FooterLink name="15:00-20:00, Пн-Пн" href="" />
       </ul>
     </div>
   );
@@ -54,22 +54,11 @@ function GeneralSection() {
     <div>
       <H5 as="div">Информация</H5>
       <ul className="mt-4">
-        <FooterLink type="internal" name="Вопросы и ответы" href="/q-and-a" />
-        <FooterLink
-          type="internal"
-          name="Правила и условия"
-          href="/terms-and-conditions"
-        />
-        <FooterLink
-          type="external"
-          name="Договор оферты"
-          href="/grean_offer.pdf"
-        />
-        <FooterLink
-          type="internal"
-          name="Цены и оплата on-line"
-          href="/prices-and-payment"
-        />
+        <FooterLink name="Вопросы и ответы" href="/q-and-a" />
+        <FooterLink name="Правила и условия" href="/terms-and-conditions" />
+        <FooterLink name="Договор оферты" href="/grean_offer.pdf" />
+        <FooterLink name="Цены и оплата on-line" href="/prices-and-payment" />
+        <FooterLink name="Пример верстки" href="/test" />
       </ul>
     </div>
   );
@@ -80,29 +69,21 @@ function SitemapSection() {
     <div>
       <H5 as="div">Карта сайта</H5>
       <ul className="mt-4">
-        <FooterLink type="internal" name="Главная" href="/" />
-        <FooterLink type="internal" name="Помощь" href="/psyhelp" />
-        <FooterLink type="internal" name="Направления" href="/therapy" />
-        <FooterLink type="internal" name="Обо мне" href="/about" />
-        <FooterLink type="internal" name="Блог" href="/blog" />
+        <FooterLink name="Главная" href="/" />
+        <FooterLink name="Помощь" href="/psyhelp" />
+        <FooterLink name="Направления" href="/therapy" />
+        <FooterLink name="Обо мне" href="/about" />
+        <FooterLink name="Блог" href="/blog" />
         <FooterLink name="Sitemap.xml" href="/sitemap.xml" />
       </ul>
     </div>
   );
 }
 
-function FooterLink({
-  name,
-  href,
-  type = "internal",
-}: {
-  name: string;
-  href: string;
-  type?: "internal" | "external";
-}) {
+function FooterLink({ name, href }: { name: string; href?: string }) {
   return (
     <li className="py-1">
-      {type === "internal" ? (
+      {href ? (
         <Link
           href={href}
           className="text-secondary underlined inline-block whitespace-nowrap text-lg hover:text-team-current focus:text-team-current focus:outline-none"
@@ -110,12 +91,9 @@ function FooterLink({
           {name}
         </Link>
       ) : (
-        <a
-          href={href}
-          className="text-secondary underlined inline-block whitespace-nowrap text-lg hover:text-team-current focus:text-team-current focus:outline-none"
-        >
+        <p className="text-secondary underlined inline-block whitespace-nowrap text-lg ">
           {name}
-        </a>
+        </p>
       )}
     </li>
   );
@@ -140,10 +118,10 @@ export function Footer() {
           </div>
           <div className="col-span-full mt-24 text-lg text-gray-600 md:mt-44 dark:text-slate-500">
             <div>{`Copyright © ${new Date().getFullYear()} `}</div>
-            <div className="block md:inline">
+            <div>
               Консультант в области охраны психического здоровья ИП Гринь В.Г.
-              УНП 192617833
             </div>
+            <div>УНП 192617833</div>
           </div>
         </div>
       </div>

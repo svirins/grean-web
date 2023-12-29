@@ -9,9 +9,14 @@
     "dev": "next dev",
     "format": "prettier --write .",
     "lint": "next lint",
-    "start": "next start"
+    "start": "next start",
+    "create-index": "bun run ./src/scripts/createSearchIndex"
   },
   "dependencies": {
+    "@algolia/autocomplete-core": "^1.13.0",
+    "@algolia/autocomplete-js": "^1.13.0",
+    "@algolia/autocomplete-theme-classic": "^1.13.0",
+    "@algolia/client-search": "^4.22.0",
     "@portabletext/react": "^3.0.11",
     "@prisma/client": "latest",
     "@reach/menu-button": "^0.18.0",
@@ -26,14 +31,18 @@
     "date-fns": "^3.0.6",
     "framer-motion": "^10.16.16",
     "immer": "^10.0.3",
+    "instantsearch.css": "^8.1.0",
     "next": "^14.0.3",
     "next-sanity": "^7.0.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-instantsearch-hooks-web": "^6.47.3",
     "react-intersection-observer": "^9.5.3",
     "react-lite-youtube-embed": "^2.4.0",
     "react-wrap-balancer": "^1.1.0",
-    "tailwindcss": "^3.3.5"
+    "tailwindcss": "^3.3.5",
+    "validator": "^13.11.0",
+    "zod": "^3.22.4"
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "^14.0.3",
@@ -42,6 +51,7 @@
     "@types/node": "^18.17.0",
     "@types/react": "^18.2.37",
     "@types/react-dom": "^18.2.15",
+    "@types/validator": "^13.11.7",
     "@typescript-eslint/eslint-plugin": "^6.11.0",
     "@typescript-eslint/parser": "^6.11.0",
     "autoprefixer": "^10.4.14",

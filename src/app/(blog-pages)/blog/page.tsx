@@ -1,8 +1,9 @@
 import { SearchBar } from "@/app/components/SearchBar";
 import { LoadMore } from "@/app/components/LoadMore";
 import { HeaderSection } from "@/app/components/sections/HeaderSection";
-import { InfinitePostGrid } from "@/app/components/InfinitePostGrid";
 import { searchPosts } from "@/app/lib/actions";
+import { Grid } from "@/app/components/Grid";
+import { PostCard } from "@/app/components/PostCard";
 
 type Props = {
   params: object;
@@ -21,7 +22,7 @@ export default async function BlogPage(props: Props) {
   return (
     <div
       id="page_container"
-      className="mx-auto flex min-h-screen max-w-7xl flex-col gap-y-16 px-4 md:gap-y-20 md:px-10"
+      className="mx-auto flex min-h-screen max-w-7xl flex-col gap-y-16 px-4 pt-[4rem] md:gap-y-20 md:px-10"
     >
       <HeaderSection
         title="Статьи"
@@ -29,12 +30,25 @@ export default async function BlogPage(props: Props) {
           материалами."
       />
       <SearchBar />
-      <div className="mx-auto hidden grid-cols-1 gap-x-5 gap-y-10 md:grid lg:mx-0 lg:max-w-none lg:grid-cols-3">
-        {data?.length ? (
-          <InfinitePostGrid posts={data} />
-        ) : (
-          <p>По вашему запросу ничего не найдено</p>
-        )}
+      <div className="relative">
+        <Grid className="gap-y-16">
+          {data.length ? (
+            data?.map((post, idx) => (
+              <div key={idx} className="col-span-4">
+                <PostCard
+                  title={post.title}
+                  readingTime={post.readingTime}
+                  coverImage={post.coverImage}
+                  datePublished={post.datePublished}
+                  link={`/blog/${post.slug}`}
+                  tags={post.tags}
+                />
+              </div>
+            ))
+          ) : (
+            <p>По вашему запросу ничего не найдено</p>
+          )}
+        </Grid>
       </div>
       <LoadMore queryString={queryString} />
     </div>

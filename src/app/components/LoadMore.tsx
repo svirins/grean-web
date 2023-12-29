@@ -4,9 +4,10 @@ import { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
 import { Spinner } from "@/app/components/Spinner";
 import { type IPost } from "@/app/lib/sanity";
-import { InfinitePostGrid } from "@/app/components/InfinitePostGrid";
 import { produce } from "immer";
 import { searchPosts } from "@/app/lib/actions";
+import { Grid } from "@/app/components/Grid";
+import { PostCard } from "@/app/components/PostCard";
 
 export function LoadMore({ queryString }: { queryString: string }) {
   const [posts, setPosts] = useState<IPost[]>([]);
@@ -47,13 +48,25 @@ export function LoadMore({ queryString }: { queryString: string }) {
 
   return (
     <>
-      <InfinitePostGrid posts={posts} />
-      <div
-        className="sm:col-span-2 col-span-1 flex items-center justify-center p-4 md:col-span-3"
-        ref={ref}
-      >
-        <Spinner />
-      </div>
+      <Grid className="gap-y-16">
+        {posts.length ? (
+          posts?.map((post, idx) => (
+            <div key={idx} className="col-span-4">
+              <PostCard
+                title={post.title}
+                readingTime={post.readingTime}
+                coverImage={post.coverImage}
+                datePublished={post.datePublished}
+                link={`/blog/${post.slug}`}
+                tags={post.tags}
+              />
+            </div>
+          ))
+        ) : (
+          <p>По вашему запросу ничего не найдено</p>
+        )}
+      </Grid>
+      <Spinner />
     </>
   );
 }

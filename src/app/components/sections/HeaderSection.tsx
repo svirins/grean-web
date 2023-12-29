@@ -1,6 +1,7 @@
 import { Grid } from "@/app/components/Grid";
 import { H2, H4 } from "@/app/components/Typography";
 import { ButtonLink } from "@/app/components/ButtonLink";
+import Balancer from "react-wrap-balancer";
 
 interface HeaderSectionProps {
   ctaUrl?: string;
@@ -21,7 +22,9 @@ export function HeaderSection({
     <Grid>
       <div className="col-span-full flex flex-col space-y-10 lg:flex-row lg:items-end lg:justify-between lg:space-y-0">
         <div className="space-y-2 lg:space-y-0">
-          <H2>{title}</H2>
+          <H2>
+            <Balancer ratio={0.85}>{title}</Balancer>
+          </H2>
           <H4 variant="secondary" as="p" className="mt-3">
             {subTitle}
           </H4>

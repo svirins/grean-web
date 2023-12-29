@@ -22,4 +22,4 @@ export const SOCIALS = [
 
 export const POSTS_LIMIT = 200;
 export const FEATURED_POSTS_LIMIT = 3;
-export const INFINITE_SCROLL_FRAME_SIZE = 3;
+export const INFINITE_SCROLL_FRAME_SIZE = 9;

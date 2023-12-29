@@ -1,4 +1,3 @@
-
 export function isActive(href: string, currentPath: string): boolean {
   if (href === currentPath) {
     return true;

@@ -26,7 +26,7 @@ export default async function PostPage({
   return (
     <div
       id="page_container"
-      className="mx-auto flex min-h-screen max-w-7xl flex-col gap-y-16 px-4 pt-24  md:gap-y-20 md:px-10"
+      className="mx-auto flex min-h-screen max-w-7xl flex-col gap-y-16 px-4 pt-[4rem]  md:gap-y-20 md:px-10"
     >
       <article>
         <H2>
@@ -68,6 +68,6 @@ export default async function PostPage({
 export async function generateStaticParams() {
   const paths = await getPostSlugs();
   return paths.map((slug) => ({
-    slug,
+    slug: slug.slug,
   }));
 }

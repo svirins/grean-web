@@ -37,7 +37,7 @@
     "**/*.cjs",
     "**/*.js",
     ".next/types/**/*.ts",
-    "src/app/components/PTComponents.tsx"
+    "src/app/components/Algolia.jsx"
   ],
   "exclude": ["node_modules"]
 }

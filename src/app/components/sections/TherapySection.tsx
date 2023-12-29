@@ -24,7 +24,7 @@ export async function TherapySection({
                 title={therapy.title}
                 coverImage={therapy.coverImage}
                 description={therapy.description}
-                link={`/psyhelp/${therapy.slug}`}
+                link={`/therapy/${therapy.slug}`}
               />
             </div>
           ))}

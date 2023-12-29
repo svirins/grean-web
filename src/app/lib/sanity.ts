@@ -89,6 +89,7 @@ export interface ITherapy {
   description: string;
   coverImage: SanityAssetExtended;
 }
+
 import {
   allPostsQuery,
   searchPostsQuery,
@@ -172,19 +173,27 @@ export const getPageBySlug = async (slug: string): Promise<ITherapy> => {
   return page;
 };
 
-export const getPostSlugs = async (): Promise<string[]> => {
+export const getPostSlugs = async (): Promise<
+  { slug: string; date: string }[]
+> => {
   const slugs = await sanityClient.fetch(postSlugsQuery);
   return slugs;
 };
-export const getTagSlugs = async (): Promise<string[]> => {
+export const getTagSlugs = async (): Promise<
+  { slug: string; date: string }[]
+> => {
   const slugs = await sanityClient.fetch(tagSlugsQuery);
   return slugs;
 };
-export const getTherapySlugs = async (): Promise<string[]> => {
+export const getTherapySlugs = async (): Promise<
+  { slug: string; date: string }[]
+> => {
   const slugs = await sanityClient.fetch(therapySlugsQuery);
   return slugs;
 };
-export const getPsyHelpSlugs = async (): Promise<string[]> => {
+export const getPsyHelpSlugs = async (): Promise<
+  { slug: string; date: string }[]
+> => {
   const slugs = await sanityClient.fetch(psyHelpSlugsQuery);
   return slugs;
 };

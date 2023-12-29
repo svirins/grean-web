@@ -27,8 +27,11 @@ const commonFields = groq`
 // TODO: implement Paginated Posts Query
 export const allPostsQuery = groq`
 *[_type == "post" ] | order(datePublished desc, _updatedAt desc) {
-  ${commonFields},
-  ${postFields}
+  _id,
+  "publishedAt": _updatedAt,
+  title,
+  "slug": slug.current,
+  "tags": tags[] -> title
 }`;
 
 // search posts by title
@@ -121,15 +124,27 @@ export const pageBySlugQuery = groq`
 
 // SLUGS QUERIES
 export const postSlugsQuery = groq`
-*[_type == "post" && defined(slug.current)][].slug.current`;
+*[_type == "post" && defined(slug.current)][]{
+  "slug": slug.current,
+  "date": _updatedAt
+  }`;
 
 export const tagSlugsQuery = groq`
-*[_type == "tag" && defined(slug.current)][].slug.current`;
+*[_type == "tag" && defined(slug.current)][]{
+  "slug": slug.current,
+  "date": _updatedAt
+  }`;
 
 export const therapySlugsQuery = groq`
-*[_type == "therapy" && defined(slug.current)][].slug.current`;
+*[_type == "therapy" && defined(slug.current)][]{
+  "slug": slug.current,
+  "date": _updatedAt
+  }`;
 
 export const psyHelpSlugsQuery = groq`
-*[_type == "psyHelp" && defined(slug.current)][].slug.current`;
+*[_type == "psyHelp" && defined(slug.current)][]{
+  "slug": slug.current,
+  "date": _updatedAt
+  }`;
 
 export const totalPostsNumberQuery = groq`count(*[_type == 'post' && !(_id in path("drafts.**"))])`;

@@ -17,7 +17,7 @@ export function CoverImage(props: CoverImageProps) {
   const condidionalImage = link ? (
     <Link href={link}>
       <Image
-        className="focus-ring aspect-[16/9] w-full rounded-lg  object-cover object-center transition"
+        className="aspect-[16/9] w-full rounded-lg  object-cover object-center transition-opacity hover:opacity-75"
         sizes="100vw"
         width={width}
         height={height}

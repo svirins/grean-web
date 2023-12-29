@@ -65,12 +65,6 @@ export const PTComponents: Partial<PortableTextReactComponents> = {
     ),
   },
   block: {
-    h2: ({ children, value }) => (
-      <h2 id={`${value._key}`}>
-        <a href={`#${value._key}`} className="anchor scrollable"></a>
-        {children}
-      </h2>
-    ),
     h3: ({ children, value }) => (
       <h3 id={`${value._key}`}>
         <a href={`#${value._key}`} className="anchor scrollable"></a>
@@ -82,6 +76,12 @@ export const PTComponents: Partial<PortableTextReactComponents> = {
         <a href={`#${value._key}`} className="anchor scrollable"></a>
         {children}
       </h4>
+    ),
+    h5: ({ children, value }) => (
+      <h5 id={`${value._key}`}>
+        <a href={`#${value._key}`} className="anchor scrollable"></a>
+        {children}
+      </h5>
     ),
     blockquote: ({ children }) => (
       <div className="py-1">
