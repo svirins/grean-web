@@ -1,6 +1,6 @@
 import { Grid } from "@/app/components/Grid";
 import { H2, H4 } from "@/app/components/Typography";
-import { ButtonLink } from "@/app/components/ButtonLink";
+import { ButtonLink } from "@/app/components/Buttons";
 import Balancer from "react-wrap-balancer";
 
 interface HeaderSectionProps {

@@ -4,50 +4,58 @@ import { db } from "@/app/lib/prisma";
 import isMobilePhone from "validator/es/lib/isMobilePhone";
 
 const FormSchema = z.object({
-  name: z
-    .string()
-    .min(3, { message: "Минимум 3 символа" })
-    .max(32, { message: "Максимум 32 символа" }),
-  email: z.string().email({ message: "Недопустимый email " }),
-  phone: z
+  id: z.string(),
+  name: z.string(),
+  phone: z.coerce
     .string()
     .refine(isMobilePhone, { message: "Недопустимый номер телефона" }),
-  message: z.string().max(1024, { message: "Максимум 1024 символа" }),
+  message: z.string(),
 });
-
-export type State = {
-  errors?: {
-    name?: string[];
-    email?: string[];
-    phone?: string[];
-    message?: string[];
-  };
-  message?: string | null;
-};
+// TODO: double-check current type-checking
+export type State =
+  | {
+      errors?:
+        | {
+            name?: string[];
+            phone?: string[];
+            message?: string[];
+          }
+        | undefined;
+      message?: string | null | undefined;
+    }
+  | undefined;
 const CreateInvoice = FormSchema.omit({ id: true, date: true });
 
 export async function createSubmission(prevState: State, formData: FormData) {
   const validatedFields = CreateInvoice.safeParse({
-    customerId: formData.get("customerId"),
-    amount: formData.get("amount"),
-    status: formData.get("status"),
+    name: formData.get("name"),
+    phone: formData.get("phone"),
+    message: formData.get("message"),
   });
+  console.log("validatedFields are: ", validatedFields);
+
   if (!validatedFields.success) {
+    console.log(
+      "Error from action: ",
+      validatedFields.error.flatten().fieldErrors,
+    );
     return {
       errors: validatedFields.error.flatten().fieldErrors,
       message: "Missing Fields. Failed to Create Invoice.",
     };
   }
-  const { customerId, amount, status } = validatedFields.data;
-  const amountInCents = amount * 100;
-  const date = new Date().toISOString().split("T")[0];
+  const {
+    name = "Аноним",
+    phone,
+    message = "Без сообщения",
+  } = validatedFields.data;
 
   try {
     await db.submission.create({
       data: {
-        status: status,
-        amount: amountInCents,
-        date: date,
+        name: name,
+        phone: phone,
+        message: message,
       },
     });
   } catch (error) {

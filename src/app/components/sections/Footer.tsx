@@ -54,7 +54,7 @@ function GeneralSection() {
     <div>
       <H5 as="div">Информация</H5>
       <ul className="mt-4">
-        <FooterLink name="Вопросы и ответы" href="/q-and-a" />
+        <FooterLink name="Вопросы и ответы" href="/voprosy-i-otvety" />
         <FooterLink name="Правила и условия" href="/terms-and-conditions" />
         <FooterLink name="Договор оферты" href="/grean_offer.pdf" />
         <FooterLink name="Цены и оплата on-line" href="/prices-and-payment" />

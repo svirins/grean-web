@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { H2, H4 } from "@/app/components/Typography";
-import { ButtonLink } from "@/app/components/ButtonLink";
+import { ButtonLink } from "@/app/components/Buttons";
 
 export function HeroSection() {
   return (
@@ -15,7 +15,7 @@ export function HeroSection() {
 
           <div className="mt-14 flex flex-col space-y-4">
             <div className="mr-auto flex flex-col gap-4">
-              <ButtonLink to="/about" title="Обо мне" variant="primary" />
+              <ButtonLink to="/about-me" title="Обо мне" variant="primary" />
               <ButtonLink to="/blog" title="Мои статьи" variant="secondary" />
             </div>
           </div>
