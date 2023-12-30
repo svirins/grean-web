@@ -39,8 +39,13 @@ export function SearchBar() {
     }
     const search = autocomplete<PostHit>({
       container: containerRef.current,
-      placeholder: "Search",
+      placeholder: "Поиск",
       insights: true,
+      translations: {
+        clearButtonTitle: "Очистить",
+        detachedCancelButtonText: "Очистить",
+        submitButtonTitle: "Искать",
+      },
       getSources({ query }) {
         return [
           {

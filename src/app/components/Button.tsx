@@ -5,9 +5,10 @@ type Variant = "outlined" | "link" | "contained" | "none";
 type Props = React.HTMLAttributes<HTMLButtonElement> & {
   variant?: Variant;
   disabled?: boolean;
+  type?: "button" | "submit" | "reset";
 };
 export function Button(props: Props): React.ReactElement {
-  const { variant = "contained", className, ...rest } = props;
+  const { variant = "contained", type = "button", className, ...rest } = props;
 
   const classes: Record<Variant, string> = {
     contained: "bg-black hover:bg-stone-800 text-white rounded-[32px]",
@@ -19,7 +20,7 @@ export function Button(props: Props): React.ReactElement {
 
   return (
     <button
-      type="button"
+      type={type}
       className={clsx(
         "flex items-center justify-center gap-2",
         classes[variant],

@@ -115,7 +115,6 @@ export async function getAllPosts(): Promise<IPost[]> {
 export async function getPaginatedPosts(currentPage: number): Promise<IPost[]> {
   const fromPosition = POSTS_PER_PAGE * (currentPage - 1);
   const toPosition = POSTS_PER_PAGE * currentPage;
-  console.log("fromPosition: ", fromPosition, "toPosition: ", toPosition);
   const posts = await sanityClient.fetch(searchPostsQuery, {
     fromPosition: fromPosition,
     toPosition: toPosition,
