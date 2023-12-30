@@ -1,19 +1,20 @@
 import { SearchBar } from "@/app/components/SearchBar";
 import { HeaderSection } from "@/app/components/sections/HeaderSection";
-// import { searchPosts } from "@/app/lib/actions";
 import { Grid } from "@/app/components/Grid";
 import { PostCard } from "@/app/components/PostCard";
-import { getPaginatedPosts } from "@/app/lib/sanity";
+import { getPaginatedPosts, getTotalPosts } from "@/app/lib/sanity";
+import { Pagination } from "@/app/components/Pagination";
+import { POSTS_PER_PAGE } from "@/app/lib/constants";
 
-type Props = {
-  params: object;
-  searchParams: { page?: string };
-};
-
-export default async function BlogPage(props: Props) {
-  const searchParams = Number(props.searchParams) ?? 1;
-  // TODO: !! Return to server actions instead
-  const data = await getPaginatedPosts(0, 9);
+export default async function BlogPage({
+  searchParams,
+}: {
+  searchParams?: { page?: string };
+}) {
+  const currentPage = Number(searchParams?.page) || 1;
+  const data = await getPaginatedPosts(currentPage);
+  const totalPosts = await getTotalPosts();
+  const totalPages = Math.ceil(totalPosts / POSTS_PER_PAGE);
   return (
     <div
       id="page_container"
@@ -27,23 +28,20 @@ export default async function BlogPage(props: Props) {
       <SearchBar />
       <div className="relative">
         <Grid className="gap-y-16">
-          {data.length ? (
-            data?.map((post, idx) => (
-              <div key={idx} className="col-span-4">
-                <PostCard
-                  title={post.title}
-                  readingTime={post.readingTime}
-                  coverImage={post.coverImage}
-                  datePublished={post.datePublished}
-                  link={`/blog/${post.slug}`}
-                  tags={post.tags}
-                />
-              </div>
-            ))
-          ) : (
-            <p>По вашему запросу ничего не найдено</p>
-          )}
+          {data?.map((post, idx) => (
+            <div key={idx} className="col-span-4">
+              <PostCard
+                title={post.title}
+                readingTime={post.readingTime}
+                coverImage={post.coverImage}
+                datePublished={post.datePublished}
+                link={`/blog/${post.slug}`}
+                tags={post.tags}
+              />
+            </div>
+          ))}
         </Grid>
+        <Pagination totalPages={totalPages} />
       </div>
     </div>
   );

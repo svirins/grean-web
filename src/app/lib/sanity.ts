@@ -1,4 +1,3 @@
-import { INFINITE_SCROLL_FRAME_SIZE } from "@/app/lib/constants";
 import { createClient } from "next-sanity";
 import {
   type SanityAsset,
@@ -107,16 +106,16 @@ import {
   totalPostsNumberQuery,
   pageBySlugQuery,
 } from "./queries";
+import { POSTS_PER_PAGE } from "@/app/lib/constants";
 
 export async function getAllPosts(): Promise<IPost[]> {
   const posts = await sanityClient.fetch(allPostsQuery);
   return posts;
 }
-export async function getPaginatedPosts(
-  // queryString: string,
-  fromPosition: number,
-  toPosition: number,
-): Promise<IPost[]> {
+export async function getPaginatedPosts(currentPage: number): Promise<IPost[]> {
+  const fromPosition = POSTS_PER_PAGE * (currentPage - 1);
+  const toPosition = POSTS_PER_PAGE * currentPage;
+  console.log("fromPosition: ", fromPosition, "toPosition: ", toPosition);
   const posts = await sanityClient.fetch(searchPostsQuery, {
     fromPosition: fromPosition,
     toPosition: toPosition,
