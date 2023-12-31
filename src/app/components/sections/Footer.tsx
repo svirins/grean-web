@@ -116,7 +116,7 @@ export function Footer() {
           <div className="col-span-3 mt-20 md:mt-0 ">
             <SocialsSection />
           </div>
-          <div className="col-span-full mt-24 text-lg text-gray-600 md:mt-44 dark:text-slate-500">
+          <div className="col-span-full mt-24 text-base text-gray-600 md:mt-44 dark:text-slate-500">
             <div>{`Copyright © ${new Date().getFullYear()} `}</div>
             <div>
               Консультант в области охраны психического здоровья ИП Гринь В.Г.

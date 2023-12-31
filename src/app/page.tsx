@@ -4,6 +4,10 @@ import { SubscribeSection } from "@/app/components/sections/SubscribeSection";
 import { HeroSection } from "@/app/components/sections/HeroSection";
 import { FeaturedPostSection } from "@/app/components/sections/FeaturedPostSection";
 
+export const metadata = {
+  title: "Next.js",
+};
+
 export default function HomePage() {
   return (
     <div

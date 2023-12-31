@@ -2,6 +2,7 @@ import { getPostsByTag, getTagSlugs } from "@/app/lib/sanity";
 import { Card } from "@/app/components/Card";
 import { SearchBar } from "@/app/components/SearchBar";
 import { HeaderSection } from "@/app/components/sections/HeaderSection";
+import { notFound } from "next/navigation";
 
 export default async function TagPage({
   params,
@@ -11,6 +12,9 @@ export default async function TagPage({
     searchParams: URLSearchParams;
   };
 }) {
+  if (!params.tag) {
+    notFound();
+  }
   const { posts: data, title, description } = await getPostsByTag(params.tag);
   return (
     <div

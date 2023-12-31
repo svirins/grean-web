@@ -17,10 +17,11 @@ export default async function PostPage({
     searchParams: URLSearchParams;
   };
 }) {
-  const data = await getPostBySlug(params.slug);
   if (!params.slug) {
     notFound();
   }
+  const data = await getPostBySlug(params.slug);
+
   const date = parse(data.datePublished, "yyyy-MM-dd", new Date());
   const result = format(date, "PP", { locale: ru });
   return (

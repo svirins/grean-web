@@ -108,7 +108,7 @@ function FormContent({
           {...register("phone")}
           className="focus-ring w-full rounded-lg bg-gray-100 px-11 py-4 text-lg font-medium text-black placeholder-gray-500 disabled:text-gray-400 dark:bg-gray-800 dark:text-white dark:disabled:text-slate-500"
         />
-        <span className="text-sm font-semibold text-red-500">
+        <span className="mb-2 px-11 text-sm font-normal text-red-500">
           <ErrorMessage name="phone" errors={errors} />
         </span>
       </div>
@@ -134,9 +134,7 @@ function FormContent({
           disabled={pending || !isValid}
         />
       </div>
-      {pending && (
-        <span className="px-11 font-normal italic">Обрабатывается...</span>
-      )}
+      {pending && <span className="font-normal italic">Обрабатывается...</span>}
     </div>
   );
 }

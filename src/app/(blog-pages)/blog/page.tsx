@@ -5,6 +5,7 @@ import { PostCard } from "@/app/components/PostCard";
 import { getPaginatedPosts, getTotalPosts } from "@/app/lib/sanity";
 import { Pagination } from "@/app/components/Pagination";
 import { POSTS_PER_PAGE } from "@/app/lib/constants";
+import { notFound } from "next/navigation";
 
 export default async function BlogPage({
   searchParams,
@@ -13,6 +14,9 @@ export default async function BlogPage({
 }) {
   const currentPage = Number(searchParams?.page) || 1;
   const data = await getPaginatedPosts(currentPage);
+  if (!data || data.length === 0) {
+    notFound();
+  }
   const totalPosts = await getTotalPosts();
   const totalPages = Math.ceil(totalPosts / POSTS_PER_PAGE);
   return (
