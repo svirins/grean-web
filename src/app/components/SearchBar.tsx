@@ -72,7 +72,6 @@ export function SearchBar() {
           },
         ];
       },
-      // eslint-disable-next-line @typescript-eslint/no-empty-function
       renderer: { createElement, Fragment, render: () => {} },
       render({ children }, root) {
         if (!panelRootRef.current || rootRef.current !== root) {

@@ -38,10 +38,7 @@ export default function RootLayout({
       className={`scroll-smooth ${defaultTheme}`}
       translate="no"
     >
-      <body
-        // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
-        className={`font-sans ${montserrat.variable}  antialiased`}
-      >
+      <body className={`font-sans ${montserrat.variable}  antialiased`}>
         <div className="bg-white transition duration-500 dark:bg-gray-900">
           <NavBar />
           <main id="skip">{children}</main>

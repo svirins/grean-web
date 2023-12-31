@@ -69,5 +69,4 @@ export default async function generateIndex() {
     };
   }
 }
-// eslint-disable-next-line @typescript-eslint/no-floating-promises
 generateIndex();

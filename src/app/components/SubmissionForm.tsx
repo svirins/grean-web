@@ -11,7 +11,7 @@ import { useFormState, useFormStatus } from "react-dom";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { formSchema } from "@/app/lib/formSchema";
 import { ErrorMessage } from "@hookform/error-message";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Button } from "@/app/components/Buttons";
 
 export interface FormValues {
@@ -19,71 +19,7 @@ export interface FormValues {
   phone: string;
   message: string;
 }
-
-// TODO: Remove classes after tests
-const inputClasses =
-  "block border-0 rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-blue-600 border-gray-400 w-full";
-const buttonClasses =
-  "rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 disabled:bg-gray-400 disabled:text-gray-300 disabled:cursor-not-allowed";
-
-function FormContent({
-  register,
-  isValid,
-  errors,
-}: {
-  register: UseFormRegister<FormValues>;
-  isValid: boolean;
-  errors: FieldErrors<FormValues>;
-}) {
-  const { pending } = useFormStatus();
-
-  return (
-    <div className="relative grid grid-cols-1 gap-3">
-      <div className="w-full">
-        <input
-          {...register("name")}
-          placeholder="Представтьтесь, пожалуйста"
-          className={inputClasses}
-          autoFocus={true}
-        />
-        <span className="text-sm font-semibold text-red-500">
-          <ErrorMessage name="name" errors={errors} />
-        </span>
-      </div>
-      <div className="w-full">
-        <input
-          {...register("phone")}
-          placeholder="Ваш номер телефона"
-          className={inputClasses}
-        />
-        <span className="text-sm font-semibold text-red-500">
-          <ErrorMessage name="phone" errors={errors} />
-        </span>
-      </div>
-      <div className="w-full">
-        <input
-          {...register("message")}
-          placeholder="Cообщение"
-          className={inputClasses}
-        />
-        <span className="text-sm font-semibold text-red-500">
-          <ErrorMessage name="message" errors={errors} />
-        </span>
-      </div>
-      <button
-        type="submit"
-        disabled={pending || !isValid}
-        className={buttonClasses}
-      >
-        Send
-      </button>
-      {pending && <span>Обрабатывается...</span>}
-    </div>
-  );
-}
-
 export function SubmissionForm({ classname }: { classname?: string }) {
-  const [clientSideValidation, setClientSideValidation] = useState(true);
   const {
     register,
     formState: { isValid, errors },
@@ -91,7 +27,7 @@ export function SubmissionForm({ classname }: { classname?: string }) {
     reset,
   } = useForm<FormValues>({
     mode: "all",
-    resolver: clientSideValidation ? zodResolver(formSchema) : undefined,
+    resolver: zodResolver(formSchema),
   });
   const [state, formAction] = useFormState<State, FormData>(
     createSubmission,
@@ -118,24 +54,81 @@ export function SubmissionForm({ classname }: { classname?: string }) {
 
   return (
     <div className={classname}>
-      <div className="mb-1.5 flex items-center border-b pb-1.5">
-        <input
-          type="checkbox"
-          checked={clientSideValidation}
-          onChange={() => {
-            reset();
-            setClientSideValidation(!clientSideValidation);
-          }}
-          id="client-side-validation-checkbox"
-          className="mr-3"
-        />
-        <label htmlFor="client-side-validation-checkbox">
-          Enable client-side validation
-        </label>
-      </div>
       <form action={formAction}>
         <FormContent register={register} isValid={isValid} errors={errors} />
       </form>
+    </div>
+  );
+}
+
+function FormContent({
+  register,
+  isValid,
+  errors,
+}: {
+  register: UseFormRegister<FormValues>;
+  isValid: boolean;
+  errors: FieldErrors<FormValues>;
+}) {
+  const { pending } = useFormStatus();
+
+  return (
+    <div className="relative grid grid-cols-1 gap-3">
+      <div className="mb-8">
+        <div className="mb-4 flex items-baseline justify-between gap-2">
+          <label
+            htmlFor="name"
+            className="inline-block text-lg text-gray-500 dark:text-slate-500"
+          >
+            Представтьтесь, пожалуйста
+          </label>
+        </div>
+        <input
+          {...register("name")}
+          autoFocus={true}
+          className="focus-ring w-full rounded-lg bg-gray-100 px-11 py-4 text-lg font-medium text-black placeholder-gray-500 disabled:text-gray-400 dark:bg-gray-800 dark:text-white dark:disabled:text-slate-500"
+        />
+      </div>
+      <div className="mb-8">
+        <div className="mb-4 flex items-baseline justify-between gap-2">
+          <label
+            htmlFor="phone"
+            className="inline-block text-lg text-gray-500 dark:text-slate-500"
+          >
+            Ваш номер телефона
+          </label>
+        </div>
+        <input
+          {...register("phone")}
+          className="focus-ring w-full rounded-lg bg-gray-100 px-11 py-4 text-lg font-medium text-black placeholder-gray-500 disabled:text-gray-400 dark:bg-gray-800 dark:text-white dark:disabled:text-slate-500"
+        />
+        <span className="text-sm font-semibold text-red-500">
+          <ErrorMessage name="phone" errors={errors} />
+        </span>
+      </div>
+      <div className="mb-8">
+        <div className="mb-4 flex items-baseline justify-between gap-2">
+          <label
+            htmlFor="message"
+            className="inline-block text-lg text-gray-500 dark:text-slate-500"
+          >
+            Cообщение
+          </label>
+        </div>
+        <input
+          {...register("message")}
+          className="focus-ring w-full rounded-lg bg-gray-100 px-11 py-4 text-lg font-medium text-black placeholder-gray-500 disabled:text-gray-400 dark:bg-gray-800 dark:text-white dark:disabled:text-slate-500"
+        />
+      </div>
+      <div className="mt-6 flex justify-end gap-4">
+        <Button
+          type="submit"
+          title="Отправить"
+          variant="primary"
+          disabled={pending || !isValid}
+        />
+      </div>
+      {pending && <span className="italic">Обрабатывается...</span>}
     </div>
   );
 }

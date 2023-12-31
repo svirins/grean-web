@@ -34,14 +34,17 @@ export function Button({
   title,
   variant = "primary",
   type = "submit",
+  disabled = false,
 }: {
   title: string;
   variant: "primary" | "secondary";
   type?: "submit" | "reset" | "button";
+  disabled: boolean;
 }) {
   return (
     <button
       type={type}
+      disabled={disabled}
       className={clsx(
         "group relative inline-flex space-x-3 rounded-full px-8 py-4 text-lg font-medium opacity-100 transition focus:outline-none ",
         {
