@@ -12,6 +12,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { formSchema } from "@/app/lib/formSchema";
 import { ErrorMessage } from "@hookform/error-message";
 import { useEffect } from "react";
+import toast from "react-hot-toast";
 import { Button } from "@/app/components/Buttons";
 
 export interface FormValues {
@@ -33,6 +34,10 @@ export function SubmissionForm({ classname }: { classname?: string }) {
     createSubmission,
     null,
   );
+  const notify = (msg: string) =>
+    toast.success(msg, {
+      duration: 2000,
+    });
 
   useEffect(() => {
     if (!state) {
@@ -47,7 +52,8 @@ export function SubmissionForm({ classname }: { classname?: string }) {
       });
     }
     if (state.status === "success") {
-      alert(state.message);
+      notify(state.message);
+      // alert(state.message);
       reset();
     }
   }, [state, setError, reset]);
@@ -128,7 +134,9 @@ function FormContent({
           disabled={pending || !isValid}
         />
       </div>
-      {pending && <span className="italic">Обрабатывается...</span>}
+      {pending && (
+        <span className="px-11 font-normal italic">Обрабатывается...</span>
+      )}
     </div>
   );
 }

@@ -9,6 +9,8 @@ import { NavBar } from "@/app/components/sections/NavBar";
 
 import { Montserrat } from "next/font/google";
 import { Spacer } from "@/app/components/Spacer";
+import { Toaster } from "react-hot-toast";
+
 import { cookies } from "next/headers";
 
 const montserrat = Montserrat({
@@ -39,6 +41,7 @@ export default function RootLayout({
       translate="no"
     >
       <body className={`font-sans ${montserrat.variable}  antialiased`}>
+        <Toaster position="top-center" />
         <div className="bg-white transition duration-500 dark:bg-gray-900">
           <NavBar />
           <main id="skip">{children}</main>
