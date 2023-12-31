@@ -1,56 +1,33 @@
 "use server";
-import { z } from "zod";
+import { ZodError } from "zod";
 import { db } from "@/app/lib/prisma";
-import isMobilePhone from "validator/es/lib/isMobilePhone";
+import { formSchema } from "@/app/lib/formSchema";
 
-const FormSchema = z.object({
-  id: z.string(),
-  name: z.string(),
-  phone: z.coerce
-    .string()
-    .refine(isMobilePhone, { message: "Недопустимый номер телефона" }),
-  message: z.string(),
-});
-// TODO: double-check current type-checking
 export type State =
   | {
-      errors?:
-        | {
-            name?: string[];
-            phone?: string[];
-            message?: string[];
-          }
-        | undefined;
-      message?: string | null | undefined;
+      status: "success";
+      message: string;
     }
-  | undefined;
-const CreateInvoice = FormSchema.omit({ id: true, date: true });
+  | {
+      status: "error";
+      message: string;
+      errors?: Array<{
+        path: string;
+        message: string;
+      }>;
+    }
+  | null;
 
-export async function createSubmission(prevState: State, formData: FormData) {
-  const validatedFields = CreateInvoice.safeParse({
-    name: formData.get("name"),
-    phone: formData.get("phone"),
-    message: formData.get("message"),
-  });
-  console.log("validatedFields are: ", validatedFields);
-
-  if (!validatedFields.success) {
-    console.log(
-      "Error from action: ",
-      validatedFields.error.flatten().fieldErrors,
-    );
-    return {
-      errors: validatedFields.error.flatten().fieldErrors,
-      message: "Missing Fields. Failed to Create Invoice.",
-    };
-  }
-  const {
-    name = "Аноним",
-    phone,
-    message = "Без сообщения",
-  } = validatedFields.data;
-
+export async function createSubmission(
+  prevState: State,
+  formData: FormData,
+): Promise<State> {
   try {
+    const {
+      name = "Аноним",
+      phone,
+      message = "Без сообщения",
+    } = formSchema.parse(formData);
     await db.submission.create({
       data: {
         name: name,
@@ -58,7 +35,24 @@ export async function createSubmission(prevState: State, formData: FormData) {
         message: message,
       },
     });
-  } catch (error) {
-    return { message: "Database Error: Failed to Update Invoice." };
+    return {
+      status: "success",
+      message: `Спасибо, ${name}. Ваша заявка отправлена!`,
+    };
+  } catch (e) {
+    if (e instanceof ZodError) {
+      return {
+        status: "error",
+        message: "Некорректные данные",
+        errors: e.issues.map((issue) => ({
+          path: issue.path.join("."),
+          message: `Ошибка валидации: ${issue.message}`,
+        })),
+      };
+    }
+    return {
+      status: "error",
+      message: "Ошибка обращения к серверу. Повторите попытку позже",
+    };
   }
 }
