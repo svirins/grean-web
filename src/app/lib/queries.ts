@@ -92,6 +92,7 @@ export const psyHelpBySlugQuery = groq`
 {
   "psyHelp": *[_type == "psyHelp" && slug.current == $slug] | order(_updatedAt desc) [0] {
   ${commonFields},
+    description,
     body
   }
 }`;
@@ -110,6 +111,7 @@ export const therapyBySlugQuery = groq`
   "therapy": *[_type == "therapy" && slug.current == $slug] | order(_updatedAt desc) [0] {
   ${commonFields},
     body,
+    description
   }
 }`;
 

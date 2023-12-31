@@ -3,6 +3,9 @@ import { HeaderSection } from "@/app/components/sections/HeaderSection";
 import { getPageBySlug } from "@/app/lib/sanity";
 import { PortableText } from "@portabletext/react";
 
+export const metadata = {
+  title: "Цены и условия",
+};
 export default async function ThermsPage() {
   const data = await getPageBySlug("terms-and-conditions");
   return (

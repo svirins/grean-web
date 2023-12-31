@@ -1,4 +1,10 @@
-import { getTherapyBySlug, getTherapySlugs } from "@/app/lib/sanity";
+import { Metadata, ResolvingMetadata } from "next";
+
+import {
+  createRemoteImageAttributes,
+  getTherapyBySlug,
+  getTherapySlugs,
+} from "@/app/lib/sanity";
 import { CoverImage } from "@/app/components/CoverImage";
 import { PTComponents } from "@/app/components/PTComponents";
 import { PortableText } from "@portabletext/react";
@@ -6,14 +12,32 @@ import { notFound } from "next/navigation";
 import { H2 } from "@/app/components/Typography";
 import Balancer from "react-wrap-balancer";
 
-export default async function TherapyPage({
-  params,
-}: {
-  params: {
-    slug: string;
-    searchParams: URLSearchParams;
+type Props = {
+  params: { slug: string };
+  searchParams: URLSearchParams;
+};
+
+export async function generateMetadata(
+  { params, searchParams }: Props,
+  parent: ResolvingMetadata,
+): Promise<Metadata> {
+  const data = await getTherapyBySlug(params.slug);
+  const {
+    width,
+    height,
+    img: url,
+  } = createRemoteImageAttributes(data.coverImage);
+
+  return {
+    title: data.title,
+    description: data.description,
+    openGraph: {
+      images: [{ url, width, height }],
+    },
   };
-}) {
+}
+
+export default async function TherapyPage({ params }: Props) {
   const data = await getTherapyBySlug(params.slug);
   if (!params.slug) {
     notFound();

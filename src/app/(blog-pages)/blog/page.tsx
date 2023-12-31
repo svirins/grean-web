@@ -7,6 +7,12 @@ import { Pagination } from "@/app/components/Pagination";
 import { POSTS_PER_PAGE } from "@/app/lib/constants";
 import { notFound } from "next/navigation";
 
+export const metadata = {
+  title: "Блог",
+  description:
+    "Вы можете ознакомиться с более чем 90 статьями и информационным материалами",
+};
+
 export default async function BlogPage({
   searchParams,
 }: {
@@ -25,7 +31,7 @@ export default async function BlogPage({
       className="mx-auto flex min-h-screen max-w-7xl flex-col gap-y-16 px-4 pt-[4rem] md:gap-y-20 md:px-10"
     >
       <HeaderSection
-        title="Статьи"
+        title="Блог"
         subTitle="Вы можете ознакомиться с более чем 90 статьями и информационными
           материалами."
       />

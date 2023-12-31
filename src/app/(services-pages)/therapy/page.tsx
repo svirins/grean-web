@@ -1,5 +1,10 @@
 import { TherapySection } from "@/app/components/sections/TherapySection";
 
+export const metadata = {
+  title: "Направления психотерапии",
+  description: "Методики, которые я использую в практике.",
+};
+
 export default function Therapy() {
   return (
     <div

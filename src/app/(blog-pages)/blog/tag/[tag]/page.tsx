@@ -3,15 +3,24 @@ import { Card } from "@/app/components/Card";
 import { SearchBar } from "@/app/components/SearchBar";
 import { HeaderSection } from "@/app/components/sections/HeaderSection";
 import { notFound } from "next/navigation";
+import { ResolvingMetadata, Metadata } from "next";
 
-export default async function TagPage({
-  params,
-}: {
-  params: {
-    tag: string;
-    searchParams: URLSearchParams;
+type Props = {
+  params: { tag: string };
+  searchParams: URLSearchParams;
+};
+
+export async function generateMetadata(
+  { params, searchParams }: Props,
+  parent: ResolvingMetadata,
+): Promise<Metadata> {
+  const { title, description } = await getPostsByTag(params.tag);
+  return {
+    title: title,
+    description: description,
   };
-}) {
+}
+export default async function TagPage({ params }: Props) {
   if (!params.tag) {
     notFound();
   }

@@ -1,5 +1,10 @@
 import { HelpSection } from "@/app/components/sections/HelpSection";
 
+export const metadata = {
+  title: "Психотерапевтическая помощь",
+  description: "Я работаю с следующими психологическими проблемами",
+};
+
 export default function PsyhelpPage() {
   return (
     <div

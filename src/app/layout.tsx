@@ -36,7 +36,7 @@ export const metadata = {
     "Фобии и страхи",
     "Семейная терапия",
   ],
-  creator: "Валерий Гриеь",
+  creator: "Валерий Гринь",
   generator: "Next.js",
   robots: {
     index: false,

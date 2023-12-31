@@ -1,8 +1,11 @@
-import { PTComponents } from "@/app/components/PTComponents";
 import { H4 } from "@/app/components/Typography";
 import { HeroSection } from "@/app/components/sections/HeroSection";
-import { PortableText } from "@portabletext/react";
 
+export const metadata = {
+  title: "Обо мне",
+  description:
+    "Консультант-врач-психотерапевт высшей категории, кандидат наук с 20-летним опытом работы с пограничными состояниями психики – неврозами, депрессиями, психосоматическими расстройствами зависимостями (алкогольной и игровой)",
+};
 export default function AboutPage() {
   return (
     <div

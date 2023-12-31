@@ -3,6 +3,10 @@ import { HeaderSection } from "@/app/components/sections/HeaderSection";
 import { getPageBySlug } from "@/app/lib/sanity";
 import { PortableText } from "@portabletext/react";
 
+export const metadata = {
+  title: "Вопросы и ответы",
+  description: "Ответы на часто возникающие вопросы о психотерапии",
+};
 export default async function TestPage() {
   const data = await getPageBySlug("voprosy-i-otvety");
   return (

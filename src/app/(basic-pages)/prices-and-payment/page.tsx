@@ -3,7 +3,7 @@ import { HeaderSection } from "@/app/components/sections/HeaderSection";
 import { getPageBySlug } from "@/app/lib/sanity";
 import { PortableText } from "@portabletext/react";
 
-export default async function AboutPage() {
+export default async function PricesPage() {
   const data = await getPageBySlug("prices-and-payment");
   return (
     <div

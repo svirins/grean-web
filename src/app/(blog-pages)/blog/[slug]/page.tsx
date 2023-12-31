@@ -1,4 +1,10 @@
-import { getPostBySlug, getPostSlugs } from "@/app/lib/sanity";
+import { Metadata, ResolvingMetadata } from "next";
+
+import {
+  createRemoteImageAttributes,
+  getPostBySlug,
+  getPostSlugs,
+} from "@/app/lib/sanity";
 import { CoverImage } from "@/app/components/CoverImage";
 import { PTComponents } from "@/app/components/PTComponents";
 import { PortableText } from "@portabletext/react";
@@ -9,14 +15,33 @@ import { ru } from "date-fns/locale";
 import Link from "next/link";
 import Balancer from "react-wrap-balancer";
 import { RelatedPostSection } from "@/app/components/sections/RelatedPostSection";
-export default async function PostPage({
-  params,
-}: {
-  params: {
-    slug: string;
-    searchParams: URLSearchParams;
+
+type Props = {
+  params: { slug: string };
+  searchParams: URLSearchParams;
+};
+
+export async function generateMetadata(
+  { params, searchParams }: Props,
+  parent: ResolvingMetadata,
+): Promise<Metadata> {
+  const data = await getPostBySlug(params.slug);
+  const {
+    width,
+    height,
+    img: url,
+  } = createRemoteImageAttributes(data.coverImage);
+
+  return {
+    title: data.title,
+    description: data.description,
+    openGraph: {
+      type: "article",
+      images: [{ url, width, height }],
+    },
   };
-}) {
+}
+export default async function PostPage({ params }: Props) {
   if (!params.slug) {
     notFound();
   }
