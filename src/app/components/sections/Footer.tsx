@@ -28,19 +28,19 @@ function SocialsSection() {
         <div className="flex gap-4">
           <a
             href="https://www.youtube.com/channel/UCg83jkm7aM3OKTAWMoSpf2A/"
-            className="text-primary hover:text-team-current focus:text-team-current focus:outline-none"
+            className="text-primary hover:text-navlinks focus:text-navlinks focus:outline-none"
           >
             <YTIcon size={48} />
           </a>
           <a
             href="https://www.facebook.com/doktorGrin/"
-            className="text-primary hover:text-team-current focus:text-team-current focus:outline-none"
+            className="text-primary hover:text-navlinks focus:text-navlinks focus:outline-none"
           >
             <FBIcon size={48} />
           </a>
           <a
             href="https://vk.com/vgrean123"
-            className="text-primary hover:text-team-current focus:text-team-current focus:outline-none"
+            className="text-primary hover:text-navlinks focus:text-navlinks focus:outline-none"
           >
             <VKIcon size={48} />
           </a>
@@ -86,7 +86,7 @@ function FooterLink({ name, href }: { name: string; href?: string }) {
       {href ? (
         <Link
           href={href}
-          className="text-secondary underlined inline-block whitespace-nowrap text-lg hover:text-team-current focus:text-team-current focus:outline-none"
+          className="text-secondary underlined hover:text-navlinks focus:text-navlinks inline-block whitespace-nowrap text-lg focus:outline-none"
         >
           {name}
         </Link>

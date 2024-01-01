@@ -85,9 +85,9 @@ function NavLink({ href, title }: { href: string; title: string }) {
       <Link
         href={href}
         className={clsx(
-          "underlined block whitespace-nowrap text-lg font-medium hover:text-team-current focus:text-team-current focus:outline-none",
+          "underlined hover:text-navlinks focus:text-navlinks block whitespace-nowrap text-lg font-medium focus:outline-none",
           {
-            "active text-team-current": isSelected,
+            "active text-navlinks": isSelected,
             "text-secondary": !isSelected,
           },
         )}
@@ -157,7 +157,7 @@ function MobileMenuList() {
             <MenuItems className="flex flex-col border-none bg-transparent p-0">
               {NAV_LINKS.map((link) => (
                 <MenuLink
-                  className="hover:bg-secondary focus:bg-secondary text-primary flex border-b border-gray-200 px-5vw py-9 hover:text-team-current dark:border-gray-600"
+                  className="hover:bg-secondary focus:bg-secondary text-primary hover:text-navlinks flex border-b border-gray-200 px-5vw py-9 dark:border-gray-600"
                   key={link.href}
                   as={Link}
                   href={link.href}

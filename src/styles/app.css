@@ -3,6 +3,8 @@
   --color-white: #fff;
   --color-blue-100: #e8f2ff;
   --color-blue-500: #4b96ff;
+  --color-blue-600: #2563eb;
+  --color-teal-600: #0d9488
   --color-slate-500: #a9adc1;
   --color-gray-100: #f7f7f7;
   --color-gray-200: #e6e9ee;
@@ -18,19 +20,10 @@
   --color-green-600: #68d94a;
   --color-red-500: #ff4545;
   --color-yellow-500: #ffd644;
-
-  --color-team-unknown: #818890;
-  --color-team-blue: #36a3ff;
-  --color-team-red: #ff4545;
-  /* yellow in light mode is... hard */
-  --color-team-yellow: #a08600;
-  --color-yellow-500: #a08600;
-  --color-yellow-500-inverted: #ffd644;
 }
 
 .light,
 .dark .text-inverse {
-  --color-team-unknown: var(--color-black);
   --bg-primary: var(--color-white);
   --bg-secondary: var(--color-gray-100);
   --bg-alt: var(--color-gray-200);
@@ -42,10 +35,6 @@
 
 .dark,
 .light .text-inverse {
-  --color-team-yellow: #ffd644;
-  --color-yellow-500: #ffd644;
-  --color-yellow-500-inverted: #a08600;
-  --color-team-unknown: var(--color-white);
   --bg-primary: var(--color-gray-900);
   --bg-secondary: var(--color-gray-800);
   --bg-alt: var(--color-gray-700);
@@ -55,25 +44,14 @@
   color-scheme: dark;
 }
 
-.set-color-team-current-yellow {
-  --color-team-current: var(--color-team-yellow);
+.dark .set-color-navlinks {
+  --color-navlinks: var(--color-white);
 }
 
-.set-color-team-current-red {
-  --color-team-current: var(--color-team-red);
+.light .set-color-navlinks {
+  --color-navlinks: var(--color-black);
 }
 
-.set-color-team-current-blue {
-  --color-team-current: var(--color-team-blue);
-}
-
-.dark .set-color-team-current-unknown {
-  --color-team-current: var(--color-white);
-}
-
-.light .set-color-team-current-unknown {
-  --color-team-current: var(--color-black);
-}
 
 :focus:not(:focus-visible) {
   outline: none;
@@ -147,7 +125,7 @@ light-mode {
 }
 
 a {
-  color: var(--color-team-current);
+  color: var(--color-accent);
 }
 
 .underlined {
