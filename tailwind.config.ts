@@ -17,10 +17,7 @@ export default {
       current: "currentColor",
       white: "var(--color-white)",
       black: "var(--color-black)",
-      accent: {
-        blue: "var(--color-blue-500)",
-        teal: "var(--color-teal-500)",
-      }, // ex team-cuurent
+      accent: "var(--color-blue-500)",
       gray: {
         100: "var(--color-gray-100)",
         200: "var(--color-gray-200)",
@@ -32,15 +29,7 @@ export default {
         800: "var(--color-gray-800)",
         900: "var(--color-gray-900)",
       },
-      slate: {
-        500: "var(--color-slate-500)",
-      },
-      team: {
-        current: "var(--color-black)",
-      },
-      red: {
-        500: "var(--color-red-500)",
-      },
+      red: "color-red-500",
     },
 
     extend: {
@@ -255,7 +244,7 @@ export default {
               {
                 color: theme("colors.gray.500"),
                 a: {
-                  color: theme("colors.team.current"),
+                  color: theme("colors.accent"),
                 },
                 strong: {
                   color: theme("colors.black"),
@@ -282,9 +271,9 @@ export default {
           dark: {
             css: [
               {
-                color: theme("colors.slate.500"),
+                color: theme("colors.gray.400"),
                 a: {
-                  color: theme("colors.team.current"),
+                  color: theme("colors.accent"),
                 },
                 strong: {
                   color: theme("colors.white"),
@@ -299,7 +288,7 @@ export default {
                   color: theme("colors.white"),
                 },
                 blockquote: {
-                  color: theme("colors.slate.500"),
+                  color: theme("colors.gray.400"),
                   backgroundColor: theme("colors.gray.800"),
                 },
                 "thead, tbody tr": {

@@ -1,6 +1,6 @@
 import { HelpSection } from "@/app/components/sections/HelpSection";
 import { TherapySection } from "@/app/components/sections/TherapySection";
-import { SubscribeSection } from "@/app/components/sections/SubscribeSection";
+import { SubmitSection } from "@/app/components/sections/SubmitSection";
 import { HeroSection } from "@/app/components/sections/HeroSection";
 import { FeaturedPostSection } from "@/app/components/sections/FeaturedPostSection";
 
@@ -23,7 +23,7 @@ export default function HomePage() {
         title="Избранные статьи"
         description="Ознакомьтесь с более чем 90 статьями и материалами:"
       />
-      <SubscribeSection />
+      <SubmitSection />
     </div>
   );
 }

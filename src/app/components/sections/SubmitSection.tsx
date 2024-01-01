@@ -3,7 +3,7 @@ import { Spacer } from "@/app/components/Spacer";
 import { SubmissionForm } from "@/app/components/SubmissionForm";
 import { HeaderSection } from "@/app/components/sections/HeaderSection";
 
-export async function SubscribeSection() {
+export async function SubmitSection() {
   return (
     <section id="suscribeSection">
       <div className="flex flex-col">

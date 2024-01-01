@@ -2,6 +2,7 @@ import "@/styles/globals.css";
 import "@/styles/app.css";
 import "@/styles/prose.css";
 import "@/styles/vendors.css";
+import "@/styles/algolia-overrides.css";
 
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Footer } from "@/app/components/sections/Footer";

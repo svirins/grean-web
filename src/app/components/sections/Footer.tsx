@@ -7,6 +7,7 @@ function ContactSection() {
       <H5 as="div">Контакты</H5>
       <ul className="mt-4">
         <FooterLink name="+375 29 667-23-80 " href="tel:+375296672380" />
+        <FooterLink name="+375 33 601-48-19 " href="tel:+375336014819" />
         <FooterLink name="vgrean@gmail.com" href="mailto:vgrean@mail.ru" />
         <FooterLink name="Skype: valeri20770" href="skype:valeri20770?call" />
         <FooterLink
@@ -24,25 +25,22 @@ function SocialsSection() {
     <div>
       <H5 as="div">Социальные сети</H5>
       <div className="mt-4"></div>
-      <div className="text-secondary mt-6 flex items-center justify-between gap-4 xl:flex-col xl:items-start">
+      <div className="mt-6 flex items-center justify-between gap-4 xl:flex-col xl:items-start">
         <div className="flex gap-4">
           <a
             href="https://www.youtube.com/channel/UCg83jkm7aM3OKTAWMoSpf2A/"
-            className="text-primary hover:text-navlinks focus:text-navlinks focus:outline-none"
+            className="text-secondary link"
           >
-            <YTIcon size={48} />
+            <YTIcon size={36} />
           </a>
           <a
             href="https://www.facebook.com/doktorGrin/"
-            className="text-primary hover:text-navlinks focus:text-navlinks focus:outline-none"
+            className="text-secondary link"
           >
-            <FBIcon size={48} />
+            <FBIcon size={36} />
           </a>
-          <a
-            href="https://vk.com/vgrean123"
-            className="text-primary hover:text-navlinks focus:text-navlinks focus:outline-none"
-          >
-            <VKIcon size={48} />
+          <a href="https://vk.com/vgrean123" className="text-secondary link">
+            <VKIcon size={36} />
           </a>
         </div>
       </div>
@@ -82,16 +80,16 @@ function SitemapSection() {
 
 function FooterLink({ name, href }: { name: string; href?: string }) {
   return (
-    <li className="py-1">
+    <li className="py-[4px] lg:py-[6px]">
       {href ? (
         <Link
           href={href}
-          className="text-secondary underlined hover:text-navlinks focus:text-navlinks inline-block whitespace-nowrap text-lg focus:outline-none"
+          className="text-secondary link inline-block whitespace-nowrap text-lg "
         >
           {name}
         </Link>
       ) : (
-        <p className="text-secondary underlined inline-block whitespace-nowrap text-lg ">
+        <p className="text-secondary  inline-block whitespace-nowrap text-lg ">
           {name}
         </p>
       )}
@@ -101,27 +99,26 @@ function FooterLink({ name, href }: { name: string; href?: string }) {
 
 export function Footer() {
   return (
-    <footer className="border-t border-gray-200 pb-16 pt-40 lg:pt-48 dark:border-gray-600">
+    <footer className="border-t border-gray-200 pb-16 pt-24 lg:pt-24 dark:border-gray-600">
       <div className="relative mx-10vw">
         <div className="relative mx-auto grid max-w-7xl grid-cols-4 gap-x-4 gap-y-8 md:grid-cols-6 lg:grid-cols-12 lg:gap-x-6">
-          <div className="col-span-3  mt-20 md:mt-0">
+          <div className="col-span-3  mt-10 md:mt-0">
             <ContactSection />
           </div>
-          <div className="col-span-3 mt-20 md:mt-0 ">
-            <GeneralSection />
-          </div>
-          <div className="col-span-3 mt-20 md:mt-0 ">
-            <SitemapSection />
-          </div>
-          <div className="col-span-3 mt-20 md:mt-0 ">
+          <div className="col-span-3 mt-10 md:mt-0 ">
             <SocialsSection />
           </div>
-          <div className="col-span-full mt-24 text-base text-gray-600 md:mt-44 dark:text-slate-500">
-            <div>{`Copyright © ${new Date().getFullYear()} `}</div>
-            <div>
-              Консультант в области охраны психического здоровья ИП Гринь В.Г.
-            </div>
-            <div>УНП 192617833</div>
+          <div className="col-span-3 mt-10 md:mt-0 ">
+            <SitemapSection />
+          </div>
+          <div className="col-span-3 mt-10 md:mt-0 ">
+            <GeneralSection />
+          </div>
+
+          <div className="col-span-full mt-24 text-sm text-gray-600 dark:text-gray-400">
+            <p>Консультант в области охраны психического здоровья</p>
+            <p>ИП Гринь В.Г, УНП 192617833</p>
+            <p>{`Copyright © ${new Date().getFullYear()}`}</p>
           </div>
         </div>
       </div>

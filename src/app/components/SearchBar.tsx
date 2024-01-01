@@ -1,6 +1,5 @@
 "use client";
 import "@algolia/autocomplete-theme-classic";
-import "instantsearch.css/themes/satellite.css";
 import {
   type AutocompleteComponents,
   getAlgoliaResults,

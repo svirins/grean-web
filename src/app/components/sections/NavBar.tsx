@@ -85,10 +85,11 @@ function NavLink({ href, title }: { href: string; title: string }) {
       <Link
         href={href}
         className={clsx(
-          "underlined hover:text-navlinks focus:text-navlinks block whitespace-nowrap text-lg font-medium focus:outline-none",
+          "underlined block whitespace-nowrap text-lg font-medium hover:text-black focus:text-black focus:outline-none dark:hover:text-white dark:focus:text-white",
           {
-            "active text-navlinks": isSelected,
-            "text-secondary": !isSelected,
+            "active focus:text-black dark:hover:text-white dark:focus:text-white":
+              isSelected,
+            "text-secondary dark:text-secondary": !isSelected,
           },
         )}
       >

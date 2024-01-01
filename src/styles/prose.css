@@ -16,7 +16,7 @@
 
 /* I think this is a bug in the tailwind/typography thing */
 .dark .dark\:prose-dark thead {
-  color: var(--color-slate-500);
+  color: var(--color-gray-400);
 }
 
 /* Some styles inherited form addikt-web */
