@@ -1,4 +1,5 @@
-import { H4 } from "@/app/components/Typography";
+import { Certificates } from "@/app/components/Certificates";
+import { YouTubePlayer } from "@/app/components/YouTubePlayer";
 import { HeroSection } from "@/app/components/sections/HeroSection";
 
 export const metadata = {
@@ -12,8 +13,11 @@ export default function AboutPage() {
       id="page_container"
       className="mx-auto flex min-h-screen max-w-7xl flex-col gap-y-16 px-4 pt-[4rem] md:gap-y-20 md:px-10"
     >
-      {/* <HeroSection /> */}
-      <div className="prose mx-auto mt-24 max-w-4xl  break-words  dark:prose-dark">
+      <HeroSection isFront={false} />
+      <div>
+        <YouTubePlayer id="mFPC_lCcH78" />
+      </div>
+      <div className="prose mx-auto mt-12 max-w-4xl  break-words  dark:prose-dark">
         <p>
           Консультант-врач-психотерапевт высшей категории, кандидат наук с
           20-летним опытом работы с пограничными состояниями психики –
@@ -31,7 +35,7 @@ export default function AboutPage() {
           программе.
         </p>
         <ul></ul>
-        <H4>Работаю в направлениях:</H4>
+        <h4 className="mb-4">Работаю в направлениях:</h4>
         <ul>
           <li>Когнитивно-поведенческая терапия;</li>
           <li>Психоаналитическая терапия, юнгианский анализ;</li>
@@ -45,13 +49,13 @@ export default function AboutPage() {
           повышении психологической устойчивости, адаптации в окружающем мире и
           достижении контакта с самим собой.
         </p>
-        <H4>Этапы профессиональной деятельности:</H4>
+        <h4 className="mb-4">Этапы профессиональной деятельности:</h4>
         <table>
           {/* <thead></thead> */}
           <tbody>
             <tr>
               <td>
-                <strong>1987-1993</strong>
+                <span className="min-w-24 whitespace-nowrap">1987-1993</span>
               </td>
               <td>
                 Обучение в Белорусском Государственном Медицинском Университете
@@ -59,13 +63,13 @@ export default function AboutPage() {
             </tr>
             <tr>
               <td>
-                <strong>1993-1994</strong>
+                <span>1993-1994</span>
               </td>
               <td>Специализация в области психиатрии (интернатура)</td>
             </tr>
             <tr>
               <td>
-                <strong>1993-1999</strong>
+                <span>1993-1999</span>
               </td>
               <td>
                 Работа врачом-психиатром Минского городского
@@ -74,7 +78,7 @@ export default function AboutPage() {
             </tr>
             <tr>
               <td>
-                <strong>1996-1999</strong>
+                <span>1996-1999</span>
               </td>
               <td>
                 Аспирантура Института философии Национальной Академии наук
@@ -84,7 +88,7 @@ export default function AboutPage() {
             </tr>
             <tr>
               <td>
-                <strong>1999-2001</strong>
+                <span>1999-2001</span>
               </td>
               <td>
                 Клиническая ординатура по психотерапии Белорусской Академии
@@ -94,7 +98,7 @@ export default function AboutPage() {
             </tr>
             <tr>
               <td>
-                <strong>2001-2009</strong>
+                <span>2001-2009</span>
               </td>
               <td>
                 Специализация в области зависимостей на базе МООО «ТЭС-терапия»
@@ -105,13 +109,13 @@ export default function AboutPage() {
             </tr>
             <tr>
               <td>
-                <strong>2010-2016</strong>
+                <span>2010-2016</span>
               </td>
               <td>Работа врачом-психотерапевтом УЗ «1-я ГКБ»</td>
             </tr>
             <tr>
               <td>
-                <strong>2016-...</strong>
+                <span>2016-...</span>
               </td>
               <td>
                 Работа в реабилитационном отделении с пациентами зависимого
@@ -120,8 +124,8 @@ export default function AboutPage() {
             </tr>
           </tbody>
         </table>
-        <H4>Дипломы и сертификаты</H4>
       </div>
+      <Certificates />
     </div>
   );
 }

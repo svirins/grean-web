@@ -12,7 +12,7 @@ export function SanityImage({ image }: { image: SanityAssetExtended }) {
         height={height}
         alt={image.alt}
         quality="100"
-        className="h-auto w-full"
+        className="h-auto w-full rounded-lg"
         sizes="100vw"
         placeholder="blur"
         blurDataURL={image.lqip}

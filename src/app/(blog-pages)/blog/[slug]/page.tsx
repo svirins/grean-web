@@ -15,6 +15,7 @@ import { ru } from "date-fns/locale";
 import Link from "next/link";
 import Balancer from "react-wrap-balancer";
 import { RelatedPostSection } from "@/app/components/sections/RelatedPostSection";
+import { Tag } from "@/app/components/Tag";
 
 type Props = {
   params: { slug: string };
@@ -65,13 +66,7 @@ export default async function PostPage({ params }: Props) {
           {data.tags &&
             data.tags.length > 0 &&
             data.tags.map((tag) => (
-              <Link
-                href={`/blog/tag/${tag.slug}`}
-                key={tag.slug}
-                className="text-primary bg-secondary focus-ring relative mb-4 mr-4 block h-auto w-auto cursor-pointer rounded-full px-6 py-3 opacity-100 transition"
-              >
-                {`${tag.title}`}
-              </Link>
+              <Tag key={tag.slug} slug={tag.slug} title={tag.title} />
             ))}
         </div>
         <CoverImage image={data.coverImage} priority={true} />

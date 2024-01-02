@@ -25,7 +25,7 @@ export function HeaderSection({
           <H2>
             <Balancer ratio={0.85}>{title}</Balancer>
           </H2>
-          <H4 variant="secondary" as="p" className="mt-3">
+          <H4 variant="secondary" className="mt-3">
             {subTitle}
           </H4>
         </div>

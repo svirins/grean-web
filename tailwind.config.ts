@@ -18,8 +18,21 @@ export default {
       white: "var(--color-white)",
       black: "var(--color-black)",
       accent: "var(--color-blue-500)",
+      active: "color-red-300",
+      blue: {
+        100: "var(--color-blue-100)",
+        200: "var(--color-blue-200)",
+        300: "var(--color-blue-300)",
+        400: "var(--color-blue-400)",
+        500: "var(--color-blue-500)",
+        600: "var(--color-blue-600)",
+        700: "var(--color-blue-700)",
+        800: "var(--color-blue-800)",
+        900: "var(--color-blue-900)",
+      },
       gray: {
-        100: "var(--color-gray-100)",
+        50: "#f7f7f7",
+        100: "var(--color-gray-50)",
         200: "var(--color-gray-200)",
         300: "var(--color-gray-300)",
         400: "var(--color-gray-400)",
@@ -29,7 +42,7 @@ export default {
         800: "var(--color-gray-800)",
         900: "var(--color-gray-900)",
       },
-      red: "color-red-500",
+      red: "#ef4444",
     },
 
     extend: {
@@ -224,17 +237,6 @@ export default {
                   marginBottom: 0,
                   borderRadius: theme("borderRadius.lg"),
                 },
-                blockquote: {
-                  fontWeight: theme("fontWeight.normal"),
-                  border: "none",
-                  borderRadius: theme("borderRadius.lg"),
-                  padding: theme("spacing.8"),
-                  marginTop: 0,
-                  marginBottom: theme("spacing.10"),
-                },
-                "blockquote > :last-child": {
-                  marginBottom: 0,
-                },
               },
             ],
           },
@@ -244,7 +246,7 @@ export default {
               {
                 color: theme("colors.gray.500"),
                 a: {
-                  color: theme("colors.accent"),
+                  color: theme("colors.black"),
                 },
                 strong: {
                   color: theme("colors.black"),
@@ -258,10 +260,6 @@ export default {
                 "h1, h2, h3, h4, h5, h6, thead th": {
                   color: theme("colors.black"),
                 },
-                blockquote: {
-                  color: theme("colors.gray.500"),
-                  backgroundColor: theme("colors.gray.100"),
-                },
                 "thead, tbody tr": {
                   borderBottomColor: theme("colors.gray.200"),
                 },
@@ -273,7 +271,7 @@ export default {
               {
                 color: theme("colors.gray.400"),
                 a: {
-                  color: theme("colors.accent"),
+                  color: theme("colors.white"),
                 },
                 strong: {
                   color: theme("colors.white"),
@@ -286,10 +284,6 @@ export default {
                 },
                 "h1, h2, h3, h4, h5, h6, thead th": {
                   color: theme("colors.white"),
-                },
-                blockquote: {
-                  color: theme("colors.gray.400"),
-                  backgroundColor: theme("colors.gray.800"),
                 },
                 "thead, tbody tr": {
                   borderBottomColor: theme("colors.gray.600"),

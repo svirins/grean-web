@@ -82,16 +82,13 @@ function FormContent({
     <div className="relative grid grid-cols-1 gap-3">
       <div className="mb-8">
         <div className="mb-4 flex items-baseline justify-between gap-2">
-          <label
-            htmlFor="name"
-            className="inline-block text-lg text-gray-500 dark:text-gray-400"
-          >
+          <label htmlFor="name" className="text-secondary inline-block text-lg">
             Представтьтесь, пожалуйста
           </label>
         </div>
         <input
           {...register("name")}
-          className="focus-ring w-full rounded-lg bg-gray-100 px-11 py-4 text-lg font-medium text-black placeholder-gray-500 disabled:text-gray-400 dark:bg-gray-800 dark:text-white dark:disabled:text-gray-400"
+          className="focus-ring bg-gray-50 w-full rounded-lg px-11 py-4 text-lg font-medium text-black placeholder-gray-500 disabled:text-gray-400 dark:bg-gray-800 dark:text-white dark:disabled:text-gray-400"
         />
       </div>
       <div className="mb-8">
@@ -105,9 +102,9 @@ function FormContent({
         </div>
         <input
           {...register("phone")}
-          className="focus-ring w-full rounded-lg bg-gray-100 px-11 py-4 text-lg font-medium text-black placeholder-gray-500 disabled:text-gray-400 dark:bg-gray-800 dark:text-white dark:disabled:text-gray-400"
+          className="focus-ring bg-gray-50 w-full rounded-lg px-11 py-4 text-lg font-medium text-black placeholder-gray-500 disabled:text-gray-400 dark:bg-gray-800 dark:text-white dark:disabled:text-gray-400"
         />
-        <span className="text-red mb-2 px-11 text-sm font-normal">
+        <span className="mb-2 px-11 text-sm font-normal text-red">
           <ErrorMessage name="phone" errors={errors} />
         </span>
       </div>
@@ -122,7 +119,7 @@ function FormContent({
         </div>
         <input
           {...register("message")}
-          className="focus-ring w-full rounded-lg bg-gray-100 px-11 py-4 text-lg font-medium text-black placeholder-gray-500 disabled:text-gray-400 dark:bg-gray-800 dark:text-white dark:disabled:text-gray-400"
+          className="focus-ring bg-gray-50 w-full rounded-lg px-11 py-4 text-lg font-medium text-black placeholder-gray-500 disabled:text-gray-400 dark:bg-gray-800 dark:text-white dark:disabled:text-gray-400"
         />
       </div>
       <div className="mt-6 flex justify-end gap-4">

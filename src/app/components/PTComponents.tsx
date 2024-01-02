@@ -36,17 +36,13 @@ export const PTComponents: Partial<PortableTextReactComponents> = {
       const { href = "", blank = false, title } = value;
       const isInternal = href.includes("doctorgrean.by");
       return isInternal ? (
-        <Link
-          href={href}
-          title={title}
-          className="cursor-pointer text-lg font-semibold text-gray-900"
-        >
+        <Link href={href} title={title} className="cursor-pointer">
           {children}
         </Link>
       ) : (
         <a
           href={href}
-          className="cursor-pointer text-lg font-semibold text-gray-900"
+          className="cursor-pointer"
           title={title}
           target={blank ? "_blank" : "_self"}
           rel="norefferer noreferrer"
@@ -59,10 +55,8 @@ export const PTComponents: Partial<PortableTextReactComponents> = {
       <sup className="align-super">{children}</sup>
     ),
     italic: ({ children }) => <i className="font-medium">{children}</i>,
-    em: ({ children }) => <em>{children}</em>,
-    highlight: ({ children }) => (
-      <span className="highlight-line">{children}</span>
-    ),
+    em: ({ children }) => <em className="text-bold">{children}</em>,
+    highlight: ({ children }) => <span className="highlight">{children}</span>,
   },
   block: {
     h3: ({ children, value }) => (
@@ -86,9 +80,7 @@ export const PTComponents: Partial<PortableTextReactComponents> = {
     blockquote: ({ children }) => (
       <div className="py-1">
         <blockquote className="flex">
-          <p className="border-l-6 border-gray-400 pl-6 font-medium">
-            {children}
-          </p>
+          <p>{children}</p>
         </blockquote>
       </div>
     ),

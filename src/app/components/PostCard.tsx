@@ -4,6 +4,7 @@ import Link from "next/link";
 import { H5 } from "@/app/components/Typography";
 import { format, parse } from "date-fns";
 import { ru } from "date-fns/locale";
+import { Tag } from "@/app/components/Tag";
 
 export function PostCard({
   title,
@@ -42,13 +43,7 @@ export function PostCard({
         {tags &&
           tags.length > 0 &&
           tags.map((tag) => (
-            <Link
-              href={`/blog/tag/${tag.slug}`}
-              key={tag.slug}
-              className="text-primary bg-secondary focus-ring relative mb-4 mr-4 block h-auto w-auto cursor-pointer rounded-full px-6 py-3 opacity-100 transition"
-            >
-              {`${tag.title}`}
-            </Link>
+            <Tag key={tag.slug} slug={tag.slug} title={tag.title} />
           ))}
       </div>
     </div>

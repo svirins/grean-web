@@ -1,11 +1,12 @@
 :root {
   --color-black: #000;
   --color-white: #fff;
+  --color-gray-50: "#f7f7f7",
   --color-blue-100: #e8f2ff;
   --color-blue-500: #4b96ff;
   --color-blue-600: #2563eb;
   --color-teal-600: #0d9488
-  --color-gray-100: #f7f7f7;
+  --color-gray-50: #f7f7f7;
   --color-gray-200: #e6e9ee;
   --color-gray-300: #dde0e4;
   --color-gray-400: #a9adc1;
@@ -34,8 +35,8 @@ input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
   -webkit-text-fill-color: black !important;
-  -webkit-box-shadow: 0 0 0 999px var(--color-gray-100) inset !important;
-  box-shadow: 0 0 0 999px var(--color-gray-100) inset !important;
+  -webkit-box-shadow: 0 0 0 999px var(--color-gray-50) inset !important;
+  box-shadow: 0 0 0 999px var(--color-gray-50) inset !important;
   background-clip: content-box !important;
 }
 
