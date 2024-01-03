@@ -11,6 +11,7 @@ import { PortableText } from "@portabletext/react";
 import { notFound } from "next/navigation";
 import { H2 } from "@/app/components/Typography";
 import Balancer from "react-wrap-balancer";
+import { SubmissionForm } from "@/app/components/SubmissionForm";
 
 type Props = {
   params: { slug: string };
@@ -61,6 +62,7 @@ export default async function TherapyPage({ params }: Props) {
           />
         </div>
       </article>
+      <SubmissionForm />
     </div>
   );
 }

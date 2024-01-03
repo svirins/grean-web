@@ -88,7 +88,7 @@ function FormContent({
         </div>
         <input
           {...register("name")}
-          className="focus-ring bg-gray-50 w-full rounded-lg px-11 py-4 text-lg font-medium text-black placeholder-gray-500 disabled:text-gray-400 dark:bg-gray-800 dark:text-white dark:disabled:text-gray-400"
+          className="focus-ring w-full rounded-lg bg-gray-50 px-11 py-4 text-lg font-medium text-black placeholder-gray-500 disabled:text-gray-400 dark:bg-gray-800 dark:text-white dark:disabled:text-gray-400"
         />
       </div>
       <div className="mb-8">
@@ -102,7 +102,7 @@ function FormContent({
         </div>
         <input
           {...register("phone")}
-          className="focus-ring bg-gray-50 w-full rounded-lg px-11 py-4 text-lg font-medium text-black placeholder-gray-500 disabled:text-gray-400 dark:bg-gray-800 dark:text-white dark:disabled:text-gray-400"
+          className="focus-ring w-full rounded-lg bg-gray-50 px-11 py-4 text-lg font-medium text-black placeholder-gray-500 disabled:text-gray-400 dark:bg-gray-800 dark:text-white dark:disabled:text-gray-400"
         />
         <span className="mb-2 px-11 text-sm font-normal text-red">
           <ErrorMessage name="phone" errors={errors} />
@@ -117,9 +117,11 @@ function FormContent({
             Cообщение
           </label>
         </div>
-        <input
+        <textarea
+          rows={3}
+          cols={60}
           {...register("message")}
-          className="focus-ring bg-gray-50 w-full rounded-lg px-11 py-4 text-lg font-medium text-black placeholder-gray-500 disabled:text-gray-400 dark:bg-gray-800 dark:text-white dark:disabled:text-gray-400"
+          className="focus-ring w-full resize-none rounded-lg bg-gray-50 px-11 py-4 text-lg font-medium text-black placeholder-gray-500 disabled:text-gray-400 dark:bg-gray-800 dark:text-white dark:disabled:text-gray-400	"
         />
       </div>
       <div className="mt-6 flex justify-end gap-4">

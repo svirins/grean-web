@@ -1,6 +1,7 @@
 import { Certificates } from "@/app/components/Certificates";
 import { YouTubePlayer } from "@/app/components/YouTubePlayer";
 import { HeroSection } from "@/app/components/sections/HeroSection";
+import { SubmitSection } from "@/app/components/sections/SubmitSection";
 
 export const metadata = {
   title: "Обо мне",
@@ -126,6 +127,7 @@ export default function AboutPage() {
         </table>
       </div>
       <Certificates />
+      <SubmitSection />
     </div>
   );
 }

@@ -3,5 +3,23 @@
   --aa-icon-size: 28px !important;
   --aa-action-icon-size: 28px !important;
   --aa-text-color-rgb: 0, 0, 0 !important;
-  --aa-background-color-rgb: 247, 247, 2247 !important;
+  --aa-background-color-rgb: 247, 247, 247 !important;
+  --aa-input-background-color-rgb: 247, 247, 247 !important;
+  --aa-icon-color-rgb: 0, 0, 0 !important;
 }
+
+
+body .dark 
+ {
+    --aa-text-color-rgb: 183, 192, 199;
+    --aa-primary-color-rgb: 146, 138, 255;
+    --aa-input-background-color-rgb: 0, 3, 9;
+    --aa-background-color-rgb: 21, 24, 42;
+    --aa-icon-color-rgb: 119, 119, 163;
+}
+
+.aa-Autocomplete {
+  @apply  bg-gray-50 w-full rounded-lg px-11 py-4 text-lg font-medium text-black placeholder-gray-500 disabled:text-gray-400 dark:bg-gray-800 dark:text-white dark:disabled:text-gray-400 !important;
+}
+
+/* focus-ring */

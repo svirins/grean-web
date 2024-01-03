@@ -4,6 +4,7 @@ import { SearchBar } from "@/app/components/SearchBar";
 import { HeaderSection } from "@/app/components/sections/HeaderSection";
 import { notFound } from "next/navigation";
 import { ResolvingMetadata, Metadata } from "next";
+import { SubmissionForm } from "@/app/components/SubmissionForm";
 
 type Props = {
   params: { tag: string };
@@ -49,6 +50,7 @@ export default async function TagPage({ params }: Props) {
           <p>По вашему запросу ничего не найдено</p>
         )}
       </div>
+      <SubmissionForm />
     </div>
   );
 }

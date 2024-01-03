@@ -66,7 +66,7 @@ export function SearchBar() {
                 return <SearchItem hit={item} components={components} />;
               },
               noResults() {
-                return "No products matching.";
+                return "Нет результатов";
               },
             },
           },

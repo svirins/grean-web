@@ -1,3 +1,4 @@
+import { SubmissionForm } from "@/app/components/SubmissionForm";
 import { TherapySection } from "@/app/components/sections/TherapySection";
 
 export const metadata = {
@@ -15,6 +16,7 @@ export default function Therapy() {
         title="Направления психотерапии"
         description="Методики, которые я использую в практике:"
       />
+      <SubmissionForm />
     </div>
   );
 }

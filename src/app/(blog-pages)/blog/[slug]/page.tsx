@@ -82,6 +82,8 @@ export default async function PostPage({ params }: Props) {
       {data.relatedPosts && data.relatedPosts?.length > 0 && (
         <RelatedPostSection title="Похожие посты" posts={data.relatedPosts} />
       )}
+              <SubmissionForm />
+
     </div>
   );
 }
