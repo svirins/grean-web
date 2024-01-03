@@ -99,7 +99,7 @@ function FooterLink({ name, href }: { name: string; href?: string }) {
 
 export function Footer() {
   return (
-    <footer className="border-t border-gray-200 pb-16 pt-24 lg:pt-24 dark:border-gray-600">
+    <footer className="border-t border-gray-200 pb-16 pt-24 lg:pt-32 dark:border-gray-600">
       <div className="relative mx-10vw">
         <div className="relative mx-auto grid max-w-7xl grid-cols-4 gap-x-4 gap-y-8 md:grid-cols-6 lg:grid-cols-12 lg:gap-x-6">
           <div className="col-span-3  mt-10 md:mt-0">

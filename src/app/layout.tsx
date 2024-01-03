@@ -1,6 +1,9 @@
 import "@/styles/globals.css";
 import "@/styles/app.css";
 import "@/styles/prose.css";
+import "@/styles/algolia.css";
+
+import "@/styles/algolia-overrides.css";
 
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Footer } from "@/app/components/sections/Footer";
@@ -93,7 +96,7 @@ export default function RootLayout({
         <div className="bg-white transition duration-500 dark:bg-gray-900">
           <NavBar />
           <main id="skip">{children}</main>
-          <Spacer size="base" />
+          <Spacer size="sm" />
           <Footer />
         </div>
         <SpeedInsights />

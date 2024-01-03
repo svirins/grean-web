@@ -1,17 +1,15 @@
 "use client";
-import "@algolia/autocomplete-theme-classic";
+// import "@algolia/autocomplete-theme-classic";
 import {
   type AutocompleteComponents,
   getAlgoliaResults,
+  autocomplete,
 } from "@algolia/autocomplete-js";
 import algoliasearch from "algoliasearch";
-
-import { autocomplete } from "@algolia/autocomplete-js";
 import { type Hit } from "@algolia/client-search";
 
 import { createElement, Fragment, useEffect, useRef } from "react";
 import { type Root, createRoot } from "react-dom/client";
-import "@/styles/algolia-overrides.css";
 
 type PostHit = Hit<{
   slug: string;
