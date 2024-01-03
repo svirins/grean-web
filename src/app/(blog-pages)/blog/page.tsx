@@ -6,7 +6,7 @@ import { getPaginatedPosts, getTotalPosts } from "@/app/lib/sanity";
 import { Pagination } from "@/app/components/Pagination";
 import { POSTS_PER_PAGE } from "@/app/lib/constants";
 import { notFound } from "next/navigation";
-import { SubmissionForm } from "@/app/components/SubmissionForm";
+import { SubmitSection } from "@/app/components/sections/SubmitSection";
 
 export const metadata = {
   title: "Блог",
@@ -53,7 +53,7 @@ export default async function BlogPage({
           ))}
         </Grid>
         <Pagination totalPages={totalPages} />
-        <SubmissionForm />
+        <SubmitSection />
       </div>
     </div>
   );

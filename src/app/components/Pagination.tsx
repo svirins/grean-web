@@ -20,7 +20,7 @@ export function Pagination({ totalPages }: { totalPages: number }) {
   const allPages = generatePagination(currentPage, totalPages);
 
   return (
-    <>
+    <div className="flex items-center justify-center py-16">
       <div className="inline-flex">
         <PaginationArrow
           direction="left"
@@ -55,7 +55,7 @@ export function Pagination({ totalPages }: { totalPages: number }) {
           isDisabled={currentPage >= totalPages}
         />
       </div>
-    </>
+    </div>
   );
 }
 
@@ -71,13 +71,13 @@ function PaginationNumber({
   isActive: boolean;
 }) {
   const className = clsx(
-    "flex h-10 w-10 items-center justify-center text-sm border",
+    "flex h-12 w-12 items-center justify-center text border",
     {
       "rounded-l-md": position === "first" || position === "single",
       "rounded-r-md": position === "last" || position === "single",
-      "z-10 bg-blue-600 border-blue-600 text-white": isActive,
+      "z-10 bg-black border-black text-white": isActive,
       "hover:bg-gray-50": !isActive && position !== "middle",
-      "text-gray-300": position === "middle",
+      "text-gray-400": position === "middle",
     },
   );
 
@@ -100,7 +100,7 @@ function PaginationArrow({
   isDisabled?: boolean;
 }) {
   const className = clsx(
-    "flex h-10 w-10 items-center justify-center rounded-md border",
+    "flex h-12 w-12 items-center justify-center rounded-full border",
     {
       "pointer-events-none text-gray-300": isDisabled,
       "hover:bg-gray-50": !isDisabled,

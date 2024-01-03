@@ -1,5 +1,5 @@
-import { SubmissionForm } from "@/app/components/SubmissionForm";
 import { HelpSection } from "@/app/components/sections/HelpSection";
+import { SubmitSection } from "@/app/components/sections/SubmitSection";
 
 export const metadata = {
   title: "Психотерапевтическая помощь",
@@ -16,7 +16,7 @@ export default function PsyhelpPage() {
         title="Помощь"
         description="Я работаю с следующими проблемами:"
       />
-      <SubmissionForm />
+      <SubmitSection />
     </div>
   );
 }

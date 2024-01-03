@@ -11,7 +11,7 @@ import { PortableText } from "@portabletext/react";
 import { notFound } from "next/navigation";
 import { H2 } from "@/app/components/Typography";
 import Balancer from "react-wrap-balancer";
-import { SubmissionForm } from "@/app/components/SubmissionForm";
+import { SubmitSection } from "@/app/components/sections/SubmitSection";
 
 type Props = {
   params: { slug: string };
@@ -62,7 +62,7 @@ export default async function PsyHelpPage({ params }: Props) {
           />
         </div>
       </article>
-      <SubmissionForm />
+      <SubmitSection />
     </div>
   );
 }
