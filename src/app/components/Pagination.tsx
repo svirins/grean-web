@@ -71,13 +71,16 @@ function PaginationNumber({
   isActive: boolean;
 }) {
   const className = clsx(
-    "flex h-[48px] w-[48px] items-center justify-center border-secondary border-2",
+    "flex h-[48px] w-[48px] items-center justify-center text-secondary",
     {
-      "rounded-l-md": position === "first" || position === "single",
-      "rounded-r-md": position === "last" || position === "single",
-      "z-10 bg-black border-black border-2 text-white": isActive,
-      "hover:bg-gray-50": !isActive && position !== "middle",
-      "text-gray-400": position === "middle",
+      "rounded-l-md border-secondary border-2":
+        position === "first" || position === "single",
+      "rounded-r-md border-secondary border-2":
+        position === "last" || position === "single",
+      "z-10 bg-black border-black border-2 text-white text-black": isActive,
+      "hover:bg-gray-50 border-secondary border-2":
+        !isActive && position !== "middle",
+      "text-gray-400 border-secondary border-2": position === "middle",
     },
   );
 

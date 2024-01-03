@@ -33,7 +33,7 @@ export function PostCard({
       >
         <CoverImage image={coverImage} link={link} priority={false} />
         <div className="text-secondary mb-8 mt-8 text-lg font-medium">
-          {`${result} ~ ${readingTime} мин. чтения`}
+          {`${result} * ${readingTime} мин. чтения`}
         </div>
         <H5 as="h5" className="link mb-8 mt-8">
           {title}

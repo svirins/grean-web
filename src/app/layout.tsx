@@ -1,18 +1,14 @@
 import "@/styles/globals.css";
 import "@/styles/app.css";
 import "@/styles/prose.css";
-import "@/styles/algolia.css";
 
-import "@/styles/algolia-overrides.css";
 
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Footer } from "@/app/components/sections/Footer";
 import { NavBar } from "@/app/components/sections/NavBar";
-
 import { Montserrat } from "next/font/google";
 import { Spacer } from "@/app/components/Spacer";
 import { Toaster } from "react-hot-toast";
-
 import { cookies } from "next/headers";
 
 const montserrat = Montserrat({

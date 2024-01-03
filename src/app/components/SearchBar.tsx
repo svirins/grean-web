@@ -1,5 +1,9 @@
 "use client";
-// import "@algolia/autocomplete-theme-classic";
+import "@/styles/algolia.css";
+import "@/styles/algolia-overrides.css";
+import { createElement, Fragment, useEffect, useRef } from "react";
+import { type Root, createRoot } from "react-dom/client";
+
 import {
   type AutocompleteComponents,
   getAlgoliaResults,
@@ -7,9 +11,6 @@ import {
 } from "@algolia/autocomplete-js";
 import algoliasearch from "algoliasearch";
 import { type Hit } from "@algolia/client-search";
-
-import { createElement, Fragment, useEffect, useRef } from "react";
-import { type Root, createRoot } from "react-dom/client";
 
 type PostHit = Hit<{
   slug: string;
@@ -38,12 +39,13 @@ export function SearchBar() {
     const search = autocomplete<PostHit>({
       container: containerRef.current,
       placeholder: "Поиск",
-      insights: true,
+      insights: false,
       translations: {
         clearButtonTitle: "Очистить",
         detachedCancelButtonText: "Очистить",
         submitButtonTitle: "Искать",
       },
+      detachedMediaQuery: "none",
       getSources({ query }) {
         return [
           {

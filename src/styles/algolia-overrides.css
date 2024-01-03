@@ -4,10 +4,14 @@
 }
 
 
-/* .aa-Form {
-  @apply bg-gray-50  dark:bg-gray-800 text-black dark:text-white  border-0 !important;
-} */
+.aa-Panel {
+  @apply bg-gray-50  dark:bg-gray-800 text-black dark:text-white rounded-lg !important;
+}
 
 .aa-SubmitIcon {
   @apply text-black dark:text-white !important;
+}
+
+.aa-ItemContent mark {
+  @apply text-red !important;
 }

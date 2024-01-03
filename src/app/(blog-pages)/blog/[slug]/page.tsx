@@ -12,7 +12,6 @@ import { notFound } from "next/navigation";
 import { H2 } from "@/app/components/Typography";
 import { format, parse } from "date-fns";
 import { ru } from "date-fns/locale";
-import Link from "next/link";
 import Balancer from "react-wrap-balancer";
 import { RelatedPostSection } from "@/app/components/sections/RelatedPostSection";
 import { Tag } from "@/app/components/Tag";
@@ -61,7 +60,7 @@ export default async function PostPage({ params }: Props) {
           <Balancer ratio={0.85}>{data.title}</Balancer>
         </H2>
         <div className="text-secondary mb-8 mt-8 text-lg font-medium">
-          {`${result} ~ ${data.readingTime} мин. чтения`}
+          {`${result} * ${data.readingTime} мин. чтения`}
         </div>
         <div className="col-span-full -mr-4 mb-8 flex flex-wrap lg:col-span-10">
           {data.tags &&
