@@ -14,7 +14,7 @@ export function ButtonLink({
     <Link
       href={to}
       className={clsx(
-        "group relative inline-flex space-x-3 rounded-full px-8 py-4 text-lg transition focus:outline-none ",
+        "group relative inline-flex shrink-0 space-x-3 rounded-full px-8 py-4 text-lg transition focus:outline-none",
         {
           "text-inverse bg-inverse relative flex h-full w-full items-center justify-center space-x-5 whitespace-nowrap":
             variant === "primary",

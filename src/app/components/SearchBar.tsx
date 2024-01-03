@@ -11,6 +11,7 @@ import { type Hit } from "@algolia/client-search";
 
 import { createElement, Fragment, useEffect, useRef } from "react";
 import { type Root, createRoot } from "react-dom/client";
+import "@/styles/algolia-overrides.css";
 
 type PostHit = Hit<{
   slug: string;
