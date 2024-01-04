@@ -23,7 +23,7 @@ export function PostCard({
   tags?: ITag[];
 }) {
   const date = parse(datePublished, "yyyy-MM-dd", new Date());
-  const result = format(date, "PP", { locale: ru });
+  const result = format(date, "PPP", { locale: ru });
 
   return (
     <div className="relative w-full">
@@ -38,7 +38,7 @@ export function PostCard({
           alt={title}
         />
         <div className="text-secondary mb-8 mt-8 text-lg font-medium">
-          {`${result}—${readingTime} мин. чтения`}
+          {`${result} — ${readingTime} мин. чтения`}
         </div>
         <H5 as="h5" className="link mb-8 mt-8">
           {title}

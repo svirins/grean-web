@@ -5,10 +5,12 @@ export function ButtonLink({
   variant = "primary",
   to,
   title,
+  className,
 }: {
   variant: "primary" | "secondary";
   to: string;
   title: string;
+  className?: string;
 }) {
   return (
     <Link
@@ -21,6 +23,7 @@ export function ButtonLink({
           "focus-ring border-secondary bg-primary absolute inset-0 transform border-2 text-black group-hover:border-transparent group-focus:border-transparent   dark:text-white":
             variant === "secondary",
         },
+        className,
       )}
     >
       <div className="relative flex h-full w-full items-center justify-center space-x-5 whitespace-nowrap">

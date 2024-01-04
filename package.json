@@ -1,10 +1,11 @@
 {
   "name": "drgrean",
-  "version": "0.2.0",
+  "version": "0.3.0-rc1",
   "private": true,
   "type": "module",
   "scripts": {
     "build": "prisma generate && next build",
+    "build-all": "prisma generate && create-index && next build",
     "check": "tsc --noEmit --pretty",
     "dev": "next dev",
     "format": "prettier --write .",

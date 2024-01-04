@@ -30,7 +30,12 @@ export function HeaderSection({
           </H4>
         </div>
         {cta && ctaUrl ? (
-          <ButtonLink to={ctaUrl} title={cta} variant="secondary" />
+          <ButtonLink
+            to={ctaUrl}
+            title={cta}
+            variant="secondary"
+            className="mr-auto md:mr-0"
+          />
         ) : null}
       </div>
     </Grid>

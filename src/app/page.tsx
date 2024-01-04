@@ -21,7 +21,7 @@ export default function HomePage() {
       />
       <FeaturedPostSection
         title="Избранные статьи"
-        description="Ознакомьтесь с более чем 90 статьями и материалами:"
+        description="Ознакомьтесь с более чем 150 статьями в моем блоге:"
       />
       <SubmitSection />
     </div>

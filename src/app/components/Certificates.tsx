@@ -15,7 +15,7 @@ export function Certificates() {
       <button
         type="button"
         onClick={openLightbox}
-        className="text-inverse bg-inverse w-128 relative h-full whitespace-nowrap rounded-full px-8 py-4 text-lg transition focus:outline-none"
+        className="text-inverse bg-inverse w-128 relative mx-auto h-full whitespace-nowrap rounded-full px-8 py-4 text-lg transition focus:outline-none"
       >
         Мои дипломы и сертификаты
       </button>
