@@ -37,7 +37,6 @@ const algoliaInstance = algoliasearch(
 );
 
 export default async function generateIndex() {
-  console.log("Hi");
   const data = await getAllPosts();
   const indexData = data.map((post) => {
     return {
@@ -51,11 +50,12 @@ export default async function generateIndex() {
   const index = algoliaInstance.initIndex(
     process.env.NEXT_PUBLIC_ALGOLIA_SEARCH_INDEX_NAME!,
   );
+  console.log(index);
 
   try {
     await index.saveObjects(indexData);
     console.log(
-      `Saving ${indexData.length} documents to index: ${process.env.ALGOLIA_SEARCH_INDEX_NAME}`,
+      `Saving ${indexData.length} documents to index: ${index.indexName}`,
     );
     return {
       status: 200,

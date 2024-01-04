@@ -70,17 +70,20 @@ function PaginationNumber({
   position?: "first" | "last" | "middle" | "single";
   isActive: boolean;
 }) {
-  const className = clsx("flex h-[48px] w-[48px] items-center justify-center", {
-    "rounded-l-md border-secondary border-2 text-secondary":
-      position === "first" || position === "single",
-    "rounded-r-md border-secondary border-2 text-secondary":
-      position === "last" || position === "single",
-    "z-10 bg-black border-black border-2 text-white dark:text-black dark:bg-white dark:border-white":
-      isActive,
-    "hover:bg-gray-50 border-secondary border-2 text-secondary":
-      !isActive && position !== "middle",
-    "text-gray-400 border-secondary border-2": position === "middle",
-  });
+  const className = clsx(
+    "flex h-[48px] w-[48px] items-center justify-center text-secondary border-2 border-secondary",
+    {
+      "rounded-l-md border-secondary":
+        position === "first" || position === "single",
+      "rounded-r-md border-secondary":
+        position === "last" || position === "single",
+      "z-10 bg-black border-black text-white dark:text-black dark:bg-white dark:border-white":
+        isActive,
+      "hover:bg-gray-50 dark:hover:bg-gray-300  dark:text-gray-600 border-secondary ":
+        !isActive && position !== "middle",
+      "text-gray-400 border-secondary border-2": position === "middle",
+    },
+  );
 
   return isActive || position === "middle" ? (
     <div className={className}>{page}</div>
@@ -103,8 +106,9 @@ function PaginationArrow({
   const className = clsx(
     "flex h-[48px] w-[48px] items-center justify-center rounded-full border-secondary  border-2",
     {
-      "pointer-events-none text-gray-300": isDisabled,
-      "hover:bg-gray-50": !isDisabled,
+      "pointer-events-none text-gray-300 dark:text-gray-700": isDisabled,
+      "hover:bg-gray-200 dark:hover:text-gray-800 dark:text-secondary ":
+        !isDisabled,
       "mr-2 md:mr-4": direction === "left",
       "ml-2 md:ml-4": direction === "right",
     },
