@@ -16,6 +16,7 @@ export function SanityImage({ image }: { image: SanityAssetExtended }) {
         sizes="100vw"
         placeholder="blur"
         blurDataURL={image.lqip}
+        priority={false}
       />
       {image.caption && <figcaption>{image.caption}</figcaption>}
     </figure>

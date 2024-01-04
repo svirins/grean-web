@@ -31,16 +31,15 @@ export default async function PricesPage() {
         <hr />
       </div>
       <div className="mx-auto max-w-4xl pb-20">
-        <div className="flex flex-col md:flex-row">
-          <Image src="/qr1.webp" alt="QR" className="w-80" />
+        <div className="flex flex-col">
+          <Image src="/qr1.webp" alt="QR" className="w-96 py-12" />
           <ButtonExtLink
             to="https://ecom.alfabank.by/shortlink/ScpvTFjD"
             title="Оплатить 1 консультацию (70 BYN)"
             variant="secondary"
           />
-        </div>
-        <div className="flex flex-col md:flex-row">
-          <Image src="/qr2.webp" alt="QR" className="w-80" />
+
+          <Image src="/qr2.webp" alt="QR" className="w-96 py-12" />
           <ButtonExtLink
             to="https://ecom.alfabank.by/shortlink/KxqbY8hz"
             title="Оплатить произвольную сумму"

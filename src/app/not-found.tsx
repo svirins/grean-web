@@ -16,7 +16,7 @@ export default function NotFound() {
         to="/about-me"
         title="Вернуться на главную"
         variant="secondary"
-        className="mx-auto"
+        className="mr-auto"
       />
     </div>
   );

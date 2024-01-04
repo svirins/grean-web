@@ -24,7 +24,7 @@ export function CoverImage(props: CoverImageProps) {
         height={height}
         alt={image.alt ? `Изображение для ${image.alt}` : alt}
         src={src}
-        priority={priority}
+        priority={false}
         placeholder="blur"
         blurDataURL={image.lqip}
       />
@@ -37,7 +37,7 @@ export function CoverImage(props: CoverImageProps) {
       height={height}
       alt={image.alt ? `Изображение для ${image.alt}` : alt}
       src={src}
-      priority={priority}
+      priority={false}
       placeholder="blur"
       blurDataURL={image.lqip}
     />

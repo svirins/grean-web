@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "prisma generate && next build",
+    "build": "prisma generate && bun run create-index && next build",
     "build-all": "prisma generate && bun run create-index && next build",
     "check": "tsc --noEmit --pretty",
     "dev": "next dev",
