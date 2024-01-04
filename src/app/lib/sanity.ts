@@ -105,6 +105,7 @@ import {
   psyHelpSlugsQuery,
   totalPostsNumberQuery,
   pageBySlugQuery,
+  postUpdatedQuery,
 } from "./queries";
 import { POSTS_PER_PAGE } from "@/app/lib/constants";
 
@@ -195,4 +196,9 @@ export const getPsyHelpSlugs = async (): Promise<
 export const getTotalPosts = async (): Promise<number> => {
   const totalPosts = await sanityClient.fetch(totalPostsNumberQuery);
   return totalPosts;
+};
+
+export const getUpdatedPostSlug = async (id: string): Promise<string> => {
+  const slug = sanityClient.fetch(postUpdatedQuery, { id });
+  return slug ?? null;
 };

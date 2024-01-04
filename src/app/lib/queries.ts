@@ -150,3 +150,6 @@ export const psyHelpSlugsQuery = groq`
   }`;
 
 export const totalPostsNumberQuery = groq`count(*[_type == 'post' && !(_id in path("drafts.**"))])`;
+
+export const postUpdatedQuery = groq`*[_type == "post" && _id == $id].slug.current`;
+
