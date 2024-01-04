@@ -21,7 +21,12 @@ export function Card({
   return (
     <article className="flex flex-col items-start justify-between">
       <div className="relative w-full">
-        <CoverImage image={coverImage} link={link} priority={false} />
+        <CoverImage
+          image={coverImage}
+          link={link}
+          priority={false}
+          alt={title}
+        />
       </div>
       <div className="max-w-xl">
         <div className="mt-8 flex items-center gap-x-4 text-xs">
@@ -34,7 +39,7 @@ export function Card({
               <Link
                 href={`/blog/tag/${tag.slug}`}
                 key={tag.slug}
-                className="bg-gray-50 hover:bg-gray-50 relative z-10 rounded-full px-3 py-1.5 font-medium text-gray-600"
+                className="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-50"
               >
                 {`${tag.title}`}
               </Link>

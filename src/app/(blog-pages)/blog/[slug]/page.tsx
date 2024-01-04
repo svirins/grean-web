@@ -60,7 +60,7 @@ export default async function PostPage({ params }: Props) {
           <Balancer ratio={0.85}>{data.title}</Balancer>
         </H2>
         <div className="text-secondary mb-8 mt-8 text-lg font-medium">
-          {`${result} * ${data.readingTime} мин. чтения`}
+          {`${result}—${data.readingTime} мин. чтения`}
         </div>
         <div className="col-span-full -mr-4 mb-8 flex flex-wrap lg:col-span-10">
           {data.tags &&
@@ -69,7 +69,7 @@ export default async function PostPage({ params }: Props) {
               <Tag key={tag.slug} slug={tag.slug} title={tag.title} />
             ))}
         </div>
-        <CoverImage image={data.coverImage} priority={true} />
+        <CoverImage image={data.coverImage} priority={true} alt={data.title}/>
 
         <div className="prose mx-auto mt-24 max-w-4xl  break-words  dark:prose-dark">
           <PortableText

@@ -20,7 +20,12 @@ export function ServiceCard({
         className="group peer relative block w-full focus:outline-none"
         href={link}
       >
-        <CoverImage image={coverImage} link={link} priority={true} />
+        <CoverImage
+          image={coverImage}
+          link={link}
+          priority={true}
+          alt={title}
+        />
         <H5 as="h5" className="link mb-8 mt-4">
           {title}
         </H5>

@@ -53,7 +53,7 @@ export default async function TherapyPage({ params }: Props) {
         <H2 className="mb-8">
           <Balancer ratio={0.85}>{data.title}</Balancer>
         </H2>
-        <CoverImage image={data.coverImage} priority={true} />
+        <CoverImage image={data.coverImage} priority={true} alt={data.title} />
         <div className="prose mx-auto mt-24 max-w-4xl  break-words  dark:prose-dark">
           <PortableText
             value={data.body}

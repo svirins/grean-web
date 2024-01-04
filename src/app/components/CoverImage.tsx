@@ -8,11 +8,12 @@ import Link from "next/link";
 interface CoverImageProps {
   image: SanityAssetExtended;
   link?: string;
+  alt: string;
   priority: boolean;
 }
 
 export function CoverImage(props: CoverImageProps) {
-  const { image, priority = false, link } = props;
+  const { image, priority = false, link, alt } = props;
   const { width, height, img: src } = createRemoteImageAttributes(image);
   const condidionalImage = link ? (
     <Link href={link}>
@@ -21,7 +22,7 @@ export function CoverImage(props: CoverImageProps) {
         sizes="100vw"
         width={width}
         height={height}
-        alt={`Cover Image for ${image.alt}`}
+        alt={image.alt ? `Изображение для ${image.alt}` : alt}
         src={src}
         priority={priority}
         placeholder="blur"
@@ -34,7 +35,7 @@ export function CoverImage(props: CoverImageProps) {
       sizes="100vw"
       width={width}
       height={height}
-      alt={`Cover Image for ${image.alt}`}
+      alt={image.alt ? `Изображение для ${image.alt}` : alt}
       src={src}
       priority={priority}
       placeholder="blur"
