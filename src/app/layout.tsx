@@ -2,7 +2,7 @@ import "@/styles/globals.css";
 import "@/styles/app.css";
 import "@/styles/prose.css";
 
-
+import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Footer } from "@/app/components/sections/Footer";
 import { NavBar } from "@/app/components/sections/NavBar";
@@ -95,6 +95,7 @@ export default function RootLayout({
           <Spacer size="sm" />
           <Footer />
         </div>
+        <Analytics />
         <SpeedInsights />
       </body>
     </html>
