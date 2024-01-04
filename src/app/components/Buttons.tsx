@@ -33,6 +33,42 @@ export function ButtonLink({
   );
 }
 
+export function ButtonExtLink({
+  variant = "primary",
+  to,
+  title,
+  className,
+}: {
+  variant: "primary" | "secondary";
+  to: string;
+  title: string;
+  className?: string;
+}) {
+  return (
+    <a
+      href={to}
+      className={clsx(
+        "group relative inline-flex shrink-0 space-x-3 rounded-full px-8 py-4 text-lg transition focus:outline-none",
+        {
+          "text-inverse bg-inverse relative flex h-full w-full items-center justify-center space-x-5 whitespace-nowrap":
+            variant === "primary",
+          "focus-ring border-secondary bg-primary absolute inset-0 transform border-2 text-black group-hover:border-transparent group-focus:border-transparent   dark:text-white":
+            variant === "secondary",
+        },
+        className,
+      )}
+    >
+      <div className="relative flex h-full w-full items-center justify-center space-x-5 whitespace-nowrap">
+        {title}
+      </div>
+    </a>
+  );
+}
+
+
+
+
+
 export function Button({
   title,
   variant = "primary",

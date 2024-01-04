@@ -50,7 +50,6 @@ export default async function generateIndex() {
   const index = algoliaInstance.initIndex(
     process.env.NEXT_PUBLIC_ALGOLIA_SEARCH_INDEX_NAME!,
   );
-  console.log(index);
 
   try {
     await index.saveObjects(indexData);

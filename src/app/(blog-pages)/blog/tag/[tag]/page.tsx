@@ -1,10 +1,11 @@
 import { getPostsByTag, getTagSlugs } from "@/app/lib/sanity";
-import { Card } from "@/app/components/Card";
 import { SearchBar } from "@/app/components/SearchBar";
 import { HeaderSection } from "@/app/components/sections/HeaderSection";
 import { notFound } from "next/navigation";
 import { ResolvingMetadata, Metadata } from "next";
 import { SubmitSection } from "@/app/components/sections/SubmitSection";
+import { Grid } from "@/app/components/Grid";
+import { PostCard } from "@/app/components/PostCard";
 
 type Props = {
   params: { tag: string };
@@ -15,42 +16,45 @@ export async function generateMetadata(
   { params, searchParams }: Props,
   parent: ResolvingMetadata,
 ): Promise<Metadata> {
-  const { title, description } = await getPostsByTag(params.tag);
+  const data = await getPostsByTag(params.tag);
   return {
-    title: title,
-    description: description,
+    title: data.title,
+    description: data.description,
   };
 }
 export default async function TagPage({ params }: Props) {
-  if (!params.tag) {
+  const { posts: data, title, description } = await getPostsByTag(params.tag);
+  if (!data) {
     notFound();
   }
-  const { posts: data, title, description } = await getPostsByTag(params.tag);
   return (
     <div
       id="page_container"
       className="mx-auto flex min-h-screen max-w-7xl flex-col gap-y-16 px-4 pt-[4rem]  md:gap-y-20 md:px-10"
     >
-      <HeaderSection title={title} subTitle={description ?? "Описание тега"} />
+      <HeaderSection
+        title={title}
+        subTitle={description ?? `Посты, отмеченные тегом #${title}`}
+        className="capitalize"
+      />
       <SearchBar />
-      <div className="mx-auto hidden grid-cols-1 gap-x-5 gap-y-10 md:grid lg:mx-0 lg:max-w-none lg:grid-cols-3">
-        {data?.length ? (
-          data?.map((post) => (
-            <Card
-              key={post._id}
-              title={post.title}
-              coverImage={post.coverImage}
-              datePublished={post.datePublished}
-              description={post.description}
-              link={`/blog/${post.slug}`}
-              tags={post.tags}
-            />
-          ))
-        ) : (
-          <p>По вашему запросу ничего не найдено</p>
-        )}
+      <div className="relative">
+        <Grid className="gap-y-16 pb-20">
+          {data?.map((post, idx) => (
+            <div key={idx} className="col-span-4">
+              <PostCard
+                title={post.title}
+                readingTime={post.readingTime}
+                coverImage={post.coverImage}
+                datePublished={post.datePublished}
+                link={`/blog/${post.slug}`}
+                tags={post.tags}
+              />
+            </div>
+          ))}
+        </Grid>
+        <SubmitSection />
       </div>
-      <SubmitSection />
     </div>
   );
 }

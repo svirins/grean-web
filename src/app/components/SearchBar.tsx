@@ -38,8 +38,8 @@ export function SearchBar() {
     }
     const search = autocomplete<PostHit>({
       container: containerRef.current,
-      placeholder: "Поиск",
-      insights: false,
+      placeholder: "Поиск по статьям",
+      insights: true,
       translations: {
         clearButtonTitle: "Очистить",
         detachedCancelButtonText: "Очистить",
@@ -50,6 +50,7 @@ export function SearchBar() {
         return [
           {
             sourceId: "posts",
+            hitsPerPage: process.env.NEXT_PUBLIC_ALGOLIA_HITS_PER_PAGE!,
             getItems() {
               return getAlgoliaResults<PostHit>({
                 searchClient,

@@ -21,26 +21,28 @@ type Props = {
 export async function generateMetadata(
   { params, searchParams }: Props,
   parent: ResolvingMetadata,
-): Promise<Metadata> {
+): Promise<Metadata | undefined> {
   const data = await getTherapyBySlug(params.slug);
-  const {
-    width,
-    height,
-    img: url,
-  } = createRemoteImageAttributes(data.coverImage);
+  if (data) {
+    const {
+      width,
+      height,
+      img: url,
+    } = createRemoteImageAttributes(data.coverImage);
 
-  return {
-    title: data.title,
-    description: data.description,
-    openGraph: {
-      images: [{ url, width, height }],
-    },
-  };
+    return {
+      title: data.title,
+      description: data.description,
+      openGraph: {
+        images: [{ url, width, height }],
+      },
+    };
+  }
 }
 
 export default async function TherapyPage({ params }: Props) {
   const data = await getTherapyBySlug(params.slug);
-  if (!params.slug) {
+  if (!data) {
     notFound();
   }
 

@@ -56,7 +56,6 @@ function GeneralSection() {
         <FooterLink name="Правила и условия" href="/terms-and-conditions" />
         <FooterLink name="Договор оферты" href="/grean_offer.pdf" />
         <FooterLink name="Цены и оплата on-line" href="/prices-and-payment" />
-        <FooterLink name="Пример верстки" href="/test" />
       </ul>
     </div>
   );

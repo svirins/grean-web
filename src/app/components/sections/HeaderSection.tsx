@@ -17,12 +17,13 @@ export function HeaderSection({
   cta,
   title,
   subTitle,
+  className,
 }: HeaderSectionProps) {
   return (
     <Grid>
       <div className="col-span-full flex flex-col space-y-10 lg:flex-row lg:items-end lg:justify-between lg:space-y-0">
         <div className="space-y-2 lg:space-y-0">
-          <H2>
+          <H2 className={className}>
             <Balancer ratio={0.85}>{title}</Balancer>
           </H2>
           <H4 variant="secondary" className="mt-3">

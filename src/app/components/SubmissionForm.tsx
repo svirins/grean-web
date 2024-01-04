@@ -132,7 +132,11 @@ function FormContent({
           disabled={pending || !isValid}
         />
       </div>
-      {pending && <span className="font-normal italic">Обрабатывается...</span>}
+      {pending && (
+        <span className="text-secondary font-normal italic">
+          Обрабатывается...
+        </span>
+      )}
     </div>
   );
 }

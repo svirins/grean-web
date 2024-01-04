@@ -123,11 +123,11 @@ export async function getPaginatedPosts(currentPage: number): Promise<IPost[]> {
 }
 export async function getFeaturedPosts(): Promise<IPost[]> {
   const posts = await sanityClient.fetch(featuredPostsQuery);
-  return posts;
+  return posts ?? [];
 }
 export const getPostBySlug = async (slug: string): Promise<IPost> => {
   const { post } = await sanityClient.fetch(postBySlugQuery, { slug: slug });
-  return post;
+  return post ?? null;
 };
 export const getPostsByTag = async (
   slug: string,
@@ -137,7 +137,7 @@ export const getPostsByTag = async (
   posts: IPost[];
 }> => {
   const posts = await sanityClient.fetch(postsByTagQuery, { slug });
-  return posts;
+  return posts ?? [];
 };
 export async function getAllPsyHelp(): Promise<IPsyHelp[]> {
   const psyHelps = await sanityClient.fetch(allPsyHelpQuery);
@@ -147,7 +147,7 @@ export const getPsyHelpBySlug = async (slug: string): Promise<IPsyHelp> => {
   const { psyHelp } = await sanityClient.fetch(psyHelpBySlugQuery, {
     slug: slug,
   });
-  return psyHelp;
+  return psyHelp ?? null;
 };
 export async function getAllTherapy(): Promise<ITherapy[]> {
   const therapies = await sanityClient.fetch(allTherapiesQuery);
@@ -157,7 +157,7 @@ export const getTherapyBySlug = async (slug: string): Promise<ITherapy> => {
   const { therapy } = await sanityClient.fetch(therapyBySlugQuery, {
     slug: slug,
   });
-  return therapy;
+  return therapy ?? null;
 };
 
 export const getPageBySlug = async (slug: string): Promise<ITherapy> => {

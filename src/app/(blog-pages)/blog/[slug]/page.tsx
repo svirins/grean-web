@@ -25,29 +25,30 @@ type Props = {
 export async function generateMetadata(
   { params, searchParams }: Props,
   parent: ResolvingMetadata,
-): Promise<Metadata> {
+): Promise<Metadata | undefined> {
   const data = await getPostBySlug(params.slug);
-  const {
-    width,
-    height,
-    img: url,
-  } = createRemoteImageAttributes(data.coverImage);
-
-  return {
-    title: data.title,
-    description: data.description,
-    openGraph: {
-      type: "article",
-      images: [{ url, width, height }],
-    },
-  };
+  if (data) {
+    const {
+      width,
+      height,
+      img: url,
+    } = createRemoteImageAttributes(data.coverImage);
+    return {
+      title: data.title,
+      description: data.description,
+      openGraph: {
+        type: "article",
+        images: [{ url, width, height }],
+      },
+    };
+  }
 }
+
 export default async function PostPage({ params }: Props) {
-  if (!params.slug) {
+  const data = await getPostBySlug(params.slug);
+  if (!data) {
     notFound();
   }
-  const data = await getPostBySlug(params.slug);
-
   const date = parse(data.datePublished, "yyyy-MM-dd", new Date());
   const result = format(date, "PPP", { locale: ru });
   return (
