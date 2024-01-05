@@ -123,6 +123,20 @@ export const pageBySlugQuery = groq`
     body
   }
 }`;
+// QA QUERIES
+export const qaBySlugQuery = groq`
+{
+"qa": *[_type == "qa" && slug.current == $slug] | order(_updatedAt desc) [0] {
+    title,
+    body
+  }
+}`;
+export const allQaQuery = groq`
+*[_type == "qa" && !(_id in path("drafts.**"))] | order(order asc) {
+  title,
+  body
+}`;
+
 
 // SLUGS QUERIES
 export const postSlugsQuery = groq`
@@ -148,6 +162,13 @@ export const psyHelpSlugsQuery = groq`
   "slug": slug.current,
   "date": _updatedAt
   }`;
+
+export const qaSlugsQuery = groq`
+*[_type == "qa" && defined(slug.current)][]{
+  "slug": slug.current,
+  "date": _updatedAt
+  }`;
+
 
 export const totalPostsNumberQuery = groq`count(*[_type == 'post' && !(_id in path("drafts.**"))])`;
 

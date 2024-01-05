@@ -106,6 +106,9 @@ import {
   totalPostsNumberQuery,
   pageBySlugQuery,
   postUpdatedQuery,
+  qaBySlugQuery,
+  allQaQuery,
+  qaSlugsQuery,
 } from "./queries";
 import { POSTS_PER_PAGE } from "@/app/lib/constants";
 
@@ -168,6 +171,18 @@ export const getPageBySlug = async (slug: string): Promise<ITherapy> => {
   return page;
 };
 
+export async function getAllQA(): Promise<IPsyHelp[]> {
+  const qa = await sanityClient.fetch(allQaQuery);
+  return qa;
+}
+
+export const getQABySlug = async (slug: string): Promise<ITherapy> => {
+  const { qa } = await sanityClient.fetch(qaBySlugQuery, {
+    slug: slug,
+  });
+  return qa ?? null;
+};
+
 export const getPostSlugs = async (): Promise<
   { slug: string; date: string }[]
 > => {
@@ -190,6 +205,13 @@ export const getPsyHelpSlugs = async (): Promise<
   { slug: string; date: string }[]
 > => {
   const slugs = await sanityClient.fetch(psyHelpSlugsQuery);
+  return slugs;
+};
+
+export const getQASlugs = async (): Promise<
+  { slug: string; date: string }[]
+> => {
+  const slugs = await sanityClient.fetch(qaSlugsQuery);
   return slugs;
 };
 
