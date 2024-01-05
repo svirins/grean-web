@@ -10,7 +10,7 @@ import {
   autocomplete,
 } from "@algolia/autocomplete-js";
 import algoliasearch from "algoliasearch";
-import { type Hit } from "@algolia/client-search";
+import { type Hit, setSettings } from "@algolia/client-search";
 
 type PostHit = Hit<{
   slug: string;
@@ -26,6 +26,9 @@ const searchClient = algoliasearch(
   process.env.NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY!,
 );
 const indexName = process.env.NEXT_PUBLIC_ALGOLIA_SEARCH_INDEX_NAME!;
+// indexName.setSettings({
+//   hitsPerPage: 10,
+// });
 
 export function SearchBar() {
   // TODO: remove nasty hack of setting default value
@@ -50,7 +53,6 @@ export function SearchBar() {
         return [
           {
             sourceId: "posts",
-            hitsPerPage: process.env.NEXT_PUBLIC_ALGOLIA_HITS_PER_PAGE!,
             getItems() {
               return getAlgoliaResults<PostHit>({
                 searchClient,

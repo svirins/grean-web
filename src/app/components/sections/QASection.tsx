@@ -3,7 +3,7 @@ import { HeaderSection } from "@/app/components/sections/HeaderSection";
 import { Grid } from "@/app/components/Grid";
 import { Spacer } from "@/app/components/Spacer";
 import Link from "next/link";
-import { H5 } from "@/app/components/Typography";
+import { H5, H6 } from "@/app/components/Typography";
 
 export async function QASection({
   title,
@@ -25,9 +25,9 @@ export async function QASection({
                 className="group peer relative block w-full focus:outline-none"
                 href={`/voprosy-i-otvety/${qa.slug}`}
               >
-                <H5 as="h5" className="link my-4">
+                <H6 as="h6" className="link my-4">
                   {qa.title}
-                </H5>
+                </H6>
               </Link>
             </div>
           ))}
