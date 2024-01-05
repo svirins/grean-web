@@ -29,16 +29,25 @@ function SocialsSection() {
           <a
             href="https://www.youtube.com/channel/UCg83jkm7aM3OKTAWMoSpf2A/"
             className="text-secondary link"
+            rel="noopener"
+            target="_blank"
           >
             <YTIcon size={36} />
           </a>
           <a
             href="https://www.facebook.com/doktorGrin/"
             className="text-secondary link"
+            rel="noopener"
+            target="_blank"
           >
             <FBIcon size={36} />
           </a>
-          <a href="https://vk.com/vgrean123" className="text-secondary link">
+          <a
+            href="https://vk.com/vgrean123"
+            className="text-secondary link"
+            rel="noopener"
+            target="_blank"
+          >
             <VKIcon size={36} />
           </a>
         </div>

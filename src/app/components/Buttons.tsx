@@ -47,6 +47,8 @@ export function ButtonExtLink({
   return (
     <a
       href={to}
+      rel="noopener"
+      target="_blank"
       className={clsx(
         "group relative inline-flex shrink-0 space-x-3 rounded-full px-8 py-4 text-lg transition focus:outline-none",
         {

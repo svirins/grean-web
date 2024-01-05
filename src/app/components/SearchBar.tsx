@@ -11,6 +11,7 @@ import {
 } from "@algolia/autocomplete-js";
 import algoliasearch from "algoliasearch";
 import { type Hit, setSettings } from "@algolia/client-search";
+import { AlgoliaLogo } from "@/app/components/AlgoliaLogo";
 
 type PostHit = Hit<{
   slug: string;
@@ -92,7 +93,12 @@ export function SearchBar() {
     };
   }, []);
 
-  return <div ref={containerRef} />;
+  return (
+    <div>
+      <div ref={containerRef} />
+      <AlgoliaLogo />
+    </div>
+  );
 }
 
 function SearchItem({ hit, components }: PostProps) {
