@@ -31,7 +31,6 @@ const indexName = process.env.NEXT_PUBLIC_ALGOLIA_SEARCH_INDEX_NAME!;
 // });
 
 export function SearchBar() {
-  // TODO: remove nasty hack of setting default value
   const containerRef = useRef<HTMLDivElement | null>(null);
   const panelRootRef = useRef<Root | null>(null);
   const rootRef = useRef<HTMLElement | null>(null);
@@ -42,7 +41,7 @@ export function SearchBar() {
     const search = autocomplete<PostHit>({
       container: containerRef.current,
       placeholder: "Поиск по статьям",
-      insights: true,
+      insights: false,
       translations: {
         clearButtonTitle: "Очистить",
         detachedCancelButtonText: "Очистить",

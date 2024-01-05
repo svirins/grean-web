@@ -1,7 +1,7 @@
 ## A website for my fellow therapist.
 Stack:
 - Typescript
-- NextTS 14
+- Next.js 14
 - Tailwind CSS
 - Sanity CMS
 - Prisma + @vercel/postgres

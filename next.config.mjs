@@ -28,10 +28,11 @@ export default nextConfig;
 
 const cspHeader = `
     default-src 'self';
-    script-src 'self' 'unsafe-eval' 'unsafe-inline' youtube-nocookie.com;
+    connect-src https://*.algolia.net https://*.algolianet.com https://*.algolia.io;
+    script-src 'self' 'unsafe-eval' 'unsafe-inline';
     style-src 'self' 'unsafe-inline';
     img-src 'self' i.ytimg.com blob: data:;
-    frame-src https://www.youtube-nocookie.com/;
+    frame-src https://*.youtube-nocookie.com/;
     font-src 'self';
     object-src 'none';
     base-uri 'self';
