@@ -32,7 +32,7 @@ async function getAllPosts(): Promise<IPost[]> {
 }
 
 const algoliaInstance = algoliasearch(
-  process.env.NEXT_PUBLIC_ALGOLIA_APP_ID!,
+  process.env.ALGOLIA_APP_ID!,
   process.env.ALGOLIA_SEARCH_ADMIN_KEY!,
 );
 
@@ -48,7 +48,7 @@ export default async function generateIndex() {
   });
 
   const index = algoliaInstance.initIndex(
-    process.env.NEXT_PUBLIC_ALGOLIA_SEARCH_INDEX_NAME!,
+    process.env.ALGOLIA_SEARCH_INDEX_NAME!,
   );
 
   try {
