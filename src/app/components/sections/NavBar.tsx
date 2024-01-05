@@ -22,16 +22,37 @@ import { setCookie, getCookie } from "cookies-next";
 const iconTransformOrigin = { transformOrigin: "50% 100px" };
 
 function DarkModeToggle() {
-  const [theme, setTheme] = useState(getCookie("theme"));
+  // refactored to the most simple solution due to the screen flickering
+
+  // const [theme, setTheme] = useState(getCookie("theme"));
+  // useEffect(() => {
+  //   if (theme) {
+  //     setCookie(
+  //       "theme",
+  //       theme,
+  //       // window.matchMedia("(prefers-color-scheme: dark)").matches
+  //       //   ? "dark"
+  //       //   : "light",
+  //     );
+  //     document.querySelector("html")?.setAttribute("class", theme);
+  //   } else {
+  //     setTheme(
+  //       window.matchMedia("(prefers-color-scheme: dark)").matches
+  //         ? "dark"
+  //         : "light",
+  //     );
+  //   }
+  // }, [theme]);
+  const [theme, setTheme] = useState("light");
   useEffect(() => {
     if (theme) {
-      setCookie(
-        "theme",
-        theme,
-        // window.matchMedia("(prefers-color-scheme: dark)").matches
-        //   ? "dark"
-        //   : "light",
-      );
+      // setCookie(
+      //   "theme",
+      //   theme,
+      //   // window.matchMedia("(prefers-color-scheme: dark)").matches
+      //   //   ? "dark"
+      //   //   : "light",
+      // );
       document.querySelector("html")?.setAttribute("class", theme);
     } else {
       setTheme(
