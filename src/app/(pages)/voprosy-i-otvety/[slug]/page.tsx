@@ -8,6 +8,7 @@ import Balancer from "react-wrap-balancer";
 import { SubmitSection } from "@/app/components/sections/SubmitSection";
 import { getQABySlug, getQASlugs } from "@/app/lib/sanity";
 import { ButtonLink } from "@/app/components/Buttons";
+import { Spacer } from "@/app/components/Spacer";
 
 type Props = {
   params: { slug: string };
@@ -56,6 +57,7 @@ export default async function QAPage({ params }: Props) {
           />
         </div>
       </article>
+      <Spacer size="sm" />
       <SubmitSection />
     </div>
   );

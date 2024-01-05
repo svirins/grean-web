@@ -226,7 +226,7 @@ export default {
                   },
                 },
                 "h4, h5, h6": {
-                  fontSize: fontSize("lg"),
+                  fontSize: fontSize("2xl"),
                   [`@media (min-width: ${theme("screens.lg")})`]: {
                     fontSize: fontSize("xl"),
                   },

@@ -16,6 +16,7 @@ import Balancer from "react-wrap-balancer";
 import { RelatedPostSection } from "@/app/components/sections/RelatedPostSection";
 import { Tag } from "@/app/components/Tag";
 import { SubmitSection } from "@/app/components/sections/SubmitSection";
+import { Spacer } from "@/app/components/Spacer";
 
 type Props = {
   params: { slug: string };
@@ -83,6 +84,8 @@ export default async function PostPage({ params }: Props) {
       {data.relatedPosts && data.relatedPosts?.length > 0 && (
         <RelatedPostSection title="Похожие посты" posts={data.relatedPosts} />
       )}
+      <Spacer size="sm" />
+
       <SubmitSection />
     </div>
   );

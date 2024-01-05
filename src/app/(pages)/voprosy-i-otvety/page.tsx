@@ -1,5 +1,6 @@
 import { SubmitSection } from "@/app/components/sections/SubmitSection";
 import { QASection } from "@/app/components/sections/QASection";
+import { Spacer } from "@/app/components/Spacer";
 
 export const metadata = {
   title: "Вопросы и ответы",
@@ -16,6 +17,7 @@ export default function QA() {
         title="Вопросы и ответы"
         description="Ответы на наиболее распространенные вопросы о психотерапии."
       />
+      <Spacer size="sm" />
       <SubmitSection />
     </div>
   );

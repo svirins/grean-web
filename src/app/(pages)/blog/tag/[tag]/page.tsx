@@ -6,6 +6,7 @@ import { ResolvingMetadata, Metadata } from "next";
 import { SubmitSection } from "@/app/components/sections/SubmitSection";
 import { Grid } from "@/app/components/Grid";
 import { PostCard } from "@/app/components/PostCard";
+import { Spacer } from "@/app/components/Spacer";
 
 type Props = {
   params: { tag: string };
@@ -53,6 +54,7 @@ export default async function TagPage({ params }: Props) {
             </div>
           ))}
         </Grid>
+        <Spacer size="sm" />
         <SubmitSection />
       </div>
     </div>

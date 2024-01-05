@@ -1,5 +1,7 @@
 import { ButtonExtLink } from "@/app/components/Buttons";
+import { Spacer } from "@/app/components/Spacer";
 import { HeaderSection } from "@/app/components/sections/HeaderSection";
+import { SubmitSection } from "@/app/components/sections/SubmitSection";
 import Image from "next/image";
 export default async function PricesPage() {
   return (
@@ -47,6 +49,8 @@ export default async function PricesPage() {
           />
         </div>
       </div>
+      <Spacer size="sm" />
+      <SubmitSection />
     </div>
   );
 }

@@ -1,3 +1,4 @@
+import { Spacer } from "@/app/components/Spacer";
 import { SubmitSection } from "@/app/components/sections/SubmitSection";
 import { TherapySection } from "@/app/components/sections/TherapySection";
 
@@ -16,6 +17,7 @@ export default function Therapy() {
         title="Направления психотерапии"
         description="Методики, которые я использую в практике:"
       />
+      <Spacer size="sm" />
       <SubmitSection />
     </div>
   );

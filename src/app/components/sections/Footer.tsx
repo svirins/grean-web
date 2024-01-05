@@ -24,8 +24,7 @@ function SocialsSection() {
   return (
     <div>
       <H5 as="div">Социальные сети</H5>
-      <div className="mt-4"></div>
-      <div className="mt-6 flex items-center justify-between gap-4 xl:flex-col xl:items-start">
+      <div className="mt-4 flex items-center justify-between gap-4 xl:flex-col xl:items-start">
         <div className="flex gap-4">
           <a
             href="https://www.youtube.com/channel/UCg83jkm7aM3OKTAWMoSpf2A/"
@@ -101,16 +100,16 @@ export function Footer() {
     <footer className="border-t border-gray-200 pb-16 pt-24 lg:pt-32 dark:border-gray-600">
       <div className="relative mx-10vw">
         <div className="relative mx-auto grid max-w-7xl grid-cols-4 gap-x-4 gap-y-8 md:grid-cols-6 lg:grid-cols-12 lg:gap-x-6">
-          <div className="col-span-3  mt-10 md:mt-0">
+          <div className="col-span-3 mb-10 md:mb-0">
             <ContactSection />
           </div>
-          <div className="col-span-3 mt-10 md:mt-0 ">
+          <div className="col-span-3 mb-10 md:mb-0 ">
             <SocialsSection />
           </div>
-          <div className="col-span-3 mt-10 md:mt-0 ">
+          <div className="col-span-3 mb-10 md:mb-0 ">
             <SitemapSection />
           </div>
-          <div className="col-span-3 mt-10 md:mt-0 ">
+          <div className="col-span-3 mb-10 md:mb-0 ">
             <GeneralSection />
           </div>
 

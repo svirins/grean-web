@@ -7,6 +7,7 @@ import { Pagination } from "@/app/components/Pagination";
 import { POSTS_PER_PAGE } from "@/app/lib/constants";
 import { notFound } from "next/navigation";
 import { SubmitSection } from "@/app/components/sections/SubmitSection";
+import { Spacer } from "@/app/components/Spacer";
 
 export const metadata = {
   title: "Блог",
@@ -53,6 +54,7 @@ export default async function BlogPage({
           ))}
         </Grid>
         <Pagination totalPages={totalPages} />
+        <Spacer size="sm" />
         <SubmitSection />
       </div>
     </div>

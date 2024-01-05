@@ -1,4 +1,5 @@
 import { Certificates } from "@/app/components/Certificates";
+import { Spacer } from "@/app/components/Spacer";
 import { YouTubePlayer } from "@/app/components/YouTubePlayer";
 import { HeroSection } from "@/app/components/sections/HeroSection";
 import { SubmitSection } from "@/app/components/sections/SubmitSection";
@@ -127,6 +128,8 @@ export default function AboutPage() {
         </table>
       </div>
       <Certificates />
+      <Spacer size="sm" />
+
       <SubmitSection />
     </div>
   );

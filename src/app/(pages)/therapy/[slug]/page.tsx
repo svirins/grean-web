@@ -12,6 +12,7 @@ import { notFound } from "next/navigation";
 import { H2 } from "@/app/components/Typography";
 import Balancer from "react-wrap-balancer";
 import { SubmitSection } from "@/app/components/sections/SubmitSection";
+import { Spacer } from "@/app/components/Spacer";
 
 type Props = {
   params: { slug: string };
@@ -64,6 +65,7 @@ export default async function TherapyPage({ params }: Props) {
           />
         </div>
       </article>
+      <Spacer size="sm" />
       <SubmitSection />
     </div>
   );

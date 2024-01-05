@@ -1,3 +1,4 @@
+import { Spacer } from "@/app/components/Spacer";
 import { HelpSection } from "@/app/components/sections/HelpSection";
 import { SubmitSection } from "@/app/components/sections/SubmitSection";
 
@@ -16,6 +17,7 @@ export default function PsyhelpPage() {
         title="Помощь"
         description="Я работаю с следующими проблемами:"
       />
+      <Spacer size="sm" />
       <SubmitSection />
     </div>
   );
