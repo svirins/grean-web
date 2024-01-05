@@ -30,10 +30,9 @@ export async function generateMetadata(
 
 export default async function QAPage({ params }: Props) {
   const data = await getQABySlug(params.slug);
-  // if (!data) {
-  //   notFound();
-  // }
-  console.log(data.slug);
+  if (!data) {
+    notFound();
+  }
 
   return (
     <div
