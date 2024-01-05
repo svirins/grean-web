@@ -5,6 +5,7 @@ import {
   getTherapySlugs,
   getPsyHelpSlugs,
   getTotalPosts,
+  getQASlugs,
 } from "@/app/lib/sanity";
 const homepage = "https://www.doctorgrean.by";
 
@@ -14,6 +15,7 @@ export default async function sitemap() {
   const psyHelpData = await getPsyHelpSlugs();
   const therapyData = await getTherapySlugs();
   const totalPosts = await getTotalPosts();
+  const qaData = await getQASlugs();
   const totalPages = Math.ceil(totalPosts / POSTS_PER_PAGE);
   const posts = postData.map((post) => ({
     url: `${homepage}/blog/${post.slug}`,
@@ -38,6 +40,12 @@ export default async function sitemap() {
     lastModified: new Date(therapy.date).toISOString(),
     changeFrequency: "monthly",
     priority: 0.9,
+  }));
+  const qas = qaData.map((qa) => ({
+    url: `${homepage}/voprosy-i-otvety/${qa.slug}`,
+    lastModified: new Date(qa.date).toISOString(),
+    changeFrequency: "monthly",
+    priority: 0.8,
   }));
 
   const paginatedBlogPages = Array.from({ length: totalPages }, (_, i) => i + 1)
@@ -70,5 +78,6 @@ export default async function sitemap() {
     ...psyHelps,
     ...therapies,
     ...paginatedBlogPages,
+    ...qas,
   ];
 }
