@@ -54,7 +54,7 @@
 }
 
 .prose .callout {
-  @apply bg-[#cedef4]  border-l-4 py-4 pl-4 border-[#a1c1ee] text-secondary rounded;
+  @apply bg-[#cedef4]  border-l-4 py-4 pl-4 border-[#a1c1ee]  rounded;
 }
 
 .prose li {

@@ -1,6 +1,6 @@
 export function AlgoliaLogo() {
   return (
-    <div className="relative mt-2 h-4">
+    <div className="relative mb-2 h-4">
       <a
         href="https://www.algolia.com"
         target="_blank"

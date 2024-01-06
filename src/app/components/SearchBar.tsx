@@ -94,9 +94,9 @@ export function SearchBar() {
   }, []);
 
   return (
-    <div>
-      <div ref={containerRef} />
+    <div className="!h-[84px]">
       <AlgoliaLogo />
+      <div ref={containerRef} />
     </div>
   );
 }
