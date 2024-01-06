@@ -14,9 +14,9 @@ export async function POST(req: Request, res: Response) {
     });
   }
   
-  const { _id: id } = body;
+  const { _id: id, _type: type } = body;
+  console.log("Type is: ", type);
   console.log("id is: ", id);
-  console.log("Body is: ", body);
   if (typeof id !== "string" || !id) {
     return new Response("Invalid _id", {
       status: 400,
