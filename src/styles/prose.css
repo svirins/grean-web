@@ -46,7 +46,7 @@
 }
 
 .prose blockquote p {
-  @apply mx-4 my-0 dark:text-gray-400; 
+  @apply mx-4 my-0 dark:text-gray-400;
 }
 
 .prose blockquote {
@@ -54,7 +54,7 @@
 }
 
 .prose .callout {
-  @apply bg-blue-100  border-l-4 py-4 pl-4 border-blue-600 text-blue-600 rounded	 ;
+  @apply bg-[#cedef4]  border-l-4 py-4 pl-4 border-[#a1c1ee] text-secondary rounded;
 }
 
 .prose li {

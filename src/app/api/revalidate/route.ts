@@ -13,15 +13,23 @@ export async function POST(req: Request, res: Response) {
       status: 401,
     });
   }
-  
+
   const { _id: id, _type: type } = body;
-  console.log("Type is: ", type);
-  console.log("id is: ", id);
+
   if (typeof id !== "string" || !id) {
-    return new Response("Invalid _id", {
+    return new Response("Invalid document _id", {
       status: 400,
     });
   }
+
+  if (type !== "post") {
+    return new Response("Invalid document _type", {
+      status: 400,
+    });
+  }
+
+
+
   try {
     const slug = await getUpdatedPostSlug(id);
     revalidatePath(`/blog/${slug}`);
