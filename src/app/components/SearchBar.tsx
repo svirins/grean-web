@@ -60,6 +60,11 @@ export function SearchBar() {
                   {
                     indexName: indexName,
                     query,
+                    params: {
+                      hitsPerPage: Number(
+                        process.env.NEXT_PUBLIC_ALGOLIA_HITS_PER_PAGE!,
+                      ),
+                    },
                   },
                 ],
               });
