@@ -5,17 +5,18 @@ import { revalidatePath } from "next/cache";
 export async function POST(req: Request, res: Response) {
   const signature = req.headers.get(SIGNATURE_HEADER_NAME) as string;
   const body = await req.json();
-  console.log("Parsed body is:", body);
   if (
     !isValidSignature(body, signature, process.env.SANITY_REVALIDATE_SECRET!)
   ) {
+    console.log("Signature not valid");
     return new Response("Invalid signature", {
       status: 401,
     });
   }
-
-  const { _id: id } = JSON.parse(body);
-
+  
+  const { _id: id } = body;
+  console.log("id is: ", id);
+  console.log("Body is: ", body);
   if (typeof id !== "string" || !id) {
     return new Response("Invalid _id", {
       status: 400,
