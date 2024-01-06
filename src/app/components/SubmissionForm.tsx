@@ -83,7 +83,7 @@ function FormContent({
       <div className="mb-8">
         <div className="mb-4 flex items-baseline justify-between gap-2">
           <label htmlFor="name" className="text-secondary inline-block text-lg">
-            Представтьтесь, пожалуйста
+            Представьтесь, пожалуйста
           </label>
         </div>
         <input

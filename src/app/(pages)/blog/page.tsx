@@ -12,7 +12,7 @@ import { Spacer } from "@/app/components/Spacer";
 export const metadata = {
   title: "Блог",
   description:
-    "Вы можете ознакомиться с более чем 90 статьями и информационным материалами",
+    "Вы можете ознакомиться с более чем 150 статьями и информационным материалами",
 };
 
 export default async function BlogPage({
