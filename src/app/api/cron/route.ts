@@ -1,10 +1,10 @@
 import generateIndex from "@/scripts/createSearchIndex";
 
-export async function GET(req: Request, res: Response) {
+export async function GET(req: Request) {
   if (
     req.headers.get("Authorization") !== `Bearer ${process.env.CRON_SECRET}`
   ) {
-    new Response(`Unauthorized`, { status: 401 });
+    return new Response(`Unauthorized`, { status: 401 });
   }
   try {
     await generateIndex();

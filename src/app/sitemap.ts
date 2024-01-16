@@ -7,7 +7,7 @@ import {
   getTotalPosts,
   getQASlugs,
 } from "@/app/lib/sanity";
-const homepage = "https://www.doctorgrean.by";
+const homepage = "https://doctorgrean.by";
 
 export default async function sitemap() {
   const postData = await getPostSlugs();

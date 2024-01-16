@@ -9,7 +9,7 @@ export const PTComponents: Partial<PortableTextReactComponents> = {
       return <SanityImage image={value} />;
     },
     callout: ({ value }) => {
-      return <p className="callout">{value.callout}</p>;
+      return <p className="callout text-gray-800">{value.callout}</p>;
     },
     break: ({ value }) =>
       value ? <hr className="horizontal-divider" /> : <></>,

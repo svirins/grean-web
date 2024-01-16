@@ -21,7 +21,7 @@ export default async function PricesPage() {
         </ul>
         <p>
           Продолжительность консультации: <strong>45...60</strong> мин.
-          Стоимость одной консультации: <strong>80</strong> бел руб. Возможна
+          Стоимость одной консультации: <strong>90</strong> бел руб. Возможна
           оплата on-line
         </p>
         <h4 className="mb-4">Спопобы on-line оплаты:</h4>
@@ -37,7 +37,7 @@ export default async function PricesPage() {
           <Image src="/qr1.webp" alt="QR" className="w-96 py-12" />
           <ButtonExtLink
             to="https://ecom.alfabank.by/shortlink/ScpvTFjD"
-            title="Оплатить 1 консультацию 80 BYN)"
+            title="Оплатить 1 консультацию 90 BYN)"
             variant="secondary"
           />
 

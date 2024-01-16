@@ -2,7 +2,6 @@ import { ButtonLink } from "@/app/components/Buttons";
 import { HeaderSection } from "@/app/components/sections/HeaderSection";
 
 export default function NotFound() {
-  // TODO: revalidate
   return (
     <div
       id="page_container"
