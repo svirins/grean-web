@@ -1,6 +1,7 @@
 import { YTIcon, VKIcon, FBIcon } from "@/app/components/Icons";
 import { H4, H5, H6, Paragraph } from "@/app/components/Typography";
 import Link from "next/link";
+import Image from "next/image";
 function ContactSection() {
   return (
     <div>
@@ -123,8 +124,10 @@ export function Footer() {
           </div>
 
           <div className="col-span-full mt-24 text-sm text-gray-600 dark:text-gray-400">
+            <Image src="/h_logo.png" alt="h_logo"  className="w-full" />
             <p>Консультант в области охраны психического здоровья</p>
-            <p>ИП Гринь В.Г, УНП 192617833</p>
+            <p>Индивидуальный предприниматель Валерий Гринь, УНП 192617833</p>
+            <p>Cвидетельство гос. регистрации 192617833 от 11.03.2016 г. Выдано Минским горисполкомом</p>
             <p>{`Copyright © ${new Date().getFullYear()}`}</p>
           </div>
         </div>
