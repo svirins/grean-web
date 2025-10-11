@@ -63,7 +63,7 @@ function GeneralSection() {
       <ul className="mt-4">
         <FooterLink name="Вопросы и ответы" href="/voprosy-i-otvety" />
         <FooterLink name="Правила и условия" href="/terms-and-conditions" />
-        <FooterLink name="Договор оферты" href="/grean_offer.pdf" />
+        <FooterLink name="Договор публичной оферты" href="./dogovor.pdf" />
         <FooterLink name="Цены и оплата on-line" href="/prices-and-payment" />
       </ul>
     </div>
@@ -126,8 +126,9 @@ export function Footer() {
           <div className="col-span-full mt-24 text-sm text-gray-600 dark:text-gray-400">
             <Image src="/h_logo.png" alt="h_logo"  className="w-full" />
             <p>Консультант в области охраны психического здоровья</p>
-            <p>Индивидуальный предприниматель Валерий Гринь, УНП 192617833</p>
+            <p>Индивидуальный предприниматель Гринь Валерий Валерьевич, г. Минск Белорусская 10-1, УНП 192617833</p>
             <p>Cвидетельство гос. регистрации 192617833 от 11.03.2016 г. Выдано Минским горисполкомом</p>
+            <Link className="text-blue-500 font-semibold py-3 hover:underline" href="./dogovor.pdf" target="_blank">Договор публичной оферты</Link>
             <p>{`Copyright © ${new Date().getFullYear()}`}</p>
           </div>
         </div>
